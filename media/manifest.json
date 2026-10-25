@@ -1,0 +1,109 @@
+{
+  "sha256": "54459c26a54713774b98ee27ba5c58a3c13e1acf15cd1daf97901a3e8b0b8f44",
+  "parts": [
+    {
+      "file": "assets.part000",
+      "sha256": "5daf5883f18af9859bc53084e3c7c36372f8fe3787af05f00a1e93878ad89a93"
+    },
+    {
+      "file": "assets.part001",
+      "sha256": "9c6800839ab4fa294bfe5f40234a5ac56db69466cd62f2dc22da7bbf48a5fda2"
+    },
+    {
+      "file": "assets.part002",
+      "sha256": "e21b42ddb9c56daf10bc0cc3389d41654445564f7a22a4ba81a940f61901dd13"
+    },
+    {
+      "file": "assets.part003",
+      "sha256": "ed494e1284fc0ecc00cc84eae59b0a8061d5618f6bcb7e3b785a1ff66ef9fa56"
+    },
+    {
+      "file": "assets.part004",
+      "sha256": "4d445c877c3aec5ce4b32675e9dbf7dcfbe6457f5ef51fd106c3317fb1501613"
+    },
+    {
+      "file": "assets.part005",
+      "sha256": "2bb9f314ebc82c9ecfe3f73b8af6156d98b62aca5325b531c5984ea4a243ab38"
+    },
+    {
+      "file": "assets.part006",
+      "sha256": "a378bf09dbf22d8906f3048080ec9672c99de63a4abaebbce8f57bcf7f2bb7b4"
+    },
+    {
+      "file": "assets.part007",
+      "sha256": "d2b827fe8f4bb6044b069c306557519a184a7492def500b5c428798a7cce0658"
+    },
+    {
+      "file": "assets.part008",
+      "sha256": "7eab71c17cddb6d53efb662cc05002b032660b722d239c34d750baf94cf36c8b"
+    },
+    {
+      "file": "assets.part009",
+      "sha256": "b1f17d2cbd73a449d4c31fd5919a82388dec1537801c7320cb65e670d136ffd8"
+    },
+    {
+      "file": "assets.part010",
+      "sha256": "f8d955e21d3e11534f69952673384a7ede34479f86e49520c318f346def6c589"
+    },
+    {
+      "file": "assets.part011",
+      "sha256": "fadcc9b97b64f86f6cf3ca086bb2a74928b5631ff79fb3a41de1e5d46ba2cbb4"
+    },
+    {
+      "file": "assets.part012",
+      "sha256": "62465a339fc56612708db14fa78294267768f8fb14f5f040a78e96a5b61bebb2"
+    },
+    {
+      "file": "assets.part013",
+      "sha256": "fb89ed40b097f912835677aede8389c7d3e3ee1a1bc3e4945e180291f187d559"
+    },
+    {
+      "file": "assets.part014",
+      "sha256": "fd7fffe3dc89afc37366ea73e3c7846965df4ccb9834f1a000237f593065e0fa"
+    },
+    {
+      "file": "assets.part015",
+      "sha256": "e3721c0af865d6c6327923d7d0053f49ff2134f47d5e7bdfa10f8b898cbc7451"
+    },
+    {
+      "file": "assets.part016",
+      "sha256": "ffd90e96b714ebdc2150847a6222a1254c59d1b2dc5034285c26b3452a81428a"
+    },
+    {
+      "file": "assets.part017",
+      "sha256": "b2186150d6e565f42122b20a5dc590d8e13cdad89e6a700695502caa011eae72"
+    },
+    {
+      "file": "assets.part018",
+      "sha256": "b7bb125533fc83be862010e6823cab982651a5c52bc232a40c6396d3cb777137"
+    },
+    {
+      "file": "assets.part019",
+      "sha256": "cd20c22161f7fb7651b1f99acb857cdf42a966df41c1817c81177edc5319c764"
+    },
+    {
+      "file": "assets.part020",
+      "sha256": "5b876e84e55c662fdc9bc0e8f080b08d07fc22b9301d766d833ed7cb1ff1d125"
+    },
+    {
+      "file": "assets.part021",
+      "sha256": "7bd7f8a820a8177dcb0ce97b1edeb7e49690c4ac9f50aa5739c6e8c8ee0398eb"
+    },
+    {
+      "file": "assets.part022",
+      "sha256": "6c2ec545b56228ca53418de0df17506ea77bff5c27574ffedabcb8311d72766c"
+    },
+    {
+      "file": "assets.part023",
+      "sha256": "7ddd448afaf7181cde089fb7b7b6065e3a0d1a7d3b1b589742037d4c4be5a221"
+    },
+    {
+      "file": "assets.part024",
+      "sha256": "8d8c7b08f606b91e9fa49bc59099ac8d77c2941c630356f865cdbe2aff3684c7"
+    },
+    {
+      "file": "assets.part025",
+      "sha256": "326576f8bdf16e514413ba4045bbec511d6640d88f0155f7f0b334310a9ece0d"
+    }
+  ]
+}
