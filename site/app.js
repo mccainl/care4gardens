@@ -38,7 +38,10 @@
   heroVideo?.addEventListener('playing',()=>{heroVideo.classList.add('playing');if(startButton)startButton.hidden=true;});
   heroVideo?.addEventListener('error',()=>{heroVideo.classList.remove('playing');if(startButton){startButton.hidden=false;startButton.querySelector('span').textContent='Film opnieuw laden';}});
   if(heroVideo)new IntersectionObserver(entries=>{heroVisible=entries[0].isIntersecting;syncHeroVideo();},{threshold:.08}).observe(heroVideo);
-  document.addEventListener('visibilitychange',()=>{syncHeroVideo();if(document.hidden&&filmOpen)$('#brand-film')?.pause();});
+  document.addEventListener('visibilitychange',()=>{
+    syncHeroVideo();
+    if(filmOpen){const activeFilm=$('#brand-film');if(document.hidden)activeFilm.pause();else activeFilm.play().catch(()=>{});}
+  });
   soundButton?.addEventListener('click',()=>{heroSound=!heroSound;syncSound();if(heroSound){motionPaused=false;heroVideo.currentTime=0;applyMotion();}syncHeroVideo();});
   startButton?.addEventListener('click',()=>{motionPaused=false;if(heroVideo.error)heroVideo.load();applyMotion();});
   reduced.addEventListener('change',e=>{motionPaused=e.matches;applyMotion();});

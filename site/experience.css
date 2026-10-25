@@ -138,8 +138,14 @@ dialog{box-shadow:0 40px 140px #0005;overflow:hidden;isolation:isolate}
 .studio-cta{grid-column:1/-1;border-top:1px solid #dce1d5;padding-top:24px;display:flex;justify-content:center}
 .studio-cta .button{min-width:240px}
 .studio-disclosure{font-size:10px;text-align:center;max-width:640px;margin:19px auto 0;color:#677461}
-.studio-shell[data-failed=true] .studio-controls,.studio-shell[data-failed=true] .studio-camera-controls,.studio-shell[data-failed=true] .studio-zoom-controls{display:none}
-.studio-shell[data-failed=true] .studio-viewport{height:430px}
+.studio-shell[data-fallback=photo] .studio-camera-controls,.studio-shell[data-fallback=photo] .studio-zoom-controls,.studio-shell[data-fallback=photo] .studio-control-group:first-child{display:none}
+.studio-shell[data-fallback=photo] .studio-viewport{cursor:default}
+.studio-shell[data-fallback=photo] .studio-controls{grid-template-columns:1fr 1fr}
+.studio-shell[data-fallback=photo] .studio-control-group:nth-child(2){grid-column:1;grid-row:1}
+.studio-shell[data-fallback=photo] .studio-control-group:nth-child(3){grid-column:2;grid-row:1}
+.studio-photo-open,.studio-photo-tone{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.studio-photo-open{z-index:0}.studio-photo-tone{z-index:2;background:linear-gradient(0deg,#171b3caa,#e7ac3b22);mix-blend-mode:multiply;opacity:0;transition:opacity 1s}
+.studio-shell[data-light=evening] .studio-photo-tone{opacity:1}
 @media(min-width:1500px){.studio-viewport{height:690px}}
 @media(max-width:1150px){.studio-viewport{height:550px}.studio-controls{gap:22px}.hero-content{width:calc(100% - 70px)}.hero-bottom{left:35px;right:35px}}
 @media(max-width:900px){.studio-controls{grid-template-columns:1fr 1fr}.studio-control-group:nth-child(2){grid-column:1/-1;grid-row:2}.studio-control-group:nth-child(3){grid-column:2;grid-row:1}.studio-viewport{height:520px}.studio-zoom-controls{display:none}.studio-topline{top:20px;left:20px;right:20px}.studio-instruction{max-width:180px}.hero-buttons{gap:12px}.process-grid article{padding:23px}}

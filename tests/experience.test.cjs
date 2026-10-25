@@ -34,14 +34,20 @@ function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchE
  click(w,'#film-sound');assert(d.querySelector('#brand-film').muted);click(w,'#film-sound');assert(!d.querySelector('#brand-film').muted);
  click(w,'.menu-toggle');assert.equal(d.querySelector('.menu-toggle').getAttribute('aria-expanded'),'true');
  w.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Escape'}));assert.equal(d.querySelector('.menu-toggle').getAttribute('aria-expanded'),'false');
- click(w,'[data-film]');assert(d.querySelector('#film-dialog').open);click(w,'#film-dialog .dialog-close');assert(!d.body.classList.contains('locked'));
+ click(w,'[data-film]');assert(d.querySelector('#film-dialog').open);
+ Object.defineProperty(d,'hidden',{configurable:true,value:true});d.dispatchEvent(new w.Event('visibilitychange'));assert.deepEqual(w.mediaCalls.at(-1),['pause','brand-film']);
+ Object.defineProperty(d,'hidden',{configurable:true,value:false});d.dispatchEvent(new w.Event('visibilitychange'));assert.deepEqual(w.mediaCalls.at(-1),['play','brand-film']);
+ click(w,'#film-dialog .dialog-close');assert(!d.body.classList.contains('locked'));
  click(w,'#plan-next');assert(!d.querySelector('[data-step="1"]').hidden);
  change(w,'[name="width"]','400');change(w,'[name="depth"]','300');change(w,'[name="notes"]','Test & <script>');
  click(w,'#plan-next');assert(!d.querySelector('[data-step="2"]').hidden);assert(d.querySelector('#plan-summary').textContent.includes('400 cm breed'));
  assert(!d.querySelector('#plan-summary script'));assert(decodeURIComponent(d.querySelector('#email-plan').href).includes('Test & <script>'));
  click(w,'#plan-reset');assert(!d.querySelector('[data-step="0"]').hidden);
  d.querySelector('#veranda-studio').dataset.finish='stone';d.querySelector('#veranda-studio').dataset.light='evening';click(w,'#studio-to-plan');
- assert(d.querySelector('textarea[name=notes]').value.includes('zandkleur'));assert(d.querySelector('textarea[name=notes]').value.includes('warme verlichting'));assert(d.querySelector('input[name=extra][value="Glazen schuifwanden"]').checked);w.close();
+ assert(d.querySelector('textarea[name=notes]').value.includes('zandkleur'));assert(d.querySelector('textarea[name=notes]').value.includes('warme verlichting'));assert(d.querySelector('input[name=extra][value="Glazen schuifwanden"]').checked);
+ w.eval(fs.readFileSync(path.join(root,'studio-loader.js'),'utf8'));w.photoStudio(d.querySelector('#veranda-studio'));
+ assert.equal(d.querySelector('#veranda-studio').dataset.fallback,'photo');change(w,'#studio-glass','100');assert.equal(d.querySelector('.studio-poster').style.opacity,'0');assert.equal(d.querySelector('#studio-glass').getAttribute('aria-valuetext'),'Volledig open');
+ change(w,'#studio-glass','0');assert.equal(d.querySelector('.studio-poster').style.opacity,'1');click(w,'[data-light="evening"]');assert.equal(d.querySelector('#veranda-studio').dataset.light,'evening');assert.equal(d.querySelector('button[data-light="evening"]').getAttribute('aria-pressed'),'true');w.close();
  const s=setup('collectie.html','https://example.com/care4gardens/collectie.html');await new Promise(r=>setTimeout(r,30));const sd=s.document;
  assert.equal(sd.querySelectorAll('.product-card').length,12);assert(sd.querySelector('#catalogue-count').textContent.startsWith('100'));
  click(s,'[data-category="aluminium"]');assert(sd.querySelector('#catalogue-count').textContent.startsWith('56'));
@@ -61,7 +67,7 @@ function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchE
   }dom.window.close();
  }
  for(const p of data.products){assert(p.variants.length>0);for(const img of p.images)assert(fs.existsSync(path.join(root,img)),img);for(const v of p.variants)assert(Number.isFinite(v.price)&&v.price>0);}
- console.log('PASS: planner, input escaping, comparisons, atmosphere controls, motion toggle, mobile menu state, film dialog, 100-product catalogue, category/width/search filters, pagination, exact variant prices and links, local assets, unique IDs.');
+ console.log('PASS: planner, input escaping, comparisons, atmosphere controls, mobile menu state, looping film and tab return, 100-product catalogue, category/width/search filters, pagination, exact variant prices and links, local assets, unique IDs.');
  console.log('PASS: autoplay setup, drawn icons, sound toggles, exclusive film playback and 3D preferences in enquiry.');
  console.log('DOM tests only. Rendering, media playback and real browser behavior require browser verification.');
 })().catch(e=>{console.error(e);process.exit(1)});

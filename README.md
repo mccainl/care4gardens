@@ -8,6 +8,8 @@ The complete introduction film starts muted on entry, with an explicit sound con
 
 The lazy-loaded WebGL studio adds a full dimensional veranda with orbit controls, camera presets, keyboard rotation and zoom, animated sliding glass, two illustrative frame finishes, and continuously transitioning day/evening lighting. Glass remains in the model when opened, stacking along its real tracks. The studio choices flow into the garden brief. These are illustrative design preferences, not engineered dimensions or a claim that a specific finish is available for a given SKU. Source is in `src/studio.js`, bundled with Three.js and its MIT license notice.
 
+Browsers without WebGL receive an interactive photographic studio with matched open/closed images and day/evening mood controls. The cloud QA browser has WebGL disabled, so its tests verify this fallback; the WebGL renderer still needs visual confirmation on a GPU-enabled device.
+
 The 100-product catalogue retains the public Care4Gardens variant snapshot from 25 October 2026. Purchases link to the selected variant in the original shop. The local garden planner downloads a text brief or opens a draft in the visitor’s email app. Nothing is silently submitted. Product prices, availability and illustrative studio preferences need confirmation by the business.
 
 ## Development and publishing
