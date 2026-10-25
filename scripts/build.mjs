@@ -17,4 +17,7 @@ for(const page of ['index.html','collectie.html']){
  }
  await writeFile('_site/'+page,html);
 }
+let review=await readFile('_site/review.html','utf8');
+review=review.replace('src="./"','src="./?preview='+await version('index.html')+'"');
+await writeFile('_site/review.html',review);
 console.log('Care4Gardens MCC site built successfully.');
