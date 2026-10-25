@@ -1,0 +1,115 @@
+{
+  "sha256": "2a99dbdeaf455c17d956ae23d993f77864806577c0b77212e1c8862282217677",
+  "parts": [
+    {
+      "file": "motion.part000",
+      "sha256": "ac309bcd9c7fffca9a86c3d37fa39e9f7530ab9e4ac4fb6dd8e983113db662b9"
+    },
+    {
+      "file": "motion.part001",
+      "sha256": "1d0a51390ffb6c6c91e6df4eb5731df3cf08661b06f0534bf45261f77108d703"
+    },
+    {
+      "file": "motion.part002",
+      "sha256": "6ad3221b4a578dac10d3c6d9dc69a13810fa0a7ba5b7cf03d199c54ea58bada1"
+    },
+    {
+      "file": "motion.part003",
+      "sha256": "48338e9e323457ed0ba2d1b3ac1cac768644969d38110f6aaaa69d258597da9e"
+    },
+    {
+      "file": "motion.part004",
+      "sha256": "dbfede6842b2daadc3022d23894009e68c8e1d7d0ec599cf1bac3c08727f9dc6"
+    },
+    {
+      "file": "motion.part005",
+      "sha256": "be3ee4fcab64eeab9854aca5368263e1aaa9d83437168da5082f90b87b0eb7d7"
+    },
+    {
+      "file": "motion.part006",
+      "sha256": "f9f895fd5144d8a7535bb73b1bd89a6dd32d5b2d3135ff83320cae3f2a262ef1"
+    },
+    {
+      "file": "motion.part007",
+      "sha256": "061f680b7d5961bbb42a5f24548e0309b2d8f685dea9813f10ce53a75c343a31"
+    },
+    {
+      "file": "motion.part008",
+      "sha256": "016822a9c9051c158e6d3c1f599e4c7dff0c0520c03205747e7e08315a93275f"
+    },
+    {
+      "file": "motion.part009",
+      "sha256": "873ecb3f1f615ebc4192e1d01d7119db2c39c162baa309158c3ebace438147c3"
+    },
+    {
+      "file": "motion.part010",
+      "sha256": "256ff6cc41cda1e338ff4b2766df5d92c1e4c1e886db447e7a60f53f508cad4d"
+    },
+    {
+      "file": "motion.part011",
+      "sha256": "94515f893342ba950822e4d467080289395edd8b43b382aae95d01ef945cc518"
+    },
+    {
+      "file": "motion.part012",
+      "sha256": "7bdefaa8dff93d5616f72a70a6c7d4b995f17a1961e96e62bbc0431c719ef5ca"
+    },
+    {
+      "file": "motion.part013",
+      "sha256": "07d6d1e6dd4139b436e89c2bc836760f7c12169792a8421d36dabf0f9d2a37c4"
+    },
+    {
+      "file": "motion.part014",
+      "sha256": "e7fecd0a3f58583690c959bae2ef5d99bf9424b178d300d05ffcaeeb4aa1188b"
+    },
+    {
+      "file": "motion.part015",
+      "sha256": "10b3f5332ed9e771f14df5520bf3ff4057d223ff3a20ca5f07f377645ab1d66d"
+    },
+    {
+      "file": "motion.part016",
+      "sha256": "ee72b2966466880ef8182d3dc610f6533cf5ff12b3481e9779beb8555a14e821"
+    },
+    {
+      "file": "motion.part017",
+      "sha256": "802e5cfebc6baf172dab00f57d001dc7975f22f96f8a1d24f7e3a12f3ef0f831"
+    },
+    {
+      "file": "motion.part018",
+      "sha256": "57ee88f197bd1a317924f0cd4e7d5e6f4195541f7354f04e8820a9f6c31894e5"
+    }
+  ],
+  "files": [
+    {
+      "name": "04_screen_veranda_after.jpg",
+      "bytes": 500431
+    },
+    {
+      "name": "04_screen_veranda_after.webp",
+      "bytes": 373608
+    },
+    {
+      "name": "gallery-descriptions.vtt",
+      "bytes": 143
+    },
+    {
+      "name": "garden-living.mp4",
+      "bytes": 4520350
+    },
+    {
+      "name": "garden-transformations.mp4",
+      "bytes": 5601697
+    },
+    {
+      "name": "glass-closing.mp4",
+      "bytes": 4194352
+    },
+    {
+      "name": "glass-installation.mp4",
+      "bytes": 4298997
+    },
+    {
+      "name": "installation-descriptions.vtt",
+      "bytes": 439
+    }
+  ]
+}

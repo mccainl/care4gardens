@@ -4,3 +4,5 @@ site/studio.bundle.js*
 _site/
 .DS_Store
 HANDOFF.json
+qa_media/
+media-additions/

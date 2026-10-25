@@ -19,3 +19,11 @@ The 100-product catalogue retains the public Care4Gardens variant snapshot from 
 Build restores integrity-checked media from `media/` to `site/assets/`, bundles the 3D studio, and copies the static site into `_site/`. GitHub Actions deploys only `_site/` to Pages. Source, tests, media archive parts and package files are not in the published artifact. In GitHub repository Settings, Pages, set the source to GitHub Actions.
 
 The ten approved concept images, introduction film, real catalogue images and licensed fonts are packaged with the project. Generated lifestyle images are visibly described as concept images, not evidence of installed customer projects. The site is marked noindex for client review.
+
+## Homepage films and image repair
+
+The three earlier films are embedded directly in the homepage. A fourth, 15-second Seedance Mini concept film follows fictional installers preparing the rails, placing a glass panel, checking the sliding action and revealing the fully enclosed veranda. Its four chapter buttons and timeline seek within the live looping film. All inline films autoplay muted when visible, loop, and omit pause/native transport controls. Expanded film playback pauses the inline players and resumes visible players on close. Data loads shortly before each player enters view.
+
+The original screens WebP in the base media archive was empty. `motion-manifest.json` restores a valid replacement from the approved original, plus a separately named JPEG used by the page so browsers do not reuse the broken cached asset. Supplemental films and captions are stored in the same checked archive. Run `python -m pip install -r requirements.txt` before tests. Tests now decode every raster image, including images below the initial viewport, and reject empty media files.
+
+Image creation uses OpenAI. Higgsfield is reserved for video and audio.

@@ -12,7 +12,7 @@ loader=loader.replace(/studio\.bundle\.js\?v=[\w.-]+/g,'studio.bundle.js?v='+awa
 await writeFile('_site/studio-loader.js',loader);
 for(const page of ['index.html','collectie.html']){
  let html=await readFile('_site/'+page,'utf8');
- for(const file of ['styles.css','experience.css','app.js','studio-loader.js']){
+ for(const file of ['styles.css','experience.css','app.js','films.js','studio-loader.js']){
   html=html.replaceAll(file+'?v=3',file+'?v='+await version(file));
  }
  await writeFile('_site/'+page,html);
