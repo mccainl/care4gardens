@@ -15,6 +15,9 @@ for(const page of ['index.html','collectie.html']){
  for(const file of ['styles.css','experience.css','app.js','films.js','studio-loader.js']){
   html=html.replaceAll(file+'?v=3',file+'?v='+await version(file));
  }
+ for(const file of new Set(html.match(/assets\/[\w-]+\.mp4/g)||[])){
+  html=html.replaceAll(file,file+'?v='+await version(file));
+ }
  await writeFile('_site/'+page,html);
 }
 let review=await readFile('_site/review.html','utf8');

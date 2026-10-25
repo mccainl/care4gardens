@@ -1,81 +1,85 @@
 {
-  "sha256": "2a99dbdeaf455c17d956ae23d993f77864806577c0b77212e1c8862282217677",
+  "sha256": "06464b7fea5b201bfac49f1d5d250a825476a96a95f4892d91ed0a443f78387c",
   "parts": [
     {
       "file": "motion.part000",
-      "sha256": "ac309bcd9c7fffca9a86c3d37fa39e9f7530ab9e4ac4fb6dd8e983113db662b9"
+      "sha256": "4cb24d593493aa3d263243e5d710ec020a29d9ae065fb1cd99046d955eec8b65"
     },
     {
       "file": "motion.part001",
-      "sha256": "1d0a51390ffb6c6c91e6df4eb5731df3cf08661b06f0534bf45261f77108d703"
+      "sha256": "c5bb8026877ae6cd0315dc53da3e4b7bebaf169dba7b01d5908a8edc77062791"
     },
     {
       "file": "motion.part002",
-      "sha256": "6ad3221b4a578dac10d3c6d9dc69a13810fa0a7ba5b7cf03d199c54ea58bada1"
+      "sha256": "1e7ca7b201351958c649f1d7ab1b1a1c40f58f7c6b0e0f6c569fbe3ded40f585"
     },
     {
       "file": "motion.part003",
-      "sha256": "48338e9e323457ed0ba2d1b3ac1cac768644969d38110f6aaaa69d258597da9e"
+      "sha256": "31a758ff924f9f7d57b1aa48998d788f6a8315e1dc00abe295f56492bdaaf19e"
     },
     {
       "file": "motion.part004",
-      "sha256": "dbfede6842b2daadc3022d23894009e68c8e1d7d0ec599cf1bac3c08727f9dc6"
+      "sha256": "cd29cf460a5d1bed3449e46651b6dece53fb4915a60957728200773064552c88"
     },
     {
       "file": "motion.part005",
-      "sha256": "be3ee4fcab64eeab9854aca5368263e1aaa9d83437168da5082f90b87b0eb7d7"
+      "sha256": "acb9947ac0cb2abc53cf91f06feeda0db6c00552c1d1922a916122fa8cf870c5"
     },
     {
       "file": "motion.part006",
-      "sha256": "f9f895fd5144d8a7535bb73b1bd89a6dd32d5b2d3135ff83320cae3f2a262ef1"
+      "sha256": "e4c3dbd018146bf2ce9c1fafbe2a2c3d5fcd373c49acdd0cb5373358b8c53b86"
     },
     {
       "file": "motion.part007",
-      "sha256": "061f680b7d5961bbb42a5f24548e0309b2d8f685dea9813f10ce53a75c343a31"
+      "sha256": "306cd0f76572505527cec77a12419c278435f47c6027db67e920fa13ce9830f7"
     },
     {
       "file": "motion.part008",
-      "sha256": "016822a9c9051c158e6d3c1f599e4c7dff0c0520c03205747e7e08315a93275f"
+      "sha256": "69b47948bfef37c9542e22e56882a1eabb7d86c097b53168efe14ee942b87894"
     },
     {
       "file": "motion.part009",
-      "sha256": "873ecb3f1f615ebc4192e1d01d7119db2c39c162baa309158c3ebace438147c3"
+      "sha256": "aa21b27d7290ac2e1564b876105d3689dfd315b9b11a7d8cc5fa47dfa5cbfc9e"
     },
     {
       "file": "motion.part010",
-      "sha256": "256ff6cc41cda1e338ff4b2766df5d92c1e4c1e886db447e7a60f53f508cad4d"
+      "sha256": "9d23b5042d9b218fb749d02f06944c0916e8ca2180383e9b5c5eda88dad34174"
     },
     {
       "file": "motion.part011",
-      "sha256": "94515f893342ba950822e4d467080289395edd8b43b382aae95d01ef945cc518"
+      "sha256": "dde8fd03b8372c0dc6eeed2b4476dc49e98df0aff758f86db267352c4f954422"
     },
     {
       "file": "motion.part012",
-      "sha256": "7bdefaa8dff93d5616f72a70a6c7d4b995f17a1961e96e62bbc0431c719ef5ca"
+      "sha256": "aa74980bb832504bb8fc6b6fc540b5e5a31bf4a3d399d591a04defcf6caeced9"
     },
     {
       "file": "motion.part013",
-      "sha256": "07d6d1e6dd4139b436e89c2bc836760f7c12169792a8421d36dabf0f9d2a37c4"
+      "sha256": "d78961f8e3ca183c4f03ede6514e37df9abf829c6d54045a9ae476dfa193d648"
     },
     {
       "file": "motion.part014",
-      "sha256": "e7fecd0a3f58583690c959bae2ef5d99bf9424b178d300d05ffcaeeb4aa1188b"
+      "sha256": "b542688c48e8af31277952926f89a7fde3b51bf87b6e745c4c8578a9c151fa9d"
     },
     {
       "file": "motion.part015",
-      "sha256": "10b3f5332ed9e771f14df5520bf3ff4057d223ff3a20ca5f07f377645ab1d66d"
+      "sha256": "9c50c2e740fed755dca5de67b619673524dbdd3aae5848009bccccf394ef1983"
     },
     {
       "file": "motion.part016",
-      "sha256": "ee72b2966466880ef8182d3dc610f6533cf5ff12b3481e9779beb8555a14e821"
+      "sha256": "44ddcb1e12a40cab497a41d8f80f3d28829e91989d6d610dce71a132be979369"
     },
     {
       "file": "motion.part017",
-      "sha256": "802e5cfebc6baf172dab00f57d001dc7975f22f96f8a1d24f7e3a12f3ef0f831"
+      "sha256": "e3d1f94eeb2cd3d3e4ee16e481f51051dd60955219ad7849bc070bfa42977aff"
     },
     {
       "file": "motion.part018",
-      "sha256": "57ee88f197bd1a317924f0cd4e7d5e6f4195541f7354f04e8820a9f6c31894e5"
+      "sha256": "b3504d06f98ae11e51711b1a009fd6b7bc5b760efa88af1cbd960f700c913ec0"
+    },
+    {
+      "file": "motion.part019",
+      "sha256": "80a58f2de8febfedb7dc4fdf757927116d3e10240a96b9f444d2202b2aafa183"
     }
   ],
   "files": [
@@ -101,7 +105,7 @@
     },
     {
       "name": "glass-closing.mp4",
-      "bytes": 4194352
+      "bytes": 4724884
     },
     {
       "name": "glass-installation.mp4",
