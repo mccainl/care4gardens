@@ -5,12 +5,17 @@ const assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'../site');
 const data=JSON.parse(fs.readFileSync(path.join(root,'catalogue.json'),'utf8'));
 const code=fs.readFileSync(path.join(root,'app.js'),'utf8');
-function setup(file,url){
+function setup(file,url,cart){
  const dom=new JSDOM(fs.readFileSync(path.join(root,file),'utf8'),{url,runScripts:'outside-only',pretendToBeVisual:true});
  const w=dom.window;w.matchMedia=()=>({matches:false,addEventListener(){}});w.observers=[];w.IntersectionObserver=class{constructor(callback,options){this.callback=callback;this.options=options;w.observers.push(this);}observe(){}unobserve(){}disconnect(){}};
  w.mediaCalls=[];w.HTMLMediaElement.prototype.play=function(){w.mediaCalls.push(['play',this.className||this.id]);return Promise.resolve();};w.HTMLMediaElement.prototype.pause=function(){w.mediaCalls.push(['pause',this.className||this.id]);};
  w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};w.HTMLDialogElement.prototype.close=function(){this.open=false;this.dispatchEvent(new w.Event('close'));};
- w.fetch=async()=>({ok:true,json:async()=>structuredClone(data)});w.eval(code);return w;
+ if(cart!==undefined)w.localStorage.setItem('care4gardens-demo-cart-v1',typeof cart==='string'?cart:JSON.stringify(cart));
+ w.network=[];w.fetch=async(url,options)=>{w.network.push({url,options});assert(!options?.method||options.method==='GET');return {ok:true,json:async()=>structuredClone(data)};};
+ w.eval(fs.readFileSync(path.join(root,'shop.js'),'utf8'));
+ if(file!=='checkout.html')w.eval(code);
+ if(file==='collectie.html')w.eval(fs.readFileSync(path.join(root,'catalogue.js'),'utf8'));
+ return w;
 }
 function click(w,s){const e=w.document.querySelector(s);assert(e,'Missing control '+s);e.click();}
 function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchEvent(new w.Event(e.tagName==='INPUT'?'input':'change',{bubbles:true}));}
@@ -60,24 +65,55 @@ function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchE
  click(s,'#product-dialog .dialog-close');assert(!sd.querySelector('#product-dialog').open);assert(!s.location.search.includes('product='));
  change(s,'#product-search','no matching product');assert(sd.querySelector('.empty-state'));click(s,'#clear-filters');assert.equal(sd.querySelectorAll('.product-card').length,12);
  click(s,'#load-more');assert.equal(sd.querySelectorAll('.product-card').length,24);s.close();
- for(const file of ['index.html','collectie.html']){
+ const cartKey='care4gardens-demo-cart-v1';
+ const cartWindow=setup('collectie.html','https://example.com/care4gardens/collectie.html?product='+glass.id);
+ await new Promise(r=>setTimeout(r,30));
+ const cd=cartWindow.document;
+ const cartVariant=cd.querySelector('.variant-select');cartVariant.value='Met montage';cartVariant.dispatchEvent(new cartWindow.Event('change'));
+ cd.querySelector('#product-quantity').value='2';click(cartWindow,'#add-to-cart');await new Promise(r=>setTimeout(r,10));
+ assert(cd.querySelector('#cart-dialog').open);assert(!cd.querySelector('#product-dialog').open);
+ assert(cd.querySelector('#cart-content').textContent.includes('2.600,00'));
+ assert.equal(JSON.parse(cartWindow.localStorage.getItem(cartKey))[0].quantity,2);
+ const qty=cd.querySelector('[data-cart-quantity]');qty.value='3';qty.dispatchEvent(new cartWindow.Event('change',{bubbles:true}));
+ assert(cd.querySelector('#cart-content').textContent.includes('3.900,00'));
+ const basket=JSON.parse(cartWindow.localStorage.getItem(cartKey));
+ assert.deepEqual(Object.keys(basket[0]).sort(),['productId','quantity','variantId']);
+ assert(cd.querySelector('.cart-checkout').href.endsWith('checkout.html'));
+ click(cartWindow,'[data-remove-item]');assert(cd.querySelector('.cart-empty'));assert.equal(JSON.parse(cartWindow.localStorage.getItem(cartKey)).length,0);cartWindow.close();
+ const checkout=setup('checkout.html','https://example.com/care4gardens/checkout.html',basket);
+ await new Promise(r=>setTimeout(r,30));
+ const xd=checkout.document;
+ assert(!xd.querySelector('#checkout-layout').hidden);assert.equal(xd.querySelector('#checkout-total').textContent.replace(/\s/g,' '),'€ 3.900,00');
+ xd.querySelector('[name=email]').value='invalid';click(checkout,'#checkout-next');assert(!xd.querySelector('#checkout-delivery').hidden);
+ xd.querySelector('[name=email]').value='voorbeeld@example.com';xd.querySelector('[name=name]').value='Demo <script>';
+ click(checkout,'#checkout-next');assert(!xd.querySelector('#checkout-payment').hidden);assert(xd.querySelector('#delivery-summary').textContent.includes('Demo <script>'));assert(!xd.querySelector('#delivery-summary script'));
+ click(checkout,'#checkout-back');assert(!xd.querySelector('#checkout-delivery').hidden);click(checkout,'#checkout-next');
+ xd.querySelector('#checkout-form').dispatchEvent(new checkout.Event('submit',{bubbles:true,cancelable:true}));
+ assert(!xd.querySelector('#checkout-success').hidden);assert(xd.querySelector('#checkout-layout').hidden);
+ assert.equal(xd.querySelector('#confirmation-total').textContent.replace(/\s/g,' '),'€ 3.900,00');assert.equal(checkout.localStorage.getItem(cartKey),'[]');
+ assert(checkout.network.every(call=>call.url==='catalogue.json'&&!call.options),'Demo checkout sends no order, contact or payment data');
+ checkout.close();
+ const empty=setup('checkout.html','https://example.com/care4gardens/checkout.html','invalid JSON');await new Promise(r=>setTimeout(r,20));assert(!empty.document.querySelector('#checkout-empty').hidden);empty.close();
+ const invalid=setup('checkout.html','https://example.com/care4gardens/checkout.html',[{productId:'unknown',variantId:'123',quantity:1,price:0}]);await new Promise(r=>setTimeout(r,20));assert(!invalid.document.querySelector('#checkout-empty').hidden);invalid.close();
+ for(const file of ['index.html','collectie.html','checkout.html']){
   const dom=new JSDOM(fs.readFileSync(path.join(root,file),'utf8'));const ids=[...dom.window.document.querySelectorAll('[id]')].map(e=>e.id);assert.equal(ids.length,new Set(ids).size,'Duplicate IDs');
   for(const el of dom.window.document.querySelectorAll('[src],[data-src],[poster],link[href],a[href]')){
    let ref=el.getAttribute('src')||el.getAttribute('data-src')||el.getAttribute('poster')||el.getAttribute('href');if(!ref||/^(https?:|mailto:|tel:|#)/.test(ref))continue;const pathname=ref.split(/[?#]/)[0];if(!pathname||pathname==='./')continue;assert(fs.existsSync(path.join(root,pathname)),`${file}: missing ${ref}`);
   }dom.window.close();
  }
- for(const p of data.products){assert(p.variants.length>0);for(const img of p.images)assert(fs.existsSync(path.join(root,img)),img);for(const v of p.variants)assert(Number.isFinite(v.price)&&v.price>0);}
+ for(const p of data.products){assert(p.variants.length>0);assert(p.images.length>0,'Every product has a matching image');assert(p.imageSources.length===p.images.length);for(const img of p.images)assert(fs.existsSync(path.join(root,img)),img);for(const v of p.variants)assert(Number.isFinite(v.price)&&v.price>0);}
  const fw=setup('index.html','https://example.com/care4gardens/');const fd=fw.document;fw.eval(fs.readFileSync(path.join(root,'films.js'),'utf8'));
- const inline=[...fd.querySelectorAll('[data-loop-film]')];assert.equal(inline.length,4);
+ const inline=[...fd.querySelectorAll('[data-loop-film]')];assert.equal(inline.length,3);
+ assert.equal(fd.querySelectorAll('.motion-expand,[data-installation-time]').length,0,'No repeated video or chapter buttons');
  for(const video of inline)assert(video.autoplay&&video.loop&&video.playsInline&&video.muted&&!video.controls);
  const visibility=fw.observers.find(o=>o.options?.threshold===.12);assert(visibility);
  visibility.callback(inline.map(target=>({target,isIntersecting:true})));
  await Promise.resolve();assert(inline.every(video=>video.src.endsWith(video.dataset.src)));
  assert(fw.mediaCalls.some(([type,name])=>type==='play'&&name==='installation-film'));
  const installation=fd.querySelector('#installation-film');Object.defineProperty(installation,'readyState',{value:4});Object.defineProperty(installation,'duration',{value:15.041667});
- click(fw,'[data-installation-time="10.3"]');assert.equal(installation.currentTime,10.3);assert.equal(fd.querySelector('[data-installation-time="10.3"]').getAttribute('aria-pressed'),'true');
- change(fw,'#installation-seek','3');assert.equal(installation.currentTime,3);assert.equal(fd.querySelector('[data-installation-time="2"]').getAttribute('aria-pressed'),'true');
- const beforeExpanded=fw.mediaCalls.length;click(fw,'[data-film-src="assets/glass-closing.mp4"]');assert(fd.querySelector('#brand-film').src.endsWith('glass-closing.mp4'));assert(fd.querySelector('#film-sound').hidden);assert.equal(fd.querySelector('#film-dialog').getAttribute('aria-label'),'Glas in beweging');
+ change(fw,'#installation-seek','10.3');assert.equal(installation.currentTime,10.3);assert.equal(fd.querySelector('#installation-stage').textContent,'Het complete plaatje.');
+ change(fw,'#installation-seek','3');assert.equal(installation.currentTime,3);assert.equal(fd.querySelector('#installation-stage').textContent,'Glas op zijn plek.');
+ const beforeExpanded=fw.mediaCalls.length;click(fw,'.hero-film-row [data-film]');assert(fd.querySelector('#brand-film').src.endsWith('introduction.mp4'));assert(!fd.querySelector('#film-sound').hidden);
  for(const video of inline)assert(fw.mediaCalls.slice(beforeExpanded).some(([type,name])=>type==='pause'&&name===video.id));
  click(fw,'#film-dialog .dialog-close');assert(fw.mediaCalls.slice(beforeExpanded).some(([type,name])=>type==='play'&&name==='installation-film'));
  visibility.callback([{target:installation,isIntersecting:false}]);assert.deepEqual(fw.mediaCalls.at(-1),['pause','installation-film']);
@@ -85,6 +121,7 @@ function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchE
  click(fw,'#film-dialog .dialog-close');await Promise.resolve();fw.close();
  console.log('PASS: planner, input escaping, comparisons, atmosphere controls, mobile menu state, looping film and tab return, 100-product catalogue, category/width/search filters, pagination, exact variant prices and links, local assets, unique IDs.');
  console.log('PASS: autoplay setup, drawn icons, sound toggles, exclusive film playback and 3D preferences in enquiry.');
- console.log('PASS: four inline looping films, viewport playback, chapter seeking, scrubber, expanded film selection and exclusive playback.');
+ console.log('PASS: three distinct inline looping films, viewport playback, simple timeline, intro selection and exclusive playback.');
+ console.log('PASS: variant-specific cart prices, quantities, removal, persistence, invalid baskets, demo checkout validation, confirmation, and no order or payment transmission.');
  console.log('DOM tests only. Rendering, media playback and real browser behavior require browser verification.');
 })().catch(e=>{console.error(e);process.exit(1)});

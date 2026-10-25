@@ -141,47 +141,4 @@
     if(notes&&!notes.value.includes('Interesse in de ontwerpstudio:'))notes.value=(notes.value?notes.value+'\n':'')+preference;
     showStep(0);
   });
-  // Catalogue and exact Shopify variant selection, using the audited public snapshot.
-  if(!$('#product-grid'))return;
-  const params=new URLSearchParams(location.search);let category=labels[params.get('categorie')]?params.get('categorie'):'all';let products=[],limit=12;
-  const grid=$('#product-grid'),status=$('#catalogue-count'),dialog=$('#product-dialog');let activeProduct=null;
-  function filtered(){
-    const query=$('#product-search').value.trim().toLocaleLowerCase('nl');const width=$('#width-filter').value;
-    let list=products.filter(p=>(category==='all'||p.category===category)&&(!query||p.title.toLocaleLowerCase('nl').includes(query))&&(!width||String(p.width)===width));
-    const sort=$('#product-sort').value;if(sort==='price-desc')list.sort((a,b)=>b.price-a.price);else if(sort==='name')list.sort((a,b)=>a.title.localeCompare(b.title,'nl'));else if(sort==='price-asc')list.sort((a,b)=>a.price-b.price);else{const order={aluminium:0,glas:1,screens:2,accessoires:3};list.sort((a,b)=>order[a.category]-order[b.category]||a.price-b.price);}
-    return list;
-  }
-  function render(){
-    const list=filtered();status.textContent=`${list.length} ${list.length===1?'product':'producten'}${category!=='all'?' · '+labels[category]:''}`;
-    $$('[data-category]').forEach(b=>{const active=b.dataset.category===category;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
-    $('#width-filter').disabled=category!=='aluminium';
-    grid.innerHTML=list.slice(0,limit).map(p=>`<button class="product-card" data-product="${escape(p.id)}" aria-label="Bekijk ${escape(p.title)}"><div class="product-photo"><img src="${escape(p.images[0]||'assets/01_aluminium_after.webp')}" width="600" height="480" loading="lazy" alt="${escape(p.title)}"></div><p class="product-category">${escape(labels[p.category])}</p><h3>${escape(p.title.replace('Terrasoverkapping ','').replace('Zonwering Ritsscreen Met Afstandsbediening tot ','Ritsscreen tot ').replace(' Breedte Met Montage',' breed'))}</h3><p class="product-price"><small>Vanaf</small>${money(p.price)}</p><p class="product-meta">${p.variants.length} ${p.variants.length===1?'uitvoering':'uitvoeringen'} · Bekijk mogelijkheden</p></button>`).join('');
-    if(!list.length)grid.innerHTML='<div class="empty-state"><h3>Even anders zoeken?</h3><p>Er zijn geen producten met deze combinatie van filters.</p><button class="text-link" id="clear-filters">Wis de filters </button></div>';
-    $('#load-more').hidden=list.length<=limit;
-    $('#shown-count').textContent=`${Math.min(limit,list.length)} van ${list.length} weergegeven`;
-  }
-  function categoryChange(cat){category=cat;limit=12;$('#width-filter').value='';render();const url=new URL(location.href);if(cat==='all')url.searchParams.delete('categorie');else url.searchParams.set('categorie',cat);url.searchParams.delete('product');history.replaceState({},'',url);}
-  $$('[data-category]').forEach(b=>b.addEventListener('click',()=>categoryChange(b.dataset.category)));
-  ['product-search','width-filter','product-sort'].forEach(id=>$('#'+id).addEventListener(id==='product-search'?'input':'change',()=>{limit=12;render();}));
-  $('#load-more').addEventListener('click',()=>{limit+=12;render();});
-  grid.addEventListener('click',e=>{const card=e.target.closest('[data-product]');if(card)openProduct(card.dataset.product);if(e.target.closest('#clear-filters')){$('#product-search').value='';categoryChange('all');}});
-  function updateVariant(){
-    const choices=$$('.variant-select',dialog).map(s=>s.value);const v=activeProduct.variants.find(v=>choices.every((choice,i)=>v.options[i]===choice));
-    $('#detail-price').textContent=v?money(v.price):'Op aanvraag';$('#variant-status').textContent=v?(v.available?'Beschikbaar volgens de catalogusopname. Controleer de actuele status in de webshop.':'Deze uitvoering was niet beschikbaar bij de catalogusopname.'):'Deze combinatie is niet beschikbaar.';
-    const buy=$('#original-product');buy.href=activeProduct.url+(v?'?variant='+v.id:'');buy.textContent='Bekijk deze uitvoering in de webshop ';
-    buy.setAttribute('aria-disabled',String(!v));if(!v)buy.removeAttribute('href');
-  }
-  function openProduct(id){
-    const p=products.find(p=>p.id===id);if(!p)return;activeProduct=p;
-    $('#detail-content').innerHTML=`<div class="product-detail"><div class="detail-gallery"><img id="detail-image" src="${escape(p.images[0])}" alt="${escape(p.title)}"><div class="detail-thumbs">${p.images.map((src,i)=>`<button data-image="${i}" class="${i===0?'active':''}" aria-label="Productafbeelding ${i+1}"><img src="${escape(src)}" alt=""></button>`).join('')}</div></div><div class="detail-copy"><p class="product-category">${escape(labels[p.category])}</p><h2 id="product-title">${escape(p.title)}</h2><p class="detail-price" id="detail-price"></p><p class="detail-price-note">Prijs uit de catalogus van 25 oktober 2026.</p>${p.options.filter(o=>o.name!=='Title').map((o,i)=>`<label class="variant-label">${escape(o.name)}<select class="variant-select" data-option="${i}">${o.values.map(v=>`<option>${escape(v)}</option>`).join('')}</select></label>`).join('')}<div class="detail-action"><a class="button button-dark" id="original-product" target="_blank" rel="noopener"></a><a class="text-link" href="./?plan=${p.category}#samenstellen">Bespreek uw wensen </a></div><p class="form-note" id="variant-status"></p><div class="detail-spec"><p>${p.category==='aluminium'?'Selecteer de gewenste verlichting. Bespreek overige opties en montage tijdens uw adviesgesprek.':p.category==='glas'?'Controleer de opening, hoogte en ondergrond vóór bestelling. Selecteer hierboven levering met of zonder montage.':p.category==='screens'?'Kies de kleur en hoogte. Dit product wordt in de broncatalogus aangeboden met afstandsbediening en montage.':'Controleer voor bestelling of dit onderdeel geschikt is voor uw schuifwandsysteem.'}</p><details><summary>Productinformatie uit de webshop</summary><p class="source-description">${escape(p.description)}</p></details></div></div></div>`;
-    $$('.variant-select',dialog).forEach(s=>s.addEventListener('change',updateVariant));
-    $$('[data-image]',dialog).forEach(b=>b.addEventListener('click',()=>{$('#detail-image').src=p.images[Number(b.dataset.image)];$$('[data-image]',dialog).forEach(x=>x.classList.toggle('active',x===b));}));
-    updateVariant();dialog.showModal();document.body.classList.add('locked');
-    const url=new URL(location.href);url.searchParams.set('product',p.id);history.replaceState({},'',url);
-  }
-  $('.dialog-close',dialog).addEventListener('click',()=>dialog.close());
-  dialog.addEventListener('close',()=>{document.body.classList.remove('locked');const url=new URL(location.href);url.searchParams.delete('product');history.replaceState({},'',url);});
-  fetch('catalogue.json').then(r=>{if(!r.ok)throw new Error('catalogue');return r.json();}).then(data=>{
-    products=data.products;const widths=[...new Set(products.map(p=>p.width).filter(Boolean))].sort((a,b)=>a-b);$('#width-filter').innerHTML='<option value="">Alle breedtes</option>'+widths.map(w=>`<option value="${w}">${String(w).replace('.',',')} meter</option>`).join('');render();if(params.get('product'))openProduct(params.get('product'));
-  }).catch(()=>{status.textContent='De collectie kon niet worden geladen.';grid.innerHTML='<div class="empty-state"><h3>Bekijk de collectie in de webshop.</h3><p>De lokale catalogus is op dit moment niet beschikbaar.</p><a class="text-link" href="https://care4gardens.nl/collections/all">Naar Care4Gardens </a></div>';$('#load-more').hidden=true;});
 })();

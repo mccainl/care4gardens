@@ -50,7 +50,7 @@
 
   const installation=document.querySelector('#installation-film');
   const seek=document.querySelector('#installation-seek');
-  const chapters=[...document.querySelectorAll('[data-installation-time]')];
+  const chapters=[{time:0,label:'Een goede basis.'},{time:2,label:'Glas op zijn plek.'},{time:6.5,label:'Soepel in beweging.'},{time:10.3,label:'Het complete plaatje.'}];
   const clock=number=>'00:'+String(Math.floor(number||0)).padStart(2,'0');
   let dragging=false,pendingSeek=null;
   function updateTimeline(){
@@ -60,9 +60,9 @@
     seek.max=String(duration);
     document.querySelector('#installation-time').textContent=clock(time)+' / '+clock(duration);
     let active=chapters[0];
-    chapters.forEach(button=>{if(time>=Number(button.dataset.installationTime))active=button;});
-    chapters.forEach(button=>{button.classList.toggle('active',button===active);button.setAttribute('aria-pressed',String(button===active));});
-    seek.setAttribute('aria-valuetext',`${clock(time)}. ${active.querySelector('strong').textContent}`);
+    chapters.forEach(chapter=>{if(time>=chapter.time)active=chapter;});
+    document.querySelector('#installation-stage').textContent=active.label;
+    seek.setAttribute('aria-valuetext',`${clock(time)}. ${active.label}`);
   }
   function jump(time){
     load(installation);states.get(installation).manual=true;
@@ -72,7 +72,6 @@
   }
   installation.addEventListener('loadedmetadata',()=>{if(pendingSeek!==null)jump(pendingSeek);updateTimeline();});
   installation.addEventListener('timeupdate',updateTimeline);
-  chapters.forEach(button=>button.addEventListener('click',()=>jump(Number(button.dataset.installationTime))));
   seek.addEventListener('pointerdown',()=>{dragging=true;});
   addEventListener('pointerup',()=>{dragging=false;});
   seek.addEventListener('input',()=>jump(Number(seek.value)));

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Demo checkout | Care4Gardens</title>
+  <meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#203b30">
+  <meta name="description" content="Ontdek hoe bestellen bij Care4Gardens eruit kan zien. Een demonstratie zonder bestelling of betaling.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="styles.css?v=3"><link rel="stylesheet" href="experience.css?v=3"><link rel="stylesheet" href="shop.css?v=3">
+  <script src="shop.js?v=3" defer></script>
+</head>
+<body class="checkout-page">
+  <a class="skip" href="#main">Direct naar inhoud</a>
+  <header class="site-header checkout-header">
+    <a href="./" class="brand" aria-label="Care4Gardens home"><svg viewBox="0 0 34 34" aria-hidden="true"><path d="M4 16 17 5l13 11M8 14v15h18V14M17 29V17M11 19l6 6 6-6"/></svg><span>Care<span class="brand-four">4</span>Gardens<small>MAAKT BUITENLEVEN MOOIER</small></span></a>
+    <a href="collectie.html" class="checkout-return">Terug naar de collectie</a><div class="header-actions"></div>
+  </header>
+  <main class="checkout-main wrap" id="main">
+    <div class="checkout-heading"><span class="demo-pill">DEMO CHECKOUT</span><h1>Bijna uw nieuwe<br><em>buitenleven.</em></h1><p>Probeer de bestelervaring met de ingevulde voorbeeldgegevens.<br>Er wordt niets besteld, verstuurd of betaald.</p></div>
+    <p id="checkout-loading" role="status">Uw selectie wordt geladen…</p>
+    <section id="checkout-empty" class="checkout-empty" hidden><h2>Nog even rondkijken?</h2><p>Voeg eerst uw favoriete product toe aan het winkelmandje.</p><a href="collectie.html" class="button button-dark">Ontdek de collectie</a></section>
+    <div id="checkout-layout" class="checkout-layout" hidden>
+      <section class="checkout-details">
+        <ol class="checkout-steps" aria-label="Bestelstappen"><li id="checkout-step-one" aria-current="step"><span>01</span> Uw gegevens</li><li id="checkout-step-two"><span>02</span> Controleren</li></ol>
+        <form id="checkout-form" autocomplete="off">
+          <fieldset id="checkout-delivery">
+            <legend>Waar begint uw buitenleven?</legend><p class="form-note">Gebruik uitsluitend voorbeeldgegevens voor deze demonstratie.</p>
+            <div class="checkout-fields">
+              <label class="field-wide">Naam<input id="checkout-name" name="name" value="Demo klant" required maxlength="80" autocomplete="off"></label>
+              <label class="field-wide">E-mailadres<input type="email" name="email" value="voorbeeld@example.com" required maxlength="120" autocomplete="off"></label>
+              <label class="field-wide">Straat en huisnummer<input name="street" value="Voorbeeldstraat 10" required maxlength="120" autocomplete="off"></label>
+              <label>Postcode<input name="postcode" value="1234 AB" required pattern="[1-9][0-9]{3} ?[A-Za-z]{2}" maxlength="7" title="Bijvoorbeeld 1234 AB" autocomplete="off"></label>
+              <label>Plaats<input name="city" value="Arnhem" required maxlength="80" autocomplete="off"></label>
+              <label class="field-wide">Land<select name="country"><option>Nederland</option></select></label>
+            </div>
+            <button type="button" class="button button-dark checkout-primary" id="checkout-next">Verder naar overzicht</button>
+          </fieldset>
+          <fieldset id="checkout-payment" hidden>
+            <legend id="payment-heading" tabindex="-1">Alles op een rij.</legend><p class="form-note">Dit overzicht is een demonstratie. Er vindt geen betaling plaats.</p>
+            <div class="delivery-review"><span class="eyebrow">VOORBEELDADRES</span><p id="delivery-summary"></p><button type="button" id="checkout-back" class="text-link">Gegevens aanpassen</button></div>
+            <div class="demo-payment"><span class="payment-mark">iDEAL</span><div><strong>iDEAL · demonstratie</strong><p>U wordt niet doorgestuurd naar een bank.</p></div><span class="demo-pill">DEMO</span></div>
+            <p class="checkout-consent">Deze knop laat alleen zien hoe de bevestiging eruitziet. Uw gegevens worden niet opgeslagen of verzonden.</p>
+            <button class="button button-dark checkout-primary" type="submit">Demo bestelling afronden</button>
+          </fieldset>
+        </form>
+      </section>
+      <aside class="checkout-summary" aria-labelledby="summary-title"><div class="summary-heading"><h2 id="summary-title">Uw selectie.</h2><button type="button" data-open-cart class="text-link">Aanpassen</button></div><div id="checkout-summary-lines"></div><div class="summary-totals"><p><span>Bezorging in deze demo</span><span>€ 0,00</span></p><p class="basket-total"><span>Demo totaal</span><strong id="checkout-total"></strong></p></div><p class="form-note">Voorbeeldprijzen uit de catalogus van 25 oktober 2026. Care4Gardens bevestigt de actuele prijs, uitvoering en levering.</p></aside>
+    </div>
+    <section id="checkout-success" class="checkout-success" hidden>
+      <img src="assets/01_aluminium_after.webp" alt="Sfeervolle veranda met gesloten glazen schuifwanden" width="1672" height="941">
+      <div><p class="eyebrow">EEN VOORPROEFJE VAN WAT KOMT</p><h2 id="checkout-success-title" tabindex="-1">Uw demo is afgerond.</h2><p>Zo kan het begin van uw nieuwe buitenleven eruitzien.</p><p class="demo-success-note">Er is niets besteld of betaald. Er wordt geen e-mail verstuurd.</p><p id="confirmation-items"></p><p class="confirmation-total">Voorbeeldtotaal <strong id="confirmation-total"></strong></p><a class="button button-dark" href="collectie.html">Verder ontdekken</a><a class="text-link" href="./#samenstellen">Maak uw tuinplan</a></div>
+    </section>
+  </main>
+  <footer class="checkout-footer wrap"><span>Care4Gardens. Maakt buitenleven mooier.</span><span>Een websiteconcept door MCC</span></footer>
+</body></html>
