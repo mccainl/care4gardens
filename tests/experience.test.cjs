@@ -21,6 +21,20 @@ function click(w,s){const e=w.document.querySelector(s);assert(e,'Missing contro
 function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchEvent(new w.Event(e.tagName==='INPUT'?'input':'change',{bubbles:true}));}
 (async()=>{
  const w=setup('index.html','https://example.com/care4gardens/');const d=w.document;
+ // The real configurator is opt-in, unique, and separate from demo checkout.
+ w.eval(fs.readFileSync(path.join(root,'integrations.js'),'utf8'));
+ assert.equal(d.querySelectorAll('#quote-embed iframe').length,0);
+ click(w,'#load-configurator');click(w,'#load-configurator');
+ const quote=d.querySelector('#quote-embed iframe');
+ assert.equal(d.querySelectorAll('#quote-embed iframe').length,1);
+ assert.equal(new URL(quote.src).hostname,'directsamenstellen.nl');
+ assert(quote.src.includes('8a87f60b-3112-4e43-8906-a4fce59cdc14'));
+ assert(!d.querySelector('#quote-embed').hidden);
+ assert(d.querySelector('#quote-start').hidden);
+ assert(d.querySelector('#quote-start').textContent.includes('live aanvraagformulier'));
+ const review=d.querySelector('#reviews iframe');
+ assert.equal(new URL(review.src).searchParams.get('id'),'1210516');
+ assert(d.querySelector('#offerte a[href="https://care4gardens.nl/pages/offerte-aanvragen-reuzenpanda"]'));
  const hero=d.querySelector('.hero-video');assert(hero.autoplay&&hero.loop&&hero.playsInline);assert(hero.src.endsWith('assets/introduction.mp4'));assert(hero.muted);
  assert(w.mediaCalls.some(([type,name])=>type==='play'&&name==='hero-video'),'Introduction starts without a click');
  hero.currentTime=8;click(w,'#hero-sound');assert.equal(hero.muted,false);assert.equal(hero.currentTime,0);assert.equal(d.querySelector('#hero-sound').getAttribute('aria-pressed'),'true');
