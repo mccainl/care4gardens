@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { SVGRenderer } from 'three/addons/renderers/SVGRenderer.js';
 import { buildVeranda } from './configurator-scene.js';
+import { createGardenEnvironment } from './configurator-setting.js';
 
 // Fit every corner, including the foreground terrace, at the current viewing angle.
 export function fitModelDistance(bounds,target,direction,verticalFov,aspect){
@@ -21,9 +21,10 @@ export function createConfigurator3D(viewport,initialState){
  let state={...initialState},lastTime=0,environment,bounds;
  const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(36,1,.1,120);
- const ambient=new THREE.AmbientLight('#f4f1e4',.24);scene.add(ambient);
- const sky=new THREE.HemisphereLight('#fff9e8','#687257',1.7);scene.add(sky);
- const sun=new THREE.DirectionalLight('#fff2d5',3.1);sun.position.set(-5,9,5);sun.castShadow=true;
+ scene.background=new THREE.Color('#edf0e8');scene.fog=new THREE.Fog('#edf0e8',30,85);
+ const ambient=new THREE.AmbientLight('#ffffff',.16);scene.add(ambient);
+ const sky=new THREE.HemisphereLight('#e4efff','#7a8162',1.35);scene.add(sky);
+ const sun=new THREE.DirectionalLight('#fff4e4',2.5);sun.position.set(-5,9,5);sun.castShadow=true;
  sun.shadow.mapSize.set(viewport.clientWidth<600?1024:2048,viewport.clientWidth<600?1024:2048);
  sun.shadow.camera.left=-11;sun.shadow.camera.right=11;sun.shadow.camera.top=11;sun.shadow.camera.bottom=-11;sun.shadow.camera.near=.1;sun.shadow.camera.far=40;sun.shadow.normalBias=.025;sun.shadow.bias=-.00012;sun.shadow.radius=4;scene.add(sun);
  const fill=new THREE.DirectionalLight('#dde8ef',.8);fill.position.set(5,4,-3);scene.add(fill);
@@ -34,13 +35,13 @@ export function createConfigurator3D(viewport,initialState){
   if(!forceFallback){try{context=canvas.getContext('webgl2',{alpha:true,antialias:true,powerPreference:'low-power'});}catch{}}
   if(context){
    renderer=new THREE.WebGLRenderer({canvas,context,alpha:true,antialias:true});
-   renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.75));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
+   renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.75));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1;
    renderer.setClearColor(0x000000,0);renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
-   const pmrem=new THREE.PMREMGenerator(renderer),room=new RoomEnvironment();environment=pmrem.fromScene(room,.04);scene.environment=environment.texture;scene.environmentIntensity=.7;room.dispose();pmrem.dispose();
+   const pmrem=new THREE.PMREMGenerator(renderer),garden=createGardenEnvironment();environment=pmrem.fromScene(garden.scene,.035);scene.environment=environment.texture;scene.environmentIntensity=.72;garden.dispose();pmrem.dispose();
    canvas.addEventListener('webglcontextlost',contextLost);
   }else{
    compatibility=true;renderer=new SVGRenderer();renderer.setQuality('high');renderer.setPrecision(2);renderer.overdraw=0;
-   ambient.intensity=.72;sun.intensity=.62;fill.intensity=.2;sky.intensity=0;ground.visible=false;
+   ambient.intensity=.68;sun.intensity=.5;fill.intensity=.15;sky.intensity=0;ground.visible=false;
   }
   const element=renderer.domElement;element.classList.add('atelier-renderer');element.setAttribute('aria-hidden','true');
   // OrbitControls captures gestures only on the model. The surrounding page scrolls normally.
@@ -53,13 +54,13 @@ export function createConfigurator3D(viewport,initialState){
   createRenderer(true);controls.connect(renderer.domElement);replaceModel(state);resize();start();
  }
  function replaceModel(next){
-  const previous=model;model=buildVeranda(next,{reduced:compatibility});scene.add(model.group);
-  if(previous){scene.remove(previous.group);previous.dispose();}
-  bounds=new THREE.Box3().setFromObject(model.group);
+  const previous=model;model=buildVeranda(next,{reduced:compatibility});scene.add(model.group,model.setting.group);
+  if(previous){scene.remove(previous.group,previous.setting.group);previous.dispose();}
+  bounds=new THREE.Box3().setFromObject(model.group).union(model.setting.focusBounds);
   state={...next};viewport.setAttribute('aria-label',`Draaibaar 3D-model van uw overkapping, ${state.width} bij ${state.depth} centimeter. Sleep om te draaien, knijp om te zoomen. Pijltoetsen draaien; plus en min zoomen.`);
  }
  createRenderer();replaceModel(state);
- controls=new OrbitControls(camera,renderer.domElement);controls.target.set(0,1.12,0);controls.enableDamping=!reducedMotion.matches;controls.dampingFactor=.085;controls.enablePan=false;controls.enableZoom=true;controls.rotateSpeed=.65;controls.zoomSpeed=.72;controls.minPolarAngle=.25;controls.maxPolarAngle=Math.PI*.47;controls.autoRotate=false;controls.touches.ONE=THREE.TOUCH.ROTATE;controls.touches.TWO=THREE.TOUCH.DOLLY_PAN;
+ controls=new OrbitControls(camera,renderer.domElement);controls.target.copy(model.setting.target);controls.enableDamping=!reducedMotion.matches;controls.dampingFactor=.085;controls.enablePan=false;controls.enableZoom=true;controls.rotateSpeed=.65;controls.zoomSpeed=.72;controls.minPolarAngle=.5;controls.maxPolarAngle=Math.PI*.49;controls.minAzimuthAngle=-1.45;controls.maxAzimuthAngle=1.45;controls.autoRotate=false;controls.touches.ONE=THREE.TOUCH.ROTATE;controls.touches.TWO=THREE.TOUCH.DOLLY_PAN;
  function fitDistance(direction=camera.position.clone().sub(controls.target)){return fitModelDistance(bounds,controls.target,direction,THREE.MathUtils.degToRad(camera.fov),camera.aspect);}
  function setDistance(distance){const offset=camera.position.clone().sub(controls.target);if(offset.length()<.1)offset.set(1,.65,1.4);camera.position.copy(offset.normalize().multiplyScalar(distance).add(controls.target));controls.update();}
  function resize(){
@@ -70,7 +71,7 @@ export function createConfigurator3D(viewport,initialState){
   setDistance(oldFit?fit*Math.max(.44,Math.min(1.8,currentDistance/oldFit)):fit);
   viewport.dataset.fitDistance=String(fit);dirty=true;start();
  }
- camera.position.set(7.8,5.6,10.8);controls.update();resize();
+ camera.position.copy(new THREE.Vector3(.52,.19,1).multiplyScalar(12).add(controls.target));controls.update();resize();
  function draw(){
   renderer.render(scene,camera);dirty=false;
   // These attributes mirror the visible camera pose for assistive QA and regression checks.
@@ -89,7 +90,7 @@ export function createConfigurator3D(viewport,initialState){
  controls.addEventListener('end',()=>{interacting=false;viewport.classList.remove('is-interacting');start();});
  controls.addEventListener('change',()=>{dirty=true;start();});
  function view(name='perspective'){
-  const direction=name==='front'?new THREE.Vector3(0,.18,1):new THREE.Vector3(.7,.53,1),fit=fitDistance(direction);
+  const direction=name==='front'?new THREE.Vector3(0,.08,1):new THREE.Vector3(.52,.19,1),fit=fitDistance(direction);
   viewport.dataset.fitDistance=String(fit);
   tween=direction.normalize().multiplyScalar(fit).add(controls.target);controls.enableDamping=!reducedMotion.matches;dirty=true;start();
  }
@@ -97,7 +98,7 @@ export function createConfigurator3D(viewport,initialState){
   if(event.target!==viewport)return;
   const offset=camera.position.clone().sub(controls.target),spherical=new THREE.Spherical().setFromVector3(offset);
   if(event.key==='ArrowLeft')spherical.theta-=.13;else if(event.key==='ArrowRight')spherical.theta+=.13;
-  else if(event.key==='ArrowUp')spherical.phi=Math.max(.25,spherical.phi-.1);else if(event.key==='ArrowDown')spherical.phi=Math.min(Math.PI*.47,spherical.phi+.1);
+  else if(event.key==='ArrowUp')spherical.phi=Math.max(.5,spherical.phi-.1);else if(event.key==='ArrowDown')spherical.phi=Math.min(Math.PI*.49,spherical.phi+.1);
   else if(event.key==='+'||event.key==='=')spherical.radius=Math.max(controls.minDistance,spherical.radius*.88);
   else if(event.key==='-')spherical.radius=Math.min(controls.maxDistance,spherical.radius*1.12);
   else if(event.key==='Home'){event.preventDefault();view();return;}else return;

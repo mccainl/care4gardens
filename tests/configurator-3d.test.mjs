@@ -13,7 +13,11 @@ for(const [width,depth] of [[300,200],[500,300],[1200,600]])for(const reduced of
  assert(size.x>width/100&&size.x<width/100+2,'Veranda stays within its expected footprint');
  assert(size.z>depth/100&&size.z<depth/100+2,'Rounded gutter must run along width, not depth');
  assert.equal(model.group.getObjectByName('front').children.some(m=>m.material?.transmission>0),!reduced,'Glass uses physical transmission on the GPU');
- const bounds=new Box3().setFromObject(model.group),target=new Vector3(0,1.12,0);
+ assert(model.setting.group.userData.brickCount>300,'The house has individual brick courses even at its smallest size');
+ assert(model.setting.group.getObjectByName('Recessed patio doors'),'Patio doors connect the home and veranda');
+ assert(model.setting.group.getObjectByName('Continuous garden lawn'),'The terrace is set into a garden');
+ assert.equal(model.setting.group.userData.attachmentZ,-depth/200,'The house stays attached when veranda depth changes');
+ const bounds=new Box3().setFromObject(model.group).union(model.setting.focusBounds),target=model.setting.target;
  for(const aspect of [.7,1.18,1.7,2.2])for(const direction of [new Vector3(.7,.53,1),new Vector3(0,.18,1),new Vector3(-1,.4,.3)]){
   const camera=new PerspectiveCamera(36,aspect,.1,120),distance=fitModelDistance(bounds,target,direction,MathUtils.degToRad(36),aspect);
   camera.position.copy(direction.clone().normalize().multiplyScalar(distance).add(target));camera.lookAt(target);camera.updateMatrixWorld();

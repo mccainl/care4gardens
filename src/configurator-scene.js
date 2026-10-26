@@ -1,11 +1,13 @@
 import * as THREE from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { buildResidentialSetting } from './configurator-setting.js';
 
 // One actual, dimensioned model for both the GPU and compatibility renderers.
 export function buildVeranda(state,{reduced=false}={}){
  const group=new THREE.Group();group.name='Care4Gardens veranda';
  const w=state.width/100,d=state.depth/100,h=2.63,back=-d/2,front=d/2;
- const frameColor=state.color==='Crème'?'#dcd6c4':state.color==='Zwart'?'#202723':'#3b4843';
+ const frameColor=state.color==='Crème'?'#dedbd0':state.color==='Zwart'?'#1e2121':'#383e42';
+ const setting=buildResidentialSetting(w,d,{reduced});
  const materials=new Set(),geometries=new Set(),textures=new Set();
  const standard=(color,roughness=.65,metalness=0)=>{const m=new THREE.MeshStandardMaterial({color,roughness,metalness});materials.add(m);return m;};
  function physical(parameters){const m=new THREE.MeshPhysicalMaterial(parameters);materials.add(m);return m;}
@@ -17,7 +19,7 @@ export function buildVeranda(state,{reduced=false}={}){
  const frame=physical({color:frameColor,roughness:.37,metalness:.5,clearcoat:.22,clearcoatRoughness:.42});
  const stone=standard('#d9d4c5',.95),joints=standard('#b8b8a6',1),plaster=standard('#e8dfcc',.95),timber=standard('#aa8961',.68),fabric=standard('#e7e0cc',1),cushion=standard('#8b9679',1),soil=standard('#514c38',1),planter=standard('#b5ad98',.92);
  const leaf=standard('#718460',.9),screen=standard('#6a7366',.9),interior=standard('#6d7767',.95);
- const glass=physical({color:'#dce9df',roughness:.06,metalness:0,transmission:reduced?0:.94,thickness:.025,ior:1.5,envMapIntensity:1.2,clearcoat:1,transparent:reduced,opacity:reduced?.2:1,depthWrite:!reduced,side:THREE.DoubleSide});
+ const glass=physical({color:'#ecf2f4',roughness:.035,metalness:0,transmission:reduced?0:.97,thickness:.014,ior:1.52,envMapIntensity:1.1,clearcoat:1,transparent:reduced,opacity:reduced?.13:1,depthWrite:!reduced,side:THREE.DoubleSide});
  const tinted=physical({color:'#80958c',roughness:.08,transmission:reduced?0:.7,thickness:.04,ior:1.5,clearcoat:1,transparent:reduced,opacity:reduced?.37:1,depthWrite:!reduced,side:THREE.DoubleSide});
  const opal=physical({color:'#e3e8d8',roughness:.45,transmission:reduced?0:.25,thickness:.025,transparent:reduced,opacity:reduced?.87:1,side:THREE.DoubleSide});
  if(!reduced){stone.bumpMap=noiseTexture(8);stone.bumpScale=.025;plaster.bumpMap=noiseTexture(12);plaster.bumpScale=.018;fabric.bumpMap=noiseTexture(42);fabric.bumpScale=.016;timber.bumpMap=noiseTexture(21);timber.bumpMap.repeat.set(1,18);timber.bumpScale=.012;frame.bumpMap=noiseTexture(55);frame.bumpScale=.002;}
@@ -40,20 +42,6 @@ export function buildVeranda(state,{reduced=false}={}){
   const direction=new THREE.Vector3().subVectors(b,a),middle=a.clone().add(b).multiplyScalar(.5);
   const mesh=cylinder(middle.x,middle.y,middle.z,r*.65,r,direction.length(),material,reduced?5:8,parent);mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),direction.normalize());return mesh;
  }
- // Floating stone plinth and individually laid porcelain tiles.
- box(0,-.13,.08,w+1.25,.26,d+1.2,joints,.06);
- box(0,.01,.08,w+1.13,.08,d+1.08,stone,.04);
- const nx=Math.ceil((w+1.08)/.8),nz=Math.ceil((d+1.04)/.8),tileW=(w+1.08)/nx,tileD=(d+1.04)/nz;
- for(let ix=0;ix<nx;ix++)for(let iz=0;iz<nz;iz++)box(-(w+1.08)/2+(ix+.5)*tileW,.06,-(d+1.04)/2+(iz+.5)*tileD+.08,tileW-.012,.025,tileD-.012,stone);
- // Architectural facade with deep window reveals and fine timber slats.
- box(0,1.69,back-.18,w+.55,3.32,.22,plaster,.035);
- const doorW=Math.min(2.6,w*.46),doorX=w*.18;
- box(doorX,1.37,back-.045,doorW+.12,2.58,.08,frame);
- box(doorX,1.37,back+.002,doorW,2.46,.025,interior);
- box(doorX,1.37,back+.025,doorW,2.46,.018,glass);
- box(doorX,1.37,back+.045,.035,2.48,.045,frame);
- box(doorX+.08,1.22,back+.085,.025,.22,.035,frame,.008);
- for(let i=0;i<Math.floor(w*.27/.095);i++)box(-w/2+.24+i*.095,1.57,back-.005,.043,2.95,.075,timber,.003);
  // Sloped roof: height is illustrative, the chosen footprint is exact.
  const slope=.2;
  for(const x of [-w/2,w/2]){
@@ -110,7 +98,7 @@ export function buildVeranda(state,{reduced=false}={}){
   box(0,h+slope-(above?-.1:.12),back+.05,w-.15,.08,.11,frame,.02);
  }
  // Outdoor seating with soft cushions, seams, fine legs and a round oak table.
- const sofa=new THREE.Group();sofa.position.set(-Math.min(.55,w*.09),0,back+.78);group.add(sofa);
+ const sofa=new THREE.Group();sofa.position.set(-w*.23,0,back+.78);group.add(sofa);
  const sw=Math.min(2.2,w*.52),fabricShadow=standard('#d6cfbb',1);
  box(0,.4,0,sw,.15,.87,timber,.035,sofa);
  for(const x of [-sw/2+.14,sw/2-.14])for(const z of [-.32,.32])cylinder(x,.25,z,.028,.025,.27,timber,10,sofa);
@@ -157,5 +145,5 @@ export function buildVeranda(state,{reduced=false}={}){
   }
  }
  group.userData={width:w,depth:d,frameColor,front:state.front,roof:state.roof,lightOn};
- return {group,width:w,depth:d,dispose(){for(const geo of geometries)geo.dispose();for(const mat of materials)mat.dispose();for(const texture of textures)texture.dispose();}};
+ return {group,setting,width:w,depth:d,dispose(){setting.dispose();for(const geo of geometries)geo.dispose();for(const mat of materials)mat.dispose();for(const texture of textures)texture.dispose();}};
 }
