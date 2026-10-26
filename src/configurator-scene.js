@@ -23,7 +23,13 @@ export function buildVeranda(state,{reduced=false}={}){
  if(!reduced){stone.bumpMap=noiseTexture(8);stone.bumpScale=.025;plaster.bumpMap=noiseTexture(12);plaster.bumpScale=.018;fabric.bumpMap=noiseTexture(42);fabric.bumpScale=.016;timber.bumpMap=noiseTexture(21);timber.bumpMap.repeat.set(1,18);timber.bumpScale=.012;frame.bumpMap=noiseTexture(55);frame.bumpScale=.002;}
  const boxGeometry=new THREE.BoxGeometry(1,1,1);geometries.add(boxGeometry);
  function box(x,y,z,width,height,depth,material=frame,round=0,parent=group){
-  const geo=round&&!reduced?new RoundedBoxGeometry(width,height,depth,2,Math.min(round,width/3,height/3,depth/3)):boxGeometry;geometries.add(geo);
+  let geo=round&&!reduced?new RoundedBoxGeometry(width,height,depth,2,Math.min(round,width/3,height/3,depth/3)):boxGeometry;
+  if(reduced&&material.transparent){
+   // A single, double-sided glass surface avoids overlapping translucent triangles in SVG.
+   geo=new THREE.BoxGeometry(width,height,depth);const start=height<=width&&height<=depth?12:depth<=width?24:0;
+   geo.setIndex(Array.from(geo.getIndex().array.slice(start,start+6)));geo.clearGroups();
+  }
+  geometries.add(geo);
   const mesh=new THREE.Mesh(geo,material);if(geo===boxGeometry)mesh.scale.set(width,height,depth);
   mesh.position.set(x,y,z);mesh.castShadow=material!==glass&&material!==tinted&&material!==opal;mesh.receiveShadow=true;parent.add(mesh);return mesh;
  }

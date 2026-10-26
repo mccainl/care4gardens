@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import {JSDOM} from 'jsdom';
-import {Box3,Vector3} from 'three';
+import {Box3,Vector3,PerspectiveCamera,MathUtils} from 'three';
 import {buildVeranda} from '../src/configurator-scene.js';
-import {createConfigurator3D} from '../src/configurator-3d.js';
+import {createConfigurator3D,fitModelDistance} from '../src/configurator-3d.js';
 
 const initial={color:'Antraciet',gutter:'Rechte goot',roof:'Helder Glas',width:500,depth:300,front:'Open voorkant',left:'Open linkerzijde',right:'Open rechterzijde',shade:'Geen zonwering',light:'Geen verlichting',install:'Ja'};
 for(const [width,depth] of [[300,200],[500,300],[1200,600]])for(const reduced of [false,true]){
@@ -13,6 +13,14 @@ for(const [width,depth] of [[300,200],[500,300],[1200,600]])for(const reduced of
  assert(size.x>width/100&&size.x<width/100+2,'Veranda stays within its expected footprint');
  assert(size.z>depth/100&&size.z<depth/100+2,'Rounded gutter must run along width, not depth');
  assert.equal(model.group.getObjectByName('front').children.some(m=>m.material?.transmission>0),!reduced,'Glass uses physical transmission on the GPU');
+ const bounds=new Box3().setFromObject(model.group),target=new Vector3(0,1.12,0);
+ for(const aspect of [.7,1.18,1.7,2.2])for(const direction of [new Vector3(.7,.53,1),new Vector3(0,.18,1),new Vector3(-1,.4,.3)]){
+  const camera=new PerspectiveCamera(36,aspect,.1,120),distance=fitModelDistance(bounds,target,direction,MathUtils.degToRad(36),aspect);
+  camera.position.copy(direction.clone().normalize().multiplyScalar(distance).add(target));camera.lookAt(target);camera.updateMatrixWorld();
+  for(const x of [bounds.min.x,bounds.max.x])for(const y of [bounds.min.y,bounds.max.y])for(const z of [bounds.min.z,bounds.max.z]){
+   const p=new Vector3(x,y,z).project(camera);assert(Math.abs(p.x)<1&&Math.abs(p.y)<1,'The complete terrace fits on mobile, desktop and enlarged views');
+  }
+ }
  model.dispose();
 }
 

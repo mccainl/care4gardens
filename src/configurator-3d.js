@@ -4,10 +4,21 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { SVGRenderer } from 'three/addons/renderers/SVGRenderer.js';
 import { buildVeranda } from './configurator-scene.js';
 
+// Fit every corner, including the foreground terrace, at the current viewing angle.
+export function fitModelDistance(bounds,target,direction,verticalFov,aspect){
+ const backward=direction.clone().normalize(),right=new THREE.Vector3().crossVectors(new THREE.Vector3(0,1,0),backward).normalize(),up=new THREE.Vector3().crossVectors(backward,right);
+ const tanY=Math.tan(verticalFov/2),tanX=tanY*aspect;let distance=0;
+ for(const x of [bounds.min.x,bounds.max.x])for(const y of [bounds.min.y,bounds.max.y])for(const z of [bounds.min.z,bounds.max.z]){
+  const corner=new THREE.Vector3(x,y,z).sub(target),near=corner.dot(backward);
+  distance=Math.max(distance,near+Math.abs(corner.dot(right))/tanX,near+Math.abs(corner.dot(up))/tanY);
+ }
+ return distance*1.09;
+}
+
 export function createConfigurator3D(viewport,initialState){
  delete viewport.dataset.fitDistance;
  let renderer,compatibility=false,disposed=false,model,controls,raf=0,dirty=true,visible=true,interacting=false,tween=null,pendingState=null,updateTimer=0;
- let state={...initialState},lastTime=0,environment;
+ let state={...initialState},lastTime=0,environment,bounds;
  const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(36,1,.1,120);
  const ambient=new THREE.AmbientLight('#f4f1e4',.24);scene.add(ambient);
@@ -28,7 +39,7 @@ export function createConfigurator3D(viewport,initialState){
    const pmrem=new THREE.PMREMGenerator(renderer),room=new RoomEnvironment();environment=pmrem.fromScene(room,.04);scene.environment=environment.texture;scene.environmentIntensity=.7;room.dispose();pmrem.dispose();
    canvas.addEventListener('webglcontextlost',contextLost);
   }else{
-   compatibility=true;renderer=new SVGRenderer();renderer.setQuality('high');renderer.setPrecision(2);
+   compatibility=true;renderer=new SVGRenderer();renderer.setQuality('high');renderer.setPrecision(2);renderer.overdraw=0;
    ambient.intensity=.72;sun.intensity=.62;fill.intensity=.2;sky.intensity=0;ground.visible=false;
   }
   const element=renderer.domElement;element.classList.add('atelier-renderer');element.setAttribute('aria-hidden','true');
@@ -44,15 +55,12 @@ export function createConfigurator3D(viewport,initialState){
  function replaceModel(next){
   const previous=model;model=buildVeranda(next,{reduced:compatibility});scene.add(model.group);
   if(previous){scene.remove(previous.group);previous.dispose();}
+  bounds=new THREE.Box3().setFromObject(model.group);
   state={...next};viewport.setAttribute('aria-label',`Draaibaar 3D-model van uw overkapping, ${state.width} bij ${state.depth} centimeter. Sleep om te draaien, knijp om te zoomen. Pijltoetsen draaien; plus en min zoomen.`);
  }
  createRenderer();replaceModel(state);
  controls=new OrbitControls(camera,renderer.domElement);controls.target.set(0,1.12,0);controls.enableDamping=!reducedMotion.matches;controls.dampingFactor=.085;controls.enablePan=false;controls.enableZoom=true;controls.rotateSpeed=.65;controls.zoomSpeed=.72;controls.minPolarAngle=.25;controls.maxPolarAngle=Math.PI*.47;controls.autoRotate=false;controls.touches.ONE=THREE.TOUCH.ROTATE;controls.touches.TWO=THREE.TOUCH.DOLLY_PAN;
- function fitDistance(){
-  const verticalFov=THREE.MathUtils.degToRad(camera.fov),horizontalFov=2*Math.atan(Math.tan(verticalFov/2)*camera.aspect);
-  const footprint=Math.hypot(model.width+1.4,model.depth+1.4);
-  return Math.max(footprint/(2*Math.tan(horizontalFov/2)),(3.5+model.depth*.45)/(2*Math.tan(verticalFov/2)))*1.08;
- }
+ function fitDistance(direction=camera.position.clone().sub(controls.target)){return fitModelDistance(bounds,controls.target,direction,THREE.MathUtils.degToRad(camera.fov),camera.aspect);}
  function setDistance(distance){const offset=camera.position.clone().sub(controls.target);if(offset.length()<.1)offset.set(1,.65,1.4);camera.position.copy(offset.normalize().multiplyScalar(distance).add(controls.target));controls.update();}
  function resize(){
   const width=viewport.clientWidth,height=viewport.clientHeight;if(!width||!height||disposed)return;
@@ -81,7 +89,8 @@ export function createConfigurator3D(viewport,initialState){
  controls.addEventListener('end',()=>{interacting=false;viewport.classList.remove('is-interacting');start();});
  controls.addEventListener('change',()=>{dirty=true;start();});
  function view(name='perspective'){
-  const fit=fitDistance(),direction=name==='front'?new THREE.Vector3(0,.18,1):new THREE.Vector3(.7,.53,1);
+  const direction=name==='front'?new THREE.Vector3(0,.18,1):new THREE.Vector3(.7,.53,1),fit=fitDistance(direction);
+  viewport.dataset.fitDistance=String(fit);
   tween=direction.normalize().multiplyScalar(fit).add(controls.target);controls.enableDamping=!reducedMotion.matches;dirty=true;start();
  }
  function keydown(event){

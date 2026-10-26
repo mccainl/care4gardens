@@ -11,7 +11,7 @@
 .atelier-model svg{display:block;width:100%;height:auto;overflow:visible}
 .atelier-model svg text{font-family:inherit}
 .atelier-model path,.atelier-model polygon{transition:fill .35s ease,opacity .35s ease}
-.atelier-model .atelier-renderer{position:absolute;inset:0;display:block;width:100%!important;height:100%!important;overflow:hidden;cursor:grab;touch-action:none}
+.atelier-model .atelier-renderer{position:absolute;inset:0;display:block;width:100%!important;height:100%!important;background:transparent!important;overflow:hidden;cursor:grab;touch-action:none}
 .atelier-model.is-interacting .atelier-renderer{cursor:grabbing}
 .atelier-model .atelier-renderer path{transition:none}
 .atelier-expand{display:flex;align-items:center;gap:7px;border:1px solid #bac6b355;border-radius:30px;background:#ffffff60;padding:7px 10px;color:#53654c;font:inherit;font-size:10px;min-height:36px;cursor:pointer}
