@@ -63,7 +63,8 @@ function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchE
  assert(d.querySelector('.atelier-summary').textContent.includes('640 × 400'));
  const review=d.querySelector('#reviews iframe');
  assert.equal(new URL(review.src).searchParams.get('id'),'1210516');
- assert(d.querySelector('#quote-direct').href.startsWith('https://directsamenstellen.nl/'));
+ assert.equal(d.querySelector('#quote-direct').href,'https://care4gardens.nl/pages/offerte-aanvragen-reuzenpanda');
+ assert(d.querySelector('#quote-status a[href^="https://wa.me/"]'));
  const hero=d.querySelector('.hero-video');assert(hero.autoplay&&hero.loop&&hero.playsInline);assert(hero.src.endsWith('assets/garden-living.mp4'));assert(hero.muted);
  assert(w.mediaCalls.some(([type,name])=>type==='play'&&name==='hero-video'),'Clean background footage starts without a click');
  hero.currentTime=8;click(w,'#hero-pause');assert.equal(d.querySelector('#hero-pause').getAttribute('aria-pressed'),'true');assert.deepEqual(w.mediaCalls.at(-1),['pause','hero-video']);

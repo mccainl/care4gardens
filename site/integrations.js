@@ -3,6 +3,11 @@
   const target = document.getElementById('quote-embed');
   const start = document.getElementById('quote-start');
   if (!start || !target) return;
+  const status = document.getElementById('quote-status');
+  const directLink = document.getElementById('quote-direct');
+  const initialStatus = status.innerHTML;
+  const initialHref = directLink.href;
+  const initialLinkText = directLink.textContent;
   document.addEventListener('care4gardens:request-quote', event => {
     if (target.querySelector('iframe')) return;
     // Public prefill interface. Both dimension branches share question names,
@@ -48,6 +53,8 @@
       clearTimeout(stepTimer);window.removeEventListener('message', onProviderReady);
       target.replaceChildren();target.hidden = true;start.hidden = false;
       button.setAttribute('aria-expanded', 'false');
+      status.innerHTML = initialStatus;
+      directLink.href = initialHref;directLink.textContent = initialLinkText;
       document.getElementById('atelier-title').focus({preventScroll: true});
       start.scrollIntoView?.({block: 'start'});
     });
