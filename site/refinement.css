@@ -29,11 +29,11 @@ h2{font-size:clamp(38px,4.1vw,62px);line-height:1.12;letter-spacing:-2px;text-wr
 .hero-buttons .button:hover{transform:none;border-color:#fff;background:transparent;gap:32px}
 .hero-buttons .ui-icon{width:17px;height:17px}
 .hero-film-row{position:absolute;left:48px;right:auto;bottom:24px;z-index:3;margin:0;gap:6px;flex-wrap:nowrap}
-.hero-film-row .film-button,.hero-film-row #hero-sound{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 13px;background:transparent;border:1px solid #ffffff30;border-radius:99px;color:white;box-shadow:none;backdrop-filter:none;font-size:10px;gap:8px}
-.hero-film-row .film-button:hover,.hero-film-row #hero-sound:hover{background:#ffffff12;border-color:#ffffff70;transform:none}
+.hero-film-row .film-button,.hero-film-row #hero-pause{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 13px;background:transparent;border:1px solid #ffffff30;border-radius:99px;color:white;box-shadow:none;backdrop-filter:none;font-size:10px;gap:8px}
+.hero-film-row .film-button:hover,.hero-film-row #hero-pause:hover{background:#ffffff12;border-color:#ffffff70;transform:none}
 .hero-film-row .ui-icon{width:16px;height:16px}
-.hero-film-row #hero-sound{width:44px;padding:10px}
-#hero-sound .control-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.hero-film-row #hero-pause{width:44px;padding:10px}
+#hero-pause .control-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .hero-bottom{display:none}
 .hero-caption{display:none}.scroll-cue{font-size:8px;letter-spacing:1.6px}.scroll-line{height:22px}
 .hero-in{animation-duration:.7s;animation-delay:0s!important}
@@ -109,7 +109,7 @@ body.locked .whatsapp-contact,body:has(dialog[open]) .whatsapp-contact{visibilit
  .hero-description{font-size:12px;line-height:1.7;margin-top:17px;max-width:245px}
  .hero-shade{background:linear-gradient(0deg,#071b16b8,transparent 80%),linear-gradient(90deg,#071b1628,transparent)}
  .hero-buttons{margin-top:15px;flex-direction:row;gap:0}.hero-buttons .button{padding:9px 0;min-height:44px;font-size:11px;gap:18px}
- .hero-film-row{bottom:18px;left:22px;right:auto;gap:4px}.hero-film-row .film-button{padding:10px 12px;font-size:9px}.hero-film-row #hero-sound{width:44px}
+ .hero-film-row{bottom:18px;left:22px;right:auto;gap:4px}.hero-film-row .film-button{padding:10px 12px;font-size:9px}.hero-film-row #hero-pause{width:44px}
  .hero-bottom{left:22px;bottom:31px}.scroll-cue{font-size:6px;letter-spacing:1px;gap:8px}.scroll-line{height:19px}
  .benefit-strip{padding:20px 0;gap:9px;font-size:8px;justify-content:space-between}.benefit-strip>span:not(.benefit-tag){gap:6px}.benefit-strip>span:not(.benefit-tag):before{display:none}
  .section{padding-block:72px}.intro{padding-block:76px}.intro-layout{grid-template-columns:1fr;gap:25px}.intro h2,h2{font-size:38px;letter-spacing:-1.6px;line-height:1.14}.intro-copy p{font-size:14px}.eyebrow{font-size:8px;letter-spacing:2px;margin-bottom:20px}.section-heading{gap:22px;margin-bottom:30px}.section-intro{font-size:13px;max-width:310px}

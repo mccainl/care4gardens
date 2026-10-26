@@ -35,12 +35,12 @@ function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchE
  const review=d.querySelector('#reviews iframe');
  assert.equal(new URL(review.src).searchParams.get('id'),'1210516');
  assert(d.querySelector('#offerte a[href="https://care4gardens.nl/pages/offerte-aanvragen-reuzenpanda"]'));
- const hero=d.querySelector('.hero-video');assert(hero.autoplay&&hero.loop&&hero.playsInline);assert(hero.src.endsWith('assets/introduction.mp4'));assert(hero.muted);
- assert(w.mediaCalls.some(([type,name])=>type==='play'&&name==='hero-video'),'Introduction starts without a click');
- hero.currentTime=8;click(w,'#hero-sound');assert.equal(hero.muted,false);assert.equal(hero.currentTime,0);assert.equal(d.querySelector('#hero-sound').getAttribute('aria-pressed'),'true');
- click(w,'#hero-sound');assert.equal(hero.muted,true);
+ const hero=d.querySelector('.hero-video');assert(hero.autoplay&&hero.loop&&hero.playsInline);assert(hero.src.endsWith('assets/garden-living.mp4'));assert(hero.muted);
+ assert(w.mediaCalls.some(([type,name])=>type==='play'&&name==='hero-video'),'Clean background footage starts without a click');
+ hero.currentTime=8;click(w,'#hero-pause');assert.equal(d.querySelector('#hero-pause').getAttribute('aria-pressed'),'true');assert.deepEqual(w.mediaCalls.at(-1),['pause','hero-video']);
+ click(w,'#hero-pause');assert.equal(d.querySelector('#hero-pause').getAttribute('aria-pressed'),'false');assert.equal(hero.currentTime,8);assert.deepEqual(w.mediaCalls.at(-1),['play','hero-video']);
  hero.dispatchEvent(new w.Event('playing'));assert(hero.classList.contains('playing'));
- assert(d.querySelector('#hero-sound svg'));assert(!d.querySelector('.motion-toggle'));assert(d.querySelector('#brand-film').loop);assert.equal(d.querySelector('#brand-film').controls,false);
+ assert(d.querySelector('#hero-pause svg'));assert(!d.querySelector('.motion-toggle'));assert(d.querySelector('#brand-film').loop);assert.equal(d.querySelector('#brand-film').controls,false);
  assert(!/[↗→←↺↓✓▶Ⅱ×‹›]/u.test(d.body.textContent),'No emoji-style UI characters');
  click(w,'[data-film]');assert(w.mediaCalls.some(([type,name])=>type==='pause'&&name.includes('hero-video')));assert.equal(d.querySelector('#brand-film').muted,false);click(w,'#film-dialog .dialog-close');
 

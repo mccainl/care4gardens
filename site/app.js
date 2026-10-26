@@ -31,19 +31,20 @@
   let manualStoryY = null;
   let lastStage = -1;
   const header = $('#header');
-  const heroVideo=$('.hero-video'),soundButton=$('#hero-sound'),startButton=$('#hero-start');
-  let heroVisible=true,filmOpen=false,heroSound=false;
+  const heroVideo=$('.hero-video'),pauseButton=$('#hero-pause'),startButton=$('#hero-start');
+  let heroVisible=true,filmOpen=false,heroPaused=reduced.matches;
   const story = $('.story-section');
-  function syncSound(){
-    if(!heroVideo||!soundButton)return;
-    heroVideo.muted=!heroSound;
-    soundButton.innerHTML=icon(heroSound?'sound':'muted')+`<span class="control-label">${heroSound?'Geluid uitschakelen':'Geluid inschakelen'}</span>`;
-    soundButton.setAttribute('aria-pressed',String(heroSound));
-    soundButton.setAttribute('aria-label',heroSound?'Geluid uitschakelen':'Geluid inschakelen');
+  function syncHeroControl(){
+    if(!pauseButton)return;
+    const label=heroPaused?'Achtergrondvideo afspelen':'Achtergrondvideo pauzeren';
+    pauseButton.innerHTML=icon(heroPaused?'play':'pause')+`<span class="control-label">${label}</span>`;
+    pauseButton.setAttribute('aria-pressed',String(heroPaused));
+    pauseButton.setAttribute('aria-label',label);
   }
   function syncHeroVideo(){
     if(!heroVideo)return;
-    if(motionPaused||!heroVisible||filmOpen||document.hidden){heroVideo.pause();return;}
+    syncHeroControl();
+    if(heroPaused||!heroVisible||filmOpen||document.hidden){heroVideo.pause();return;}
     heroVideo.play().then(()=>{if(startButton)startButton.hidden=true;}).catch(()=>{if(startButton)startButton.hidden=false;});
   }
   function applyMotion(){
@@ -53,7 +54,7 @@
     syncHeroVideo();
   }
   if(heroVideo){heroVideo.muted=true;heroVideo.defaultMuted=true;}
-  applyMotion();syncSound();
+  applyMotion();
   heroVideo?.addEventListener('playing',()=>{heroVideo.classList.add('playing');if(startButton)startButton.hidden=true;});
   heroVideo?.addEventListener('error',()=>{heroVideo.classList.remove('playing');if(startButton){startButton.hidden=false;startButton.querySelector('span').textContent='Film opnieuw laden';}});
   if(heroVideo)new IntersectionObserver(entries=>{heroVisible=entries[0].isIntersecting;syncHeroVideo();},{threshold:.08}).observe(heroVideo);
@@ -61,9 +62,9 @@
     syncHeroVideo();
     if(filmOpen){const activeFilm=$('#brand-film');if(document.hidden)activeFilm.pause();else activeFilm.play().catch(()=>{});}
   });
-  soundButton?.addEventListener('click',()=>{heroSound=!heroSound;syncSound();if(heroSound){motionPaused=false;heroVideo.currentTime=0;applyMotion();}syncHeroVideo();});
-  startButton?.addEventListener('click',()=>{motionPaused=false;if(heroVideo.error)heroVideo.load();applyMotion();});
-  reduced.addEventListener('change',e=>{motionPaused=e.matches;applyMotion();});
+  pauseButton?.addEventListener('click',()=>{heroPaused=!heroPaused;syncHeroVideo();});
+  startButton?.addEventListener('click',()=>{heroPaused=false;if(heroVideo.error)heroVideo.load();syncHeroVideo();});
+  reduced.addEventListener('change',e=>{motionPaused=e.matches;heroPaused=e.matches;applyMotion();});
   const revealObserver = new IntersectionObserver(entries=>entries.forEach(entry=>{
     if(entry.isIntersecting)entry.target.classList.add('is-visible');
     else if(entry.boundingClientRect.top>innerHeight)entry.target.classList.remove('is-visible');
