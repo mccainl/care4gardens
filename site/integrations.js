@@ -8,6 +8,8 @@
     // Public prefill interface. Both dimension branches share question names,
     // so always let visitors confirm their active dimensions at step four.
     const url = new URL('https://directsamenstellen.nl/configurator/8a87f60b-3112-4e43-8906-a4fce59cdc14/reuzenpanda-embedded/4');
+    const messageId = 'care4gardens-' + (crypto.randomUUID?.() || Date.now().toString(36));
+    url.searchParams.set('messageId', messageId);
     for (const [name, value] of Object.entries(event.detail.prefill)) url.searchParams.set('pf_' + name, value);
     const header = document.createElement('div');
     header.className = 'quote-handoff';
@@ -18,6 +20,18 @@
     iframe.title = 'Controleer uw Care4Gardens ontwerp en vraag een offerte aan';
     iframe.src = url.href;
     iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    let stepTimer, ready = false;
+    const onProviderReady = message => {
+      if (ready || message.origin !== url.origin || message.source !== iframe.contentWindow || message.data?.id !== 'snippet-iframe-ready' || message.data?.data?.messageId !== messageId) return;
+      ready = true;
+      // The provider initializes at question one even when the URL ends in /4.
+      // Its supported ready/step messages avoid racing that initialization.
+      iframe.contentWindow.postMessage({id: 'prefill', data: event.detail.prefill}, url.origin);
+      stepTimer = setTimeout(() => {
+        if (iframe.isConnected) iframe.contentWindow.postMessage({id: 'set-step-position', messageId, data: {stepPosition: 3}}, url.origin);
+      }, 350);
+    };
+    window.addEventListener('message', onProviderReady);
     const button = document.getElementById('load-configurator');
     const direct = document.getElementById('quote-direct');
     direct.href = url.href;
@@ -31,6 +45,7 @@
     button.setAttribute('aria-expanded', 'true');
     start.hidden = true;
     header.querySelector('button').addEventListener('click', () => {
+      clearTimeout(stepTimer);window.removeEventListener('message', onProviderReady);
       target.replaceChildren();target.hidden = true;start.hidden = false;
       button.setAttribute('aria-expanded', 'false');
       document.getElementById('atelier-title').focus({preventScroll: true});
