@@ -97,13 +97,17 @@
     "customer-one-year-later.mp4": {
       "caption": "Na \u00e9\u00e9n jaar: nog steeds blij?",
       "duration": 79.39,
-      "original_dom_id": "video-7-insta-feed"
+      "original_dom_id": "video-7-insta-feed",
+      "public_post": "https://www.instagram.com/reel/DcN5XUfMaej/",
+      "delivery": "Official Instagram embed; video file is not published in repository"
     },
     "happy-customer.mp4": {
       "caption": "Klant blij? Wij blij!",
       "duration": 58.678,
-      "original_dom_id": "video-13-insta-feed"
+      "original_dom_id": "video-13-insta-feed",
+      "public_post": "https://www.instagram.com/reel/DbQEQlDAReh/",
+      "delivery": "Official Instagram embed; video file is not published in repository"
     }
   },
-  "processing": "Images resized to max 1600 pixels and WebP. Videos H.264/AAC at 540px width, original audio retained. No new generated media."
+  "processing": "Nine images optimized to WebP. Existing customer videos embedded from public Instagram posts on click."
 }
