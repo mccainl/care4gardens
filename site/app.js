@@ -2,6 +2,25 @@
   'use strict';
   const $ = (s, root=document) => root.querySelector(s);
   const $$ = (s, root=document) => [...root.querySelectorAll(s)];
+  // Keep deep links to the optional film collection usable, including on arrival.
+  function revealAnchor(hash, scroll=false){
+    if(!hash)return;
+    let target;
+    try{target=document.getElementById(decodeURIComponent(hash.slice(1)));}catch{return;}
+    if(!target)return;
+    let parent=target.parentElement,opened=false;
+    while(parent){
+      if(parent.tagName==='DETAILS'&&!parent.open){parent.open=true;opened=true;}
+      parent=parent.parentElement;
+    }
+    if(opened&&scroll)requestAnimationFrame(()=>target.scrollIntoView({block:'start'}));
+  }
+  document.addEventListener('click',event=>{
+    const link=event.target.closest('a[href^="#"]');
+    if(link)revealAnchor(link.getAttribute('href'));
+  });
+  addEventListener('hashchange',()=>revealAnchor(location.hash,true));
+  revealAnchor(location.hash,true);
   const labels = {aluminium:'Aluminium overkappingen',douglas:'Douglas & maatwerk',glas:'Glazen schuifwanden',screens:'Screens & zonwering',accessoires:'Accessoires'};
   const escape = text => String(text ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const money = number => new Intl.NumberFormat('nl-NL',{style:'currency',currency:'EUR',maximumFractionDigits:Number.isInteger(number)?0:2}).format(number);
