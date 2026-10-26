@@ -35,3 +35,13 @@ Photo category navigation and larger product images use each product's original 
 `shop.js` stores only product IDs, variant IDs and quantities in the local demo basket. Prices and availability are resolved from the catalogue, not trusted from browser storage. `catalogue.js` connects variant selection to the basket. `checkout.html` uses fictional prefilled details, validates the demonstration flow and shows a local confirmation. It has no payment integration, order endpoint, email send or contact-data persistence. Completion clears the demo basket. The checkout remains visibly labelled as a demo throughout.
 
 The test suite covers exact variant totals, quantities, removal, persistence, invalid baskets, form validation, input escaping, demo completion and the absence of order/payment transmission. Desktop and mobile live checks verify the published journey.
+
+## Client-approved calculator and reviews (26 October 2026)
+
+The homepage now includes the existing public DirectSamenstellen/Reuzenpanda configurator, ID `8a87f60b-3112-4e43-8906-a4fce59cdc14`, loaded only when the visitor chooses to start. It is a real quote form, labelled as such, separate from the local demo checkout and garden brief. The original Care4Gardens quote page remains a permanent fallback. No enquiries were submitted during development.
+
+WebwinkelKeur shop `1210516` supplies a prominent live review widget and a direct all-reviews link. Scores and review counts are not hard-coded.
+
+The production Reuzenpanda snippet is account `8033525a-bd3f-4519-a5fa-5c3f00dfbc14`; its host-specific response lists the configurator for care4gardens.nl but not mccainl.github.io. The preview uses the public embedded configurator route. Before a production Shopify theme change, retain the original account snippet on the actual domain and verify attribution, consent, mobile rendering and receipt of an agreed test lead in the client's CRM. Public inspection cannot identify or verify the private CRM destination. Do not deploy this concept over the client's live shop without its access and final review.
+
+The screens and roller-shutter video is deliberately the last production task, after this integration and review pass. Existing films are unchanged.
