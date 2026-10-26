@@ -15,7 +15,7 @@ shop=shop.replace("fetch('catalogue.json')","fetch('catalogue.json?v="+await ver
 await writeFile('_site/shop.js',shop);
 for(const page of ['index.html','collectie.html','checkout.html']){
  let html=await readFile('_site/'+page,'utf8');
- for(const file of ['styles.css','experience.css','app.js','integrations.js','films.js','studio-loader.js','shop.css','shop.js','catalogue.js']){
+ for(const file of ['styles.css','experience.css','app.js','integrations.js','customer-media.js','films.js','studio-loader.js','shop.css','shop.js','catalogue.js']){
   html=html.replaceAll(file+'?v=3',file+'?v='+await version(file));
  }
  for(const file of new Set(html.match(/assets\/[\w-]+\.mp4/g)||[])){

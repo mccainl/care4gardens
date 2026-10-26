@@ -6,7 +6,7 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1] / 'site' / 'assets'
 count = 0
 videos = 0
-for path in ROOT.iterdir():
+for path in list(ROOT.iterdir()) + list((ROOT.parent / 'original').glob('*')):
     if not path.is_file():
         continue
     if not path.stat().st_size:
