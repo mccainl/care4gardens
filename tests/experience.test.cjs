@@ -27,6 +27,8 @@ function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchE
  w.eval(fs.readFileSync(path.join(root,'integrations.js'),'utf8'));
  assert(!d.querySelector('#visual-configurator').hidden);
  assert(d.querySelector('#atelier-model svg').getAttribute('aria-label').includes('500 bij 300'));
+ click(w,'.atelier-expand');assert(d.querySelector('.atelier-lightbox').open);assert(d.body.classList.contains('atelier-zoomed'));assert(d.querySelector('.atelier-lightbox #atelier-model'));
+ click(w,'.atelier-expand');assert(!d.querySelector('.atelier-lightbox').open);assert(d.querySelector('#visual-configurator #atelier-model'));assert(!d.body.classList.contains('atelier-zoomed'));
  click(w,'[data-step-link="2"]');
  change(w,'#atelier-width','299');
  click(w,'.atelier-next');
@@ -82,6 +84,9 @@ function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchE
  assert(!d.querySelector('[aria-label="Animaties pauzeren"]'));
  click(w,'#film-sound');assert(d.querySelector('#brand-film').muted);click(w,'#film-sound');assert(!d.querySelector('#brand-film').muted);
  click(w,'.menu-toggle');assert.equal(d.querySelector('.menu-toggle').getAttribute('aria-expanded'),'true');
+ assert.equal(d.querySelectorAll('.menu-links a').length,3);assert(!d.querySelector('.menu-backdrop').hidden);assert.equal(d.activeElement,d.querySelector('.menu-links a'));
+ click(w,'.menu-backdrop');assert.equal(d.querySelector('.menu-toggle').getAttribute('aria-expanded'),'false');assert.equal(d.activeElement,d.querySelector('.menu-toggle'));
+ click(w,'.menu-toggle');
  w.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Escape'}));assert.equal(d.querySelector('.menu-toggle').getAttribute('aria-expanded'),'false');
  click(w,'[data-film]');assert(d.querySelector('#film-dialog').open);
  Object.defineProperty(d,'hidden',{configurable:true,value:true});d.dispatchEvent(new w.Event('visibilitychange'));assert.deepEqual(w.mediaCalls.at(-1),['pause','brand-film']);

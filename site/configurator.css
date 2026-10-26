@@ -7,10 +7,22 @@
 .atelier-wordmark{font-size:10px;letter-spacing:.2em;font-weight:600;color:#536252}
 .atelier-live{display:flex;align-items:center;gap:7px;font-size:11px;color:#536252}
 .atelier-live:before{content:"";height:5px;width:5px;border-radius:50%;background:#6e8561;box-shadow:0 0 0 4px #6e856110}
-.atelier-model{flex:1;display:flex;align-items:center;justify-content:center;min-height:360px;position:relative}
+.atelier-model{flex:1;display:flex;align-items:center;justify-content:center;min-height:400px;position:relative;overflow:hidden;outline-offset:-4px!important}
 .atelier-model svg{display:block;width:100%;height:auto;overflow:visible}
 .atelier-model svg text{font-family:inherit}
 .atelier-model path,.atelier-model polygon{transition:fill .35s ease,opacity .35s ease}
+.atelier-model .atelier-renderer{position:absolute;inset:0;display:block;width:100%!important;height:100%!important;overflow:hidden;cursor:grab;touch-action:none}
+.atelier-model.is-interacting .atelier-renderer{cursor:grabbing}
+.atelier-model .atelier-renderer path{transition:none}
+.atelier-expand{display:flex;align-items:center;gap:7px;border:1px solid #bac6b355;border-radius:30px;background:#ffffff60;padding:7px 10px;color:#53654c;font:inherit;font-size:10px;min-height:36px;cursor:pointer}
+.atelier-expand svg{height:15px;width:15px}
+.atelier-gesture{padding:0 22px;margin:-2px 0 21px;text-align:center;font-size:10px;color:#728069;letter-spacing:.02em;pointer-events:none}
+body.atelier-zoomed{overflow:hidden}
+dialog.atelier-lightbox{width:min(1200px,calc(100vw - 40px));height:min(900px,calc(100dvh - 40px));max-width:none;max-height:none;padding:0;border:1px solid #d0d9c7;border-radius:20px;background:#e9ece3;overflow:hidden;color:#283c32}
+dialog.atelier-lightbox::backdrop{background:#16251bc9;backdrop-filter:blur(9px)}
+.atelier-lightbox .atelier-scene{height:100%;width:100%}
+.atelier-lightbox .atelier-model{min-height:0;aspect-ratio:auto}
+.atelier-lightbox .atelier-scene-footer{padding-bottom:15px}
 .atelier-scene-footer{display:flex;justify-content:space-between;align-items:end;gap:20px;padding:0 30px 27px}
 .atelier-spec{font-size:12px;margin:0;line-height:1.8;color:#51604f}
 .atelier-spec strong{display:block;font-size:18px;font-weight:400;color:#293e31;font-variant-numeric:tabular-nums}
@@ -90,7 +102,10 @@ body.calculator-in-view .whatsapp-contact{opacity:0;visibility:hidden;pointer-ev
 @media(max-width:720px){
  .quote-section .section-heading{margin-bottom:25px}.quote-section .quote-shell{border-radius:15px}.atelier{grid-template-columns:1fr;min-height:0}
  .atelier-scene-top{padding:18px 20px 0}.atelier-wordmark{font-size:9px}.atelier-live{font-size:10px}
- .atelier-model{min-height:0;aspect-ratio:1.65}.atelier-model svg{max-height:100%;width:100%}
+ .atelier-model{flex:none;min-height:0;aspect-ratio:1.18}.atelier-model svg{max-height:100%;width:100%}
+ .atelier-gesture{margin:0 0 18px;font-size:9px;padding-inline:10px}.atelier-expand{font-size:9px;min-height:34px;padding:7px 10px}
+ dialog.atelier-lightbox{width:calc(100vw - 16px);height:calc(100dvh - 24px);border-radius:16px}
+ .atelier-lightbox .atelier-model{flex:1;aspect-ratio:auto}
  .atelier-scene-footer{padding:0 20px 14px;align-items:center}.atelier-spec strong{font-size:16px}.atelier-spec{font-size:10px}.atelier-view button{font-size:10px;padding:7px 10px;min-height:30px}.atelier-caption{padding:0 20px 13px;font-size:9px;max-width:33em}
  .atelier-panel{padding:25px 21px 20px}.atelier-progress{margin-bottom:22px}.atelier-panel h3{font-size:32px}.atelier-description{font-size:12px;margin-bottom:21px}
  .atelier-fields fieldset{margin-bottom:21px}.atelier-card b{font-size:11px}.atelier-card small{font-size:9px}.atelier-choice .atelier-card{padding:11px}.atelier-swatch{width:38px;height:38px;margin-top:2px;margin-bottom:5px}

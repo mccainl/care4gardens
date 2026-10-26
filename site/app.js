@@ -91,11 +91,12 @@
   }
   addEventListener('scroll',()=>{if(!scrollScheduled){scrollScheduled=true;requestAnimationFrame(updateScroll);}},{passive:true});
   updateScroll();
-  const menu=$('#mobile-menu'),menuButton=$('.menu-toggle');
-  function closeMenu(){menu?.classList.remove('open');if(menu)menu.inert=true;menuButton?.setAttribute('aria-expanded','false');menuButton?.setAttribute('aria-label','Menu openen');document.body.classList.remove('locked');}
-  menuButton?.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')!=='true';menu.classList.toggle('open',open);menu.inert=!open;menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Menu sluiten':'Menu openen');document.body.classList.toggle('locked',open);});
-  $$('a',menu||document.createElement('div')).forEach(a=>a.addEventListener('click',closeMenu));
-  addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();if(e.key==='Tab'&&menu?.classList.contains('open')){const focusable=[menuButton,...$$('a',menu)];const first=focusable[0],last=focusable.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+  const menu=$('#mobile-menu'),menuButton=$('.menu-toggle'),menuBackdrop=$('.menu-backdrop');
+  function closeMenu(returnFocus=false){const wasOpen=menu?.classList.contains('open');menu?.classList.remove('open');if(menu)menu.inert=true;if(menuBackdrop)menuBackdrop.hidden=true;menuButton?.setAttribute('aria-expanded','false');menuButton?.setAttribute('aria-label','Menu openen');if(wasOpen){document.body.classList.remove('locked');if(returnFocus)menuButton.focus({preventScroll:true});}}
+  menuButton?.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')!=='true';if(!open){closeMenu(true);return;}menu.classList.add('open');menu.inert=false;if(menuBackdrop)menuBackdrop.hidden=false;menuButton.setAttribute('aria-expanded','true');menuButton.setAttribute('aria-label','Menu sluiten');document.body.classList.add('locked');$('.menu-links a',menu)?.focus({preventScroll:true});});
+  menuBackdrop?.addEventListener('click',()=>closeMenu(true));
+  $$('a',menu||document.createElement('div')).forEach(a=>a.addEventListener('click',()=>closeMenu()));
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&menu?.classList.contains('open'))closeMenu(true);if(e.key==='Tab'&&menu?.classList.contains('open')){const focusable=[menuButton,...$$('a',menu)];const first=focusable[0],last=focusable.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
   addEventListener('resize',()=>{if(innerWidth>900)closeMenu();});
   const filmDialog=$('#film-dialog'),film=$('#brand-film');
   $$('[data-film]').forEach(b=>b.addEventListener('click',()=>{

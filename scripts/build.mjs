@@ -7,9 +7,11 @@ await mkdir('_site',{recursive:true});
 await cp('site','_site',{recursive:true,filter:path=>!path.endsWith('README.md')});
 // Content versions prevent a returning visitor from mixing old controls with a new page.
 const version=async file=>createHash('sha256').update(await readFile('_site/'+file)).digest('hex').slice(0,12);
-let loader=await readFile('_site/studio-loader.js','utf8');
-loader=loader.replace(/studio\.bundle\.js\?v=[\w.-]+/g,'studio.bundle.js?v='+await version('studio.bundle.js'));
-await writeFile('_site/studio-loader.js',loader);
+for(const name of ['studio-loader.js','configurator.js']){
+ let loader=await readFile('_site/'+name,'utf8');
+ loader=loader.replace(/studio\.bundle\.js\?v=[\w.-]+/g,'studio.bundle.js?v='+await version('studio.bundle.js'));
+ await writeFile('_site/'+name,loader);
+}
 let shop=await readFile('_site/shop.js','utf8');
 shop=shop.replace("fetch('catalogue.json')","fetch('catalogue.json?v="+await version('catalogue.json')+"')");
 await writeFile('_site/shop.js',shop);
