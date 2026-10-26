@@ -1,0 +1,103 @@
+{
+  "sha256": "8de1f7347d296d681daeb4667d329b23b29feee7412458b01045bade4c699b22",
+  "parts": [
+    {
+      "file": "product-v2.part000",
+      "sha256": "7afb4623229a264fd771faacadb04e693d7de1f25626e603e607b2c5e86e2ac0"
+    },
+    {
+      "file": "product-v2.part001",
+      "sha256": "805bc6a19b08e82a9014d0dd8f830843191e04bd4577e65f6d22d43dc947d920"
+    },
+    {
+      "file": "product-v2.part002",
+      "sha256": "01577800906f4ae000aeecfe54a4154e3ff10cfff007379da9e4a07f6a2861f8"
+    },
+    {
+      "file": "product-v2.part003",
+      "sha256": "bab7ed2ddcc097fad4faf25bd90060b295e7731d932c41aa2df792c14084713d"
+    }
+  ],
+  "files": [
+    {
+      "name": "collection-compact-v2.webp",
+      "bytes": 368416
+    },
+    {
+      "name": "collection-compact-v2-small.webp",
+      "bytes": 88538
+    },
+    {
+      "name": "collection-medium-v2.webp",
+      "bytes": 385638
+    },
+    {
+      "name": "collection-medium-v2-small.webp",
+      "bytes": 91758
+    },
+    {
+      "name": "collection-wide-v2.webp",
+      "bytes": 406038
+    },
+    {
+      "name": "collection-wide-v2-small.webp",
+      "bytes": 91020
+    },
+    {
+      "name": "collection-glass-clear-v2.webp",
+      "bytes": 235448
+    },
+    {
+      "name": "collection-glass-clear-v2-small.webp",
+      "bytes": 61258
+    },
+    {
+      "name": "collection-glass-tinted-v2.webp",
+      "bytes": 186906
+    },
+    {
+      "name": "collection-glass-tinted-v2-small.webp",
+      "bytes": 52000
+    },
+    {
+      "name": "collection-screens-v2.webp",
+      "bytes": 336900
+    },
+    {
+      "name": "collection-screens-v2-small.webp",
+      "bytes": 63554
+    },
+    {
+      "name": "collection-handle-v2.webp",
+      "bytes": 96196
+    },
+    {
+      "name": "collection-handle-v2-small.webp",
+      "bytes": 12372
+    },
+    {
+      "name": "collection-seal-v2.webp",
+      "bytes": 41990
+    },
+    {
+      "name": "collection-seal-v2-small.webp",
+      "bytes": 9602
+    },
+    {
+      "name": "collection-douglas-v2.webp",
+      "bytes": 374302
+    },
+    {
+      "name": "collection-douglas-v2-small.webp",
+      "bytes": 84600
+    },
+    {
+      "name": "collection-shutters-v2.webp",
+      "bytes": 323496
+    },
+    {
+      "name": "collection-shutters-v2-small.webp",
+      "bytes": 75354
+    }
+  ]
+}

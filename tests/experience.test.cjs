@@ -111,6 +111,9 @@ function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchE
  const glass=data.products.find(p=>p.category==='glas'&&p.title.includes('Heldere')&&p.title.includes('366'));
  click(s,`[data-product="${glass.id}"]`);assert(sd.querySelector('#product-dialog').open);const select=sd.querySelector('.variant-select');select.value='Met montage';select.dispatchEvent(new s.Event('change'));
  const variant=glass.variants.find(v=>v.title==='Met montage');assert(sd.querySelector('#original-product').href.includes('variant='+variant.id));assert(sd.querySelector('#detail-price').textContent.includes('1.300'));
+ assert(data.products.every(p=>p.editorialImage?.src&&p.editorialImage?.small),'Every catalogue product has refreshed imagery');
+ click(s,'[data-image="-1"]');assert(sd.querySelector('#detail-image').src.endsWith(glass.editorialImage.src));assert(sd.querySelector('#detail-image-note').textContent.includes('Productimpressie'));
+ click(s,'[data-image="0"]');assert(sd.querySelector('#detail-image').src.endsWith(glass.images[0]));assert.equal(sd.querySelector('#detail-image-note').textContent,'Originele productfoto.');
  click(s,'#product-dialog .dialog-close');assert(!sd.querySelector('#product-dialog').open);assert(!s.location.search.includes('product='));
  change(s,'#product-search','no matching product');assert(sd.querySelector('.empty-state'));click(s,'#clear-filters');assert.equal(sd.querySelectorAll('.product-card').length,12);
  click(s,'#load-more');assert.equal(sd.querySelectorAll('.product-card').length,24);s.close();

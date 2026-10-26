@@ -11,7 +11,7 @@ DEST = ROOT / 'site' / 'assets'
 DEST.mkdir(parents=True, exist_ok=True)
 (DEST / 'hero-loop.mp4').unlink(missing_ok=True)
 restored = 0
-for manifest_name in ['manifest.json', 'motion-manifest.json']:
+for manifest_name in ['manifest.json', 'motion-manifest.json', 'product-manifest.json']:
     manifest = json.loads((SOURCE / manifest_name).read_text())
     pieces = []
     for part in manifest['parts']:

@@ -40,7 +40,7 @@ export function createConfigurator3D(viewport,initialState){
    const pmrem=new THREE.PMREMGenerator(renderer),garden=createGardenEnvironment();environment=pmrem.fromScene(garden.scene,.035);scene.environment=environment.texture;scene.environmentIntensity=.72;garden.dispose();pmrem.dispose();
    canvas.addEventListener('webglcontextlost',contextLost);
   }else{
-   compatibility=true;renderer=new SVGRenderer();renderer.setQuality('high');renderer.setPrecision(2);renderer.overdraw=0;
+   compatibility=true;renderer=new SVGRenderer();renderer.setQuality('high');renderer.setPrecision(2);renderer.overdraw=.25;
    ambient.intensity=.68;sun.intensity=.5;fill.intensity=.15;sky.intensity=0;ground.visible=false;
   }
   const element=renderer.domElement;element.classList.add('atelier-renderer');element.setAttribute('aria-hidden','true');

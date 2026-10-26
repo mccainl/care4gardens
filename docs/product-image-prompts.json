@@ -1,0 +1,76 @@
+{
+  "created": "2026-10-26",
+  "method": "Built-in image generation; product-reference illustrations",
+  "images": [
+    {
+      "key": "compact",
+      "prompt": "Use case: sketch-to-render. Asset: premium landscape catalogue product photograph, 3:2 landscape, crisp high-resolution architectural photography. Input image is a product geometry reference. Recreate the compact aluminium lean-to veranda from the reference as a believable real installed product at a Dutch brick terraced house, approximately 3 metres wide, with exactly two slender anthracite front posts, a slightly sloping translucent opal polycarbonate roof with the same four-panel arrangement and a straight front gutter. Keep the structural proportions and product design faithful to the reference. Replace the dated CGI presentation with lifelike materials: fine powder-coat grain, natural brick irregularity, subtle roof translucency, realistic fixings and soft contact shadows. Compose a calm three-quarter view from garden eye height, whole veranda and post feet visible, veranda fills most of image, brick façade and recessed French doors behind it, simple pale limestone paving, a small teak lounge chair and ceramic planter, short garden lawn at the foreground. Soft Dutch late-afternoon daylight, neutral warm colour, natural glass reflections, restrained architectural magazine styling. All architecture and object edges straight and physically plausible. No glass enclosure, no screen, no extra front post, no text, logos, watermark, people, dramatic sunset, oversaturation or plastic-looking CGI. This is an illustrative product-family scene, not a customer-project photograph.",
+      "asset": "assets/collection-compact-v2.webp",
+      "smallAsset": "assets/collection-compact-v2-small.webp",
+      "generatedSource": "exec-bf6fdc62-0d34-483c-afc6-85e05b45056e.png"
+    },
+    {
+      "key": "medium",
+      "prompt": "Use case: sketch-to-render. Create a premium realistic architectural product photograph for a veranda catalogue, landscape 3:2. Reference image is the exact aluminium veranda design: a broad approximately five-metre wall-attached lean-to veranda, two dark anthracite front posts, straight/slightly rounded front fascia and a shallow opal polycarbonate roof divided into panels. Preserve that structural design, proportions and number of supports. Replace dated CGI appearance with lifelike powder-coated aluminium, subtly ribbed translucent opal panels, credible fixings and soft shadows. Set it against a warm pale-brown Dutch brick house with large recessed white patio doors and upper windows, flush pale stone paving, restrained natural teak lounge seating and two ceramic planters, lawn and a little ornamental planting in foreground. Entire veranda roof, feet and both sides clearly visible, product dominates centre, subtle three-quarter view from garden eye level, architectural 35mm camera, natural material variation, gentle late afternoon sun, believable glass reflections. Sophisticated calm neutral colours. No glass enclosure, screens, extra front post, people, text, logos, watermark or plastic/CGI effect. Illustrative product-family setting, not a claimed real client project.",
+      "asset": "assets/collection-medium-v2.webp",
+      "smallAsset": "assets/collection-medium-v2-small.webp",
+      "generatedSource": "exec-13e84363-ab40-49a4-80ec-637bed5c46e7.png"
+    },
+    {
+      "key": "wide",
+      "prompt": "Use case: sketch-to-render. Create a premium realistic architectural catalogue photograph in landscape 3:2, based on the exact product geometry in the reference: a wide approximately eight-metre anthracite aluminium lean-to veranda attached to a Dutch brick house, shallow sloping opal polycarbonate roof with repeated narrow structural roof bays, and exactly THREE slim front posts including one centre post. Faithfully keep the frame design, supports, fascia and generous width. Make it look like high-end real photography instead of an old CGI render: fine metal grain, natural weathered warm brick, white recessed patio doors and upper windows, pale stone terrace flush with lawn, a teak lounge sofa on the left and compact dining setting on the right, restrained olive planters, soft garden planting. Whole veranda roof and all post feet visible with modest breathing room, broad frontal three-quarter angle at garden eye height, subtle natural afternoon shadows and restrained reflections. Keep architecture straight and construction plausible. No glass enclosure, added screens, more than three front posts, text, logos, watermark, people, over-saturated colours or dramatic fantasy lighting. Illustrative product-family setting, not a claimed real client project.",
+      "asset": "assets/collection-wide-v2.webp",
+      "smallAsset": "assets/collection-wide-v2-small.webp",
+      "generatedSource": "exec-c34b440e-17c8-44b4-b069-f79f0ccdf03a.png"
+    },
+    {
+      "key": "glass_clear",
+      "prompt": "Use case: sketch-to-render. High-end realistic architectural detail photograph in landscape 3:2. Reference image gives the actual product: overlapping frameless clear glass veranda sliding panels in slim anthracite lower profiles, set in a multi-track silver aluminium floor rail. Faithfully preserve the rail construction, profile thickness, overlapping panel edges and material colours. Replace the dated render with a premium real installed-product close-up at a Dutch home. Camera low at an oblique angle to the lower glass panel corner; the crisp track and the transparent slightly green glass edges are the main subject, with subtle natural garden reflections in otherwise clear untinted glass. Pale lightly textured stone terrace, warm neutral brick wall receding in background, soft greenery outside reflected in panes. Fine metal surface grain, realistic seams and contact shadows, physically correct reflections and transparency, natural soft daylight, gentle background depth of field. Clean, calm sophisticated visual. No extra mullions, dark tinted glass, oversized handles, text, logos, watermark or people. Product-family detail image, not a claimed customer project.",
+      "asset": "assets/collection-glass-clear-v2.webp",
+      "smallAsset": "assets/collection-glass-clear-v2-small.webp",
+      "generatedSource": "exec-c441a86b-7d85-4e35-9b23-42c72d41e57e.png"
+    },
+    {
+      "key": "glass_tinted",
+      "prompt": "Use case: sketch-to-render. High-end realistic architectural detail photograph in landscape 3:2. Reference image gives the actual product: overlapping smoke-grey TINTED frameless glass veranda sliding panels in slim anthracite lower profiles, set in a multi-track silver aluminium floor rail. Faithfully preserve the lower rail, profile thickness, panel overlap and the neutral grey tinted glass. Make the old CGI image look like premium photography of a real installation. Camera low at an oblique angle to the glass corner, the crisp track and glass edge dominate, natural garden and soft sky reflected on the grey glass while the interior remains subtly visible, restrained modern outdoor furniture blurred in background. Pale textured stone paving, warm Dutch brick house, sophisticated neutral lighting, fine powder-coat grain, believable joints, real glass reflections, clear focus on product, shallow background depth. No black opaque wall, no green tinted plastic, extra frames, text, logos, watermark or people. Product-family detail image, not a claimed client project.",
+      "asset": "assets/collection-glass-tinted-v2.webp",
+      "smallAsset": "assets/collection-glass-tinted-v2-small.webp",
+      "generatedSource": "exec-aaed1177-5a01-47dd-87c5-8fdee0f44b8c.png"
+    },
+    {
+      "key": "screens",
+      "prompt": "Use case: precise-object-edit. Asset: realistic premium architectural product photography, landscape 3:2. Use the supplied installed zip-screen/veranda photograph as the product and architectural reference. Keep the actual slim anthracite cassette, vertical side guides, full-width grey microperforated fabric zip-screen and straight dark bottom bar, and the real white-brick house and glazed aluminium veranda. Present the entire front screen clearly in a beautifully photographed three-quarter garden view, screen lowered to about 80 percent, the bottom 20 percent open and level. Make the fabric weave subtly visible and semi-transparent so furniture remains faintly visible behind the fabric. Improve framing, neutral soft daylight, natural glass reflections, finely detailed metal and clean tonal contrast. Simplify foreground shrubs to a restrained planted border and pale stone terrace, retain believable real-house scale. Keep the product structurally realistic and all lines straight. No people, remote controls, text, logos, watermark, slatted shutter curtain, solid opaque fabric or dramatic artificial lighting. This scene is for a product-family illustration and later a video of the screen retracting smoothly.",
+      "asset": "assets/collection-screens-v2.webp",
+      "smallAsset": "assets/collection-screens-v2-small.webp",
+      "generatedSource": "exec-1be80891-3134-4743-be5a-36b90e2869f0.png"
+    },
+    {
+      "key": "handle",
+      "prompt": "Use case: precise-object-edit. Create a high-end catalogue photograph of the EXACT aluminium sliding-glass door clamp handle in the supplied reference. Preserve its silhouette, open rectangular finger aperture, proportions, small cutout, edges, channel and mounting construction exactly; do not invent screws, rods, locks or extra parts. This is a small dark anthracite powder-coated metal product. Improve only photographic realism, material finish, light, background and framing: crisp true edges, subtle fine powder-coat grain, restrained highlights, clean warm off-white studio backdrop and a very soft realistic contact shadow. Show the complete object at the same oblique angle as the reference, generously sized and centred, with 15 percent breathing room. Landscape 3:2 image. It must be recognisably the identical product, not a redesign. No hands, text, branding, watermark, scenery, glass panel, misleading added functionality or plastic appearance.",
+      "asset": "assets/collection-handle-v2.webp",
+      "smallAsset": "assets/collection-handle-v2-small.webp",
+      "generatedSource": "exec-58e768e4-3a29-49db-be4f-1dbc5010a92e.png"
+    },
+    {
+      "key": "seal",
+      "prompt": "Use case: precise-object-edit. Make a premium realistic catalogue detail photograph of the EXACT long slim aluminium brush weatherstrip in the reference, preserving its rail cross-section, slim straight proportions, anthracite finish and dense dark brush bristles attached along one edge. The supplied product is the only object: do not change or redesign it. Improve photographic quality, focus, surface texture, background and lighting. Landscape 3:2 composition, warm off-white studio surface, very soft contact shadow, the near cut end in the lower-left clearly revealing the original hollow channel and brush profile, the straight rail recedes diagonally toward the upper-right, no bending, slight background focus falloff. Fine metal grain and individually believable bristles. No labels, dimensions, branding, watermark, screws, hands, glass sheets, extra parts or dark dramatic background.",
+      "asset": "assets/collection-seal-v2.webp",
+      "smallAsset": "assets/collection-seal-v2-small.webp",
+      "generatedSource": "exec-9d8f3ee0-5184-4018-8075-c2003fdd129a.png"
+    },
+    {
+      "key": "douglas",
+      "prompt": "Use case: photorealistic-natural. Create a premium architectural lifestyle photograph for a Dutch garden veranda website, landscape 3:2, using the supplied timber garden-room image as the product type and design reference. A beautifully built Douglas timber garden veranda with honest substantial wooden posts, a refined flat dark roof edge, a glazed rooflight, warm timber slats on one wall and dark horizontal timber on the rear wall. Real joinery and natural subtle knots in the wood, warm honey-brown Douglas grain. Calm off-white linen outdoor sofa, one small teak table, pale stone paving flush with a neat lawn, restrained garden borders. Whole structural canopy, supports and seating visible, no floating roof or impossible spans. Three-quarter view at a person's standing eye height. Soft natural afternoon sunlight, quiet contemporary Dutch garden, editorial architectural photography, subtle realistic material variation. Keep the design visually related to the reference, elevate the photographic craft. No people, text, logos, watermark, dramatic sunset, oversaturation, imaginary machinery or CG/plastic look. Illustrative product-family scene, not a claimed installed customer project.",
+      "asset": "assets/collection-douglas-v2.webp",
+      "smallAsset": "assets/collection-douglas-v2-small.webp",
+      "generatedSource": "exec-0dec75ef-c317-45de-acfb-fe6e45735b35.png"
+    },
+    {
+      "key": "shutters",
+      "prompt": "Use case: photorealistic-natural. Asset: premium Dutch home exterior product photograph and first frame for a roller-shutter demonstration video. Widescreen 16:9 composition, ideally 2048 by 1152. Photograph a real-looking anthracite external aluminium roller shutter installed correctly above a large rectangular ground-floor window in a warm light-brown Dutch brick house. A compact dark rectangular roller cassette immediately above the window, straight slim vertical side guide rails, a mechanically plausible curtain of many narrow horizontal interlocking aluminium slats, and a solid straight bottom rail. The shutter is lowered halfway, covering the upper half of the window while the bottom half shows the clean white window frame and soft daylight reflected in the glass. Keep the slat curtain perfectly planar and within its guides. The entire window, cassette and guide rails must fit comfortably in frame. Three-quarter view with only slight perspective from standing eye height, beautiful restrained natural morning light, finely detailed powder-coated metal, authentic brick and mortar, a pale stone sill, a small planting border with ornamental grasses below. Crisp elegant architectural photography, calm natural colours. No people, hands, remote controls, text, logos, watermarks, roman blinds, fabric screens, interior blinds, folding shutters, fantasy architecture, warped lines or dramatic coloured lighting. An illustrative product-family scene, not claimed to document an actual client installation.",
+      "asset": "assets/collection-shutters-v2.webp",
+      "smallAsset": "assets/collection-shutters-v2-small.webp",
+      "generatedSource": "exec-a3e87aaf-16ff-4630-9cab-f02dfb99a7a1.png"
+    }
+  ]
+}

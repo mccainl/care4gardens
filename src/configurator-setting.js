@@ -7,7 +7,7 @@ export function buildResidentialSetting(width,depth,{reduced=false}={}){
  const resources=new Set(),keep=value=>(resources.add(value),value);
  const mat=(color,roughness=.85,metalness=0)=>keep(new THREE.MeshStandardMaterial({color,roughness,metalness}));
  const masonry=mat('#aaa399',1),trim=mat('#e5e3db',.48),zinc=mat('#626969',.45,.5),inside=mat('#b6ab98',1),curtain=mat('#e5dfd0',1);
- const timber=mat('#8d775c',.85),soil=mat('#4d4939',1),green=mat('#536546',1),grass=mat('#87916b',1);
+ const timber=mat('#8d775c',.85),soil=mat('#4d4939',1),green=mat('#536546',1),grass=mat('#6f8962',1);
  function noise(seed,repeat=1){
   const data=new Uint8Array(128*128*4);let r=seed;
   for(let i=0;i<data.length;i+=4){r=(r*1664525+1013904223)>>>0;const n=160+(r>>>26);data[i]=data[i+1]=data[i+2]=n;data[i+3]=255;}
@@ -95,6 +95,11 @@ export function buildResidentialSetting(width,depth,{reduced=false}={}){
  // The lawn continues beyond the camera, so the terrace belongs to a garden.
  const lawnGeo=keep(new THREE.PlaneGeometry(70,70,16,16));lawnGeo.rotateX(-Math.PI/2);
  const lawn=new THREE.Mesh(lawnGeo,grass);lawn.name='Continuous garden lawn';lawn.position.set(0,-.078,front+7);lawn.receiveShadow=true;group.add(lawn);
+ if(reduced){
+  // SVG uses a painter's algorithm: keep large backing surfaces behind the small details.
+  lawn.renderOrder=-20;brickwork.renderOrder=-8;
+  for(const child of house.children)if(child.isMesh&&child!==brickwork)child.renderOrder=-10;
+ }
  if(!reduced){grass.bumpMap=noise(74,110);grass.bumpScale=.024;grass.map=noise(19,85);grass.map.colorSpace=THREE.SRGBColorSpace;}
  // Low planting beds and a quiet timber garden boundary frame the product.
  let seed=481;const random=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;};
