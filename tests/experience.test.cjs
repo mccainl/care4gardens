@@ -21,8 +21,28 @@ function click(w,s){const e=w.document.querySelector(s);assert(e,'Missing contro
 function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchEvent(new w.Event(e.tagName==='INPUT'?'input':'change',{bubbles:true}));}
 (async()=>{
  const w=setup('index.html','https://example.com/care4gardens/');const d=w.document;
- // The real configurator is opt-in, unique, and separate from demo checkout.
+ // Visual design uses exact provider choices; CRM handoff remains opt-in.
+ w.eval(fs.readFileSync(path.join(root,'configurator-model.js'),'utf8'));
+ w.eval(fs.readFileSync(path.join(root,'configurator.js'),'utf8'));
  w.eval(fs.readFileSync(path.join(root,'integrations.js'),'utf8'));
+ assert(!d.querySelector('#visual-configurator').hidden);
+ assert(d.querySelector('#atelier-model svg').getAttribute('aria-label').includes('500 bij 300'));
+ click(w,'[data-step-link="2"]');
+ change(w,'#atelier-width','299');
+ click(w,'.atelier-next');
+ assert(!d.querySelector('.atelier-error').hidden);
+ assert.equal(d.querySelector('[aria-current=step]').dataset.stepLink,'2');
+ change(w,'#atelier-width','640');change(w,'#atelier-depth','520');
+ click(w,'[data-step-link="1"]');
+ const poly=d.querySelector('input[value="Polycarbonaat Opaal"]');poly.checked=true;poly.dispatchEvent(new w.Event('change',{bubbles:true}));
+ click(w,'[data-step-link="2"]');assert.equal(d.querySelector('#atelier-depth').value,'400');assert.equal(d.querySelector('#atelier-depth').max,'400');
+ assert(d.querySelector('#atelier-model svg').getAttribute('aria-label').includes('640 bij 400'));
+ click(w,'[data-step-link="3"]');change(w,'select[name=front]','Glazen schuifwanden getint glas');
+ click(w,'[data-step-link="4"]');change(w,'select[name=light]','Warm wit');
+ click(w,'[data-step-link="5"]');
+ assert(d.querySelector('.atelier-summary').textContent.includes('640 × 400'));
+ assert(d.querySelector('.atelier-summary').textContent.includes('Warm wit'));
+ const obs=w.observers.find(o=>o.options?.rootMargin==='-10% 0px -12% 0px');obs.callback([{isIntersecting:true}]);assert(d.body.classList.contains('calculator-in-view'));obs.callback([{isIntersecting:false}]);assert(!d.body.classList.contains('calculator-in-view'));
  assert.equal(d.querySelectorAll('#quote-embed iframe').length,0);
  click(w,'#load-configurator');click(w,'#load-configurator');
  const quote=d.querySelector('#quote-embed iframe');
@@ -31,17 +51,26 @@ function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchE
  assert(quote.src.includes('8a87f60b-3112-4e43-8906-a4fce59cdc14'));
  assert(!d.querySelector('#quote-embed').hidden);
  assert(d.querySelector('#quote-start').hidden);
- assert(d.querySelector('#quote-start').textContent.includes('live aanvraagformulier'));
+ assert(d.querySelector('.quote-handoff').textContent.includes('live aanvraagformulier'));
+ const quoteUrl=new URL(quote.src);
+ assert(quoteUrl.pathname.endsWith('/4'));
+ assert.equal(quoteUrl.searchParams.get('pf_Kleur '),'Antraciet');
+ assert.equal(quoteUrl.searchParams.get('pf_Type voorkant'),'Glazen schuifwanden getint glas');
+ assert.equal(quoteUrl.searchParams.get('pf_Diepte'),'400');
+ assert(quoteUrl.searchParams.get('pf_Overige opmerkingen').includes('640 × 400'));
+ assert(!quoteUrl.searchParams.has('mock'));
+ click(w,'#edit-visual-design');assert(!d.querySelector('#quote-start').hidden);assert.equal(d.querySelectorAll('#quote-embed iframe').length,0);
+ assert(d.querySelector('.atelier-summary').textContent.includes('640 × 400'));
  const review=d.querySelector('#reviews iframe');
  assert.equal(new URL(review.src).searchParams.get('id'),'1210516');
- assert(d.querySelector('#offerte a[href="https://care4gardens.nl/pages/offerte-aanvragen-reuzenpanda"]'));
+ assert(d.querySelector('#quote-direct').href.startsWith('https://directsamenstellen.nl/'));
  const hero=d.querySelector('.hero-video');assert(hero.autoplay&&hero.loop&&hero.playsInline);assert(hero.src.endsWith('assets/garden-living.mp4'));assert(hero.muted);
  assert(w.mediaCalls.some(([type,name])=>type==='play'&&name==='hero-video'),'Clean background footage starts without a click');
  hero.currentTime=8;click(w,'#hero-pause');assert.equal(d.querySelector('#hero-pause').getAttribute('aria-pressed'),'true');assert.deepEqual(w.mediaCalls.at(-1),['pause','hero-video']);
  click(w,'#hero-pause');assert.equal(d.querySelector('#hero-pause').getAttribute('aria-pressed'),'false');assert.equal(hero.currentTime,8);assert.deepEqual(w.mediaCalls.at(-1),['play','hero-video']);
  hero.dispatchEvent(new w.Event('playing'));assert(hero.classList.contains('playing'));
  assert(d.querySelector('#hero-pause svg'));assert(!d.querySelector('.motion-toggle'));assert(d.querySelector('#brand-film').loop);assert.equal(d.querySelector('#brand-film').controls,false);
- assert(!/[↗→←↺↓✓▶Ⅱ×‹›]/u.test(d.body.textContent),'No emoji-style UI characters');
+ assert(!/[↗→←↺↓✓▶Ⅱ‹›]/u.test(d.body.textContent),'No emoji-style UI characters; multiplication signs are used for dimensions');
  click(w,'[data-film]');assert(w.mediaCalls.some(([type,name])=>type==='pause'&&name.includes('hero-video')));assert.equal(d.querySelector('#brand-film').muted,false);click(w,'#film-dialog .dialog-close');
 
  click(w,'[data-compare="douglas"]');assert(d.querySelector('#compare-after').src.endsWith('02_douglas_after.webp'));

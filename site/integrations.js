@@ -1,25 +1,41 @@
 (() => {
   'use strict';
-  const button = document.getElementById('load-configurator');
   const target = document.getElementById('quote-embed');
-  if (!button || !target) return;
-  button.addEventListener('click', () => {
+  const start = document.getElementById('quote-start');
+  if (!start || !target) return;
+  document.addEventListener('care4gardens:request-quote', event => {
     if (target.querySelector('iframe')) return;
+    // Public prefill interface. Both dimension branches share question names,
+    // so always let visitors confirm their active dimensions at step four.
+    const url = new URL('https://directsamenstellen.nl/configurator/8a87f60b-3112-4e43-8906-a4fce59cdc14/reuzenpanda-embedded/4');
+    for (const [name, value] of Object.entries(event.detail.prefill)) url.searchParams.set('pf_' + name, value);
+    const header = document.createElement('div');
+    header.className = 'quote-handoff';
+    header.innerHTML = '<div class="quote-handoff-top"><div><span class="eyebrow">VAN ONTWERP NAAR AANVRAAG</span><h3>Uw keuzes gaan met u mee.</h3></div><button type="button" id="edit-visual-design">Ontwerp aanpassen</button></div><p>Controleer uw maten en keuzes in de calculator hieronder en vul daarna uw contactgegevens in. Dit is een live aanvraagformulier: pas na de laatste bevestiging wordt uw aanvraag verzonden.</p><details><summary>Bekijk uw ontwerpoverzicht</summary><pre></pre></details>';
+    header.querySelector('pre').textContent = event.detail.summary;
     const iframe = document.createElement('iframe');
     iframe.className = 'quote-iframe';
-    iframe.title = 'Stel uw Care4Gardens terrasoverkapping samen';
-    // Public embedded route from the existing Reuzenpanda integration.
-    // Do not copy runtime tracking IDs or create a replacement lead endpoint.
-    iframe.src = 'https://directsamenstellen.nl/configurator/8a87f60b-3112-4e43-8906-a4fce59cdc14/reuzenpanda-embedded/1';
+    iframe.title = 'Controleer uw Care4Gardens ontwerp en vraag een offerte aan';
+    iframe.src = url.href;
     iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-    document.getElementById('quote-status').textContent = 'Calculator openen… Werkt het formulier niet? Gebruik de link naar de bestaande calculator.';
+    const button = document.getElementById('load-configurator');
+    const direct = document.getElementById('quote-direct');
+    direct.href = url.href;
+    direct.textContent = 'Open uw aanvraag rechtstreeks';
+    document.getElementById('quote-status').textContent = 'Uw keuzes worden in de bestaande calculator geopend…';
     iframe.addEventListener('load', () => {
-      document.getElementById('quote-status').textContent = 'Geen formulier zichtbaar? Open de bestaande calculator rechtstreeks.';
+      document.getElementById('quote-status').textContent = 'Geen formulier zichtbaar? Open uw aanvraag rechtstreeks.';
     });
     target.hidden = false;
-    target.appendChild(iframe);
+    target.replaceChildren(header, iframe);
     button.setAttribute('aria-expanded', 'true');
-    document.getElementById('quote-start').hidden = true;
-    iframe.focus();
+    start.hidden = true;
+    header.querySelector('button').addEventListener('click', () => {
+      target.replaceChildren();target.hidden = true;start.hidden = false;
+      button.setAttribute('aria-expanded', 'false');
+      document.getElementById('atelier-title').focus({preventScroll: true});
+      start.scrollIntoView?.({block: 'start'});
+    });
+    target.scrollIntoView?.({block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
   });
 })();
