@@ -91,6 +91,7 @@
   root.dispatchEvent(new CustomEvent('care4gardens:request-quote',{bubbles:true,detail:{prefill,summary:summaryText()}}));
  });
  const dialog=document.createElement('dialog');dialog.className='atelier-lightbox';dialog.setAttribute('aria-label','Uw overkapping in 3D');document.body.append(dialog);
+ const sceneSpace=document.createElement('div');sceneSpace.className='atelier-scene-placeholder';sceneSpace.setAttribute('aria-hidden','true');
  const expand=scene.querySelector('.atelier-expand');
  const modelStatus=scene.querySelector('#atelier-gesture');
  scene.addEventListener('click',e=>{
@@ -99,9 +100,9 @@
  });
  expand.addEventListener('click',()=>{
   if(dialog.open){dialog.close();return;}
-  dialog.append(scene);dialog.showModal();document.body.classList.add('atelier-zoomed');expand.setAttribute('aria-expanded','true');expand.setAttribute('aria-label','Terug naar uw ontwerp');expand.querySelector('span').textContent='Terug';
+  sceneSpace.style.minHeight=scene.getBoundingClientRect().height+'px';scene.replaceWith(sceneSpace);dialog.append(scene);dialog.showModal();document.body.classList.add('atelier-zoomed');expand.setAttribute('aria-expanded','true');expand.setAttribute('aria-label','Terug naar uw ontwerp');expand.querySelector('span').textContent='Terug';
  });
- dialog.addEventListener('close',()=>{root.prepend(scene);document.body.classList.remove('atelier-zoomed');expand.setAttribute('aria-expanded','false');expand.setAttribute('aria-label','Vergroot het 3D-model');expand.querySelector('span').textContent='Vergroot';expand.focus({preventScroll:true});});
+ dialog.addEventListener('close',()=>{sceneSpace.replaceWith(scene);document.body.classList.remove('atelier-zoomed');expand.setAttribute('aria-expanded','false');expand.setAttribute('aria-label','Vergroot het 3D-model');expand.querySelector('span').textContent='Vergroot';expand.focus({preventScroll:true});});
  async function launch(){
   if(launching)return;launching=true;
   try{const {createConfigurator3D}=await import('./studio.bundle.js?v=3');viewer=createConfigurator3D(model,state);modelStatus.textContent='Sleep om te draaien · knijp om te zoomen';}

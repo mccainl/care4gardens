@@ -40,5 +40,14 @@ assert(Math.abs(Number(viewport.dataset.azimuth)-angleAfterTouch)<.01,'Changing 
 viewport.dispatchEvent(new w.KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}));await delay(35);
 assert(Number(viewport.dataset.azimuth)>angleAfterTouch,'Keyboard rotation works without touch');
 viewer.setView('front');await delay(40);assert(Math.abs(Number(viewport.dataset.azimuth))<.02,'Front preset returns to the correct view');
-viewer.dispose();w.close();
+viewer.dispose();
+// Smooth damping must never multiply animation loops while the camera settles.
+let peakFrames=0;const queued=new Set();globalThis.matchMedia=()=>({matches:false});
+globalThis.requestAnimationFrame=callback=>{const id=w.requestAnimationFrame(time=>{queued.delete(id);callback(time);});queued.add(id);peakFrames=Math.max(peakFrames,queued.size);return id;};
+globalThis.cancelAnimationFrame=id=>{queued.delete(id);w.cancelAnimationFrame(id);};
+const damped=createConfigurator3D(viewport,initial),dampedSurface=viewport.querySelector('svg');
+Object.defineProperties(dampedSurface,{clientWidth:{value:390},clientHeight:{value:330}});
+pointer(dampedSurface,'pointerdown',1,120,140);pointer(w.document,'pointermove',1,230,150);pointer(w.document,'pointerup',1,230,150);await delay(500);
+assert.equal(peakFrames,1,'Only one animation frame is queued during smooth camera damping');
+damped.dispose();assert.equal(queued.size,0);w.close();
 console.log('PASS: dimensional 3D geometry, physical glass, one-finger orbit, pinch zoom, preserved camera, keyboard controls and front view.');

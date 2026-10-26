@@ -5,6 +5,7 @@ import { SVGRenderer } from 'three/addons/renderers/SVGRenderer.js';
 import { buildVeranda } from './configurator-scene.js';
 
 export function createConfigurator3D(viewport,initialState){
+ delete viewport.dataset.fitDistance;
  let renderer,compatibility=false,disposed=false,model,controls,raf=0,dirty=true,visible=true,interacting=false,tween=null,pendingState=null,updateTimer=0;
  let state={...initialState},lastTime=0,environment;
  const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
@@ -73,7 +74,7 @@ export function createConfigurator3D(viewport,initialState){
   if(tween){camera.position.lerp(tween,reducedMotion.matches?1:1-Math.exp(-dt*7));if(camera.position.distanceTo(tween)<.015){camera.position.copy(tween);tween=null;}dirty=true;}
   const changed=controls.update(dt);
   if(dirty||changed){try{draw();}catch(error){if(!compatibility){contextLost({preventDefault(){}});return;}throw error;}}
-  if(changed||interacting||tween)raf=requestAnimationFrame(tick);
+  if((changed||interacting||tween)&&!raf)raf=requestAnimationFrame(tick);
  }
  function start(){if(!raf&&!disposed&&visible&&!document.hidden){lastTime=performance.now();raf=requestAnimationFrame(tick);}}
  controls.addEventListener('start',()=>{interacting=true;tween=null;viewport.classList.add('is-interacting');start();});
