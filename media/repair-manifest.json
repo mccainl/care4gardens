@@ -1,0 +1,73 @@
+{
+  "sha256": "2d35a330c2fbfa3afd8bd7c8682a4beb9a267155eac88bb8c35036c293f039b0",
+  "parts": [
+    {
+      "file": "film-repair.part000",
+      "sha256": "bf966e3a95e0fc9be7d42b0fee3a29cc600958d5aa73633a6da0e3c683edea53"
+    },
+    {
+      "file": "film-repair.part001",
+      "sha256": "cb0f43c1ebf116ce16ddebd798561ce1b43ea92411815a07e68b32e4dfe07969"
+    },
+    {
+      "file": "film-repair.part002",
+      "sha256": "d71acc3110636d658a59855f9fda5d476eee2b4040c1c32be3817227ee9b1d7f"
+    },
+    {
+      "file": "film-repair.part003",
+      "sha256": "70f40c94139d55bedaafe8c63a28c5467f413e18091d5d2939947f2fee322418"
+    },
+    {
+      "file": "film-repair.part004",
+      "sha256": "5d63c75eba2fac85b46e15afd5cd0b2f0add97d4993881b39819197a1bdbeffd"
+    },
+    {
+      "file": "film-repair.part005",
+      "sha256": "c4a47b2fc1945fda6080a1ffa91adbe1fb35f9a1349050a3635cb2028d998d5d"
+    },
+    {
+      "file": "film-repair.part006",
+      "sha256": "cd7d7484e4b89732abcf00612fd15082433ab1258a8cf3350b79f4c97c214531"
+    },
+    {
+      "file": "film-repair.part007",
+      "sha256": "971ca0096c7c638abc7f44d9f8ce95914dfe6016d6ffac2ebebb8d0b717eafd3"
+    },
+    {
+      "file": "film-repair.part008",
+      "sha256": "f6ca39ed203df1684472b7e6f53712fd11e04c851de912ea1907097d824b3e99"
+    }
+  ],
+  "files": [
+    {
+      "name": "introduction-corrected.mp4",
+      "bytes": 6558961,
+      "sha256": "1fe724d3c9f9359cff22c4ed783d0f10697e055baf794882407c212e336c164e"
+    },
+    {
+      "name": "garden-living-corrected.mp4",
+      "bytes": 2229425,
+      "sha256": "909e08a2bfd024658d50f6b26c971c656545a9b13e77ae00fdd4fbbf8b413e2a"
+    },
+    {
+      "name": "introduction-poster.webp",
+      "bytes": 190880,
+      "sha256": "5283e83f9648127884c3ed872414a6b49aaa802532479e2ff0be3c81826cb454"
+    },
+    {
+      "name": "garden-living-poster.webp",
+      "bytes": 233364,
+      "sha256": "d54dbe3eeae9b0f57d917e3a32d506083ae6cca1c84787e7f736812af838f8a6"
+    },
+    {
+      "name": "narration-corrected.vtt",
+      "bytes": 468,
+      "sha256": "fdf356f63a3937c4529b3d8483808b8248b7d7a0b6ce8458a0198b2ead725ee6"
+    },
+    {
+      "name": "descriptions-corrected.vtt",
+      "bytes": 417,
+      "sha256": "27b383e00a1cb9610eb80b5f7e91d1d656850c87b26ec2e59ea0a7231334cb62"
+    }
+  ]
+}

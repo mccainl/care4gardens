@@ -183,5 +183,10 @@
     "additional_generation_credits_spent": 0,
     "client_approval": "not recorded",
     "production_shop_replaced": false
+  },
+  "superseded": {
+    "reason": "User rejected the replacement montage because its screen/shutter scenes did not follow the retained veranda and glazing narration.",
+    "replacement_record": "docs/video-repair-2026-10-27.json",
+    "brief_fidelity": "failed"
   }
 }

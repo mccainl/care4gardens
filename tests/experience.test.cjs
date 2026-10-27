@@ -23,8 +23,8 @@ function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchE
  const restricted=setup('index.html','https://example.com/care4gardens/',undefined,html=>html,true);await new Promise(resolve=>setTimeout(resolve,0));
  assert.equal(restricted.document.querySelector('#hero-pause').getAttribute('aria-label'),'Achtergrondvideo afspelen');const attempts=restricted.mediaCalls.filter(x=>x[0]==='play').length;
  click(restricted,'#hero-pause');assert.equal(restricted.mediaCalls.filter(x=>x[0]==='play').length,attempts+1,'One tap retries blocked autoplay');restricted.close();
- const cache=setup('index.html','https://example.com/care4gardens/',undefined,html=>html.replace('src="assets/introduction-v2.mp4"','src="assets/introduction-v2.mp4?v=fixture-version"'));
- click(cache,'.hero-film-row [data-film]');assert(cache.document.querySelector('#brand-film').src.endsWith('introduction-v2.mp4?v=fixture-version'),'Expanded film retains the build content version');
+ const cache=setup('index.html','https://example.com/care4gardens/',undefined,html=>html.replace('src="assets/introduction-corrected.mp4"','src="assets/introduction-corrected.mp4?v=fixture-version"'));
+ click(cache,'#intro-expand');assert(cache.document.querySelector('#brand-film').src.endsWith('introduction-corrected.mp4?v=fixture-version'),'Expanded film retains the build content version');
  click(cache,'#film-dialog .dialog-close');cache.close();
  const w=setup('index.html','https://example.com/care4gardens/');const d=w.document;
  assert(d.querySelector('.hero-video').muted,'Hero footage is silent');
@@ -76,7 +76,7 @@ function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchE
  assert.equal(new URL(review.src).searchParams.get('id'),'1210516');
  assert.equal(d.querySelector('#quote-direct').href,'https://care4gardens.nl/pages/offerte-aanvragen-reuzenpanda');
  assert(d.querySelector('#quote-status a[href^="https://wa.me/"]'));
- assert(d.querySelector('.hero-video source').src.endsWith('veranda-atmosphere.mp4'));assert(d.querySelector('.hero-image'));
+ assert(d.querySelector('.hero-video source').src.endsWith('garden-living-corrected.mp4'));assert(d.querySelector('.hero-image'));
  assert(!/[↗→←↺↓✓▶Ⅱ‹›]/u.test(d.body.textContent),'No emoji-style UI characters; multiplication signs are used for dimensions');
  click(w,'[data-film]');assert.equal(d.querySelector('#brand-film').muted,false);click(w,'#film-dialog .dialog-close');
 
@@ -167,11 +167,11 @@ function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchE
  await Promise.resolve();assert(inline.every(video=>video.src.endsWith(video.dataset.src)));
  assert(fw.mediaCalls.some(([type,name])=>type==='play'&&name==='screen-film'));
  const glassVideo=fd.querySelector('#screen-film');
- const beforeExpanded=fw.mediaCalls.length;click(fw,'.hero-film-row [data-film]');assert(fd.querySelector('#brand-film').src.endsWith('introduction-v2.mp4'));assert(!fd.querySelector('#film-sound').hidden);
+ const beforeExpanded=fw.mediaCalls.length;click(fw,'#intro-expand');assert(fd.querySelector('#brand-film').src.endsWith('introduction-corrected.mp4'));assert(!fd.querySelector('#film-sound').hidden);
  for(const video of inline)assert(fw.mediaCalls.slice(beforeExpanded).some(([type,name])=>type==='pause'&&name===video.id));
  click(fw,'#film-dialog .dialog-close');assert(fw.mediaCalls.slice(beforeExpanded).some(([type,name])=>type==='play'&&name==='screen-film'));
  visibility.callback([{target:glassVideo,isIntersecting:false}]);assert.deepEqual(fw.mediaCalls.at(-1),['pause','screen-film']);
- click(fw,'.hero-film-row [data-film]');assert(fd.querySelector('#brand-film').src.endsWith('introduction-v2.mp4'));assert(!fd.querySelector('#film-sound').hidden);assert(!fd.querySelector('#brand-film').muted);
+ click(fw,'#intro-expand');assert(fd.querySelector('#brand-film').src.endsWith('introduction-corrected.mp4'));assert(!fd.querySelector('#film-sound').hidden);assert(!fd.querySelector('#brand-film').muted);
  click(fw,'#film-dialog .dialog-close');await Promise.resolve();fw.close();
  const cw=setup('index.html','https://example.com/care4gardens/');
  cw.eval(fs.readFileSync(path.join(root,'customer-media.js'),'utf8'));

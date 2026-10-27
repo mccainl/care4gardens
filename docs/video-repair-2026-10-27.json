@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "project_id": "care4gardens-original-film-repair",
+  "date": "2026-10-27",
+  "status": "preview_revision_awaiting_live_browser_verification",
+  "authorization": {
+    "editing": true,
+    "publication": true,
+    "evidence": "User requested completion of Care4Gardens and listed corrections to the existing website/video. Existing MCC GitHub Pages preview is the authorized destination."
+  },
+  "budget": {
+    "additional_generation_credits_spent": 0
+  },
+  "remake": true,
+  "original_reference": {
+    "introduction_sha256": "c059ebda8de9370451f5e53dac58e8589b99d5d7baa0093a2b0c65956c63b410",
+    "customer_feedback": "Preserve the previous film; remove intersecting glass, align narration and picture, make the explanation complete and the closing natural."
+  },
+  "preserved": [
+    "Original Dutch soundtrack at its original speed and timing",
+    "Aluminium, Douglas and sheltered garden story",
+    "Original interior garden view from the customer reference"
+  ],
+  "changes": [
+    "Removed moving-glass defect intervals; open and sheltered views are now explicit cuts",
+    "Reused stable original footage and the already-generated matching aluminium shot",
+    "Continuous original garden footage replaces the frozen closing card",
+    "Timed Dutch captions and product/service labels",
+    "Full film is visible inline with native controls; audible autoplay is attempted on entry, with direct sound activation when policy blocks it",
+    "First sound activation restarts the full explanation; no narration loop; offscreen playback pauses"
+  ],
+  "duration_seconds": 21.5,
+  "fps": 24,
+  "shots": [
+    {
+      "id": "aluminium-open",
+      "source": "garden-transformations.mp4",
+      "in": 0,
+      "out": 1.5,
+      "frames": 56,
+      "source_sha256": "40be6647725501f27c83f79e0d75baea82278d29edb5c7ae52277a1f000485e2",
+      "start_frame": 0,
+      "end_frame_exclusive": 56
+    },
+    {
+      "id": "aluminium-sheltered",
+      "source": "veranda-atmosphere.mp4",
+      "in": 0.5,
+      "out": 3.6,
+      "frames": 74,
+      "source_sha256": "806bf9fe87d6b3d24b2fb05592e6903c66c18a044375f2b54a2605d55816a17f",
+      "start_frame": 56,
+      "end_frame_exclusive": 130
+    },
+    {
+      "id": "douglas-open",
+      "source": "garden-transformations.mp4",
+      "in": 7.75,
+      "out": 8.95,
+      "frames": 30,
+      "source_sha256": "40be6647725501f27c83f79e0d75baea82278d29edb5c7ae52277a1f000485e2",
+      "start_frame": 130,
+      "end_frame_exclusive": 160
+    },
+    {
+      "id": "douglas-glass",
+      "source": "garden-transformations.mp4",
+      "in": 11,
+      "out": 14.95,
+      "frames": 126,
+      "source_sha256": "40be6647725501f27c83f79e0d75baea82278d29edb5c7ae52277a1f000485e2",
+      "start_frame": 160,
+      "end_frame_exclusive": 286
+    },
+    {
+      "id": "garden-living",
+      "source": "garden-living.mp4",
+      "in": 9,
+      "out": 14.95,
+      "frames": 230,
+      "source_sha256": "865c117965469cbc3faa6b4fd06d44bbf60966471bec17a278e24efff0f2c298",
+      "start_frame": 286,
+      "end_frame_exclusive": 516
+    }
+  ],
+  "captions": [
+    [
+      0.14,
+      2.3,
+      "Van een open terras"
+    ],
+    [
+      2.3,
+      5.22,
+      "naar een plek om langer van buiten te genieten."
+    ],
+    [
+      5.42,
+      6.68,
+      "Met overkappingen"
+    ],
+    [
+      6.68,
+      9.56,
+      "en glazen schuifwanden van Care4Gardens."
+    ],
+    [
+      9.72,
+      11.9,
+      "Wij maken buitenleven mooier."
+    ],
+    [
+      12.08,
+      14.03,
+      "Ook genieten van uw tuin?"
+    ],
+    [
+      14.08,
+      16.25,
+      "Sluit u aan bij onze tevreden klanten."
+    ],
+    [
+      16.44,
+      20.25,
+      "Care4Gardens maakt buitenleven mooier."
+    ]
+  ],
+  "validation": {
+    "full_file_decode": "passed",
+    "audio_source_alignment": {
+      "correlation": 0.9998748939420398,
+      "method": "Decoded original and final at 16 kHz mono; same-time sample correlation verifies preserved timing."
+    },
+    "automated_web_tests": "passed",
+    "visual_inspection": "Source sequences, joins and final closing sampled at full resolution. No mechanism demonstration is claimed. This is not a complete human motion/listening sign-off.",
+    "live_browser": "pending",
+    "physical_iPhone": "not tested"
+  },
+  "output": [
+    {
+      "name": "introduction-corrected.mp4",
+      "bytes": 6558961,
+      "sha256": "1fe724d3c9f9359cff22c4ed783d0f10697e055baf794882407c212e336c164e"
+    },
+    {
+      "name": "garden-living-corrected.mp4",
+      "bytes": 2229425,
+      "sha256": "909e08a2bfd024658d50f6b26c971c656545a9b13e77ae00fdd4fbbf8b413e2a"
+    },
+    {
+      "name": "introduction-poster.webp",
+      "bytes": 190880,
+      "sha256": "5283e83f9648127884c3ed872414a6b49aaa802532479e2ff0be3c81826cb454"
+    },
+    {
+      "name": "garden-living-poster.webp",
+      "bytes": 233364,
+      "sha256": "d54dbe3eeae9b0f57d917e3a32d506083ae6cca1c84787e7f736812af838f8a6"
+    },
+    {
+      "name": "narration-corrected.vtt",
+      "bytes": 468,
+      "sha256": "fdf356f63a3937c4529b3d8483808b8248b7d7a0b6ce8458a0198b2ead725ee6"
+    },
+    {
+      "name": "descriptions-corrected.vtt",
+      "bytes": 417,
+      "sha256": "27b383e00a1cb9610eb80b5f7e91d1d656850c87b26ec2e59ea0a7231334cb62"
+    }
+  ],
+  "client_approval": "not recorded"
+}

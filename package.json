@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "python3 scripts/restore-media.py && node scripts/build.mjs",
-    "test": "python3 scripts/check-media.py && node tests/experience.test.cjs && node tests/configurator-3d.test.mjs"
+    "test": "python3 scripts/check-media.py && node tests/experience.test.cjs && node tests/introduction.test.cjs && node tests/configurator-3d.test.mjs"
   },
   "dependencies": {
     "three": "0.186.1"
