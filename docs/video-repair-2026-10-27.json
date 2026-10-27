@@ -2,7 +2,7 @@
   "schema_version": 1,
   "project_id": "care4gardens-original-film-repair",
   "date": "2026-10-27",
-  "status": "preview_revision_awaiting_live_browser_verification",
+  "status": "deployed_preview_revision",
   "authorization": {
     "editing": true,
     "publication": true,
@@ -133,8 +133,18 @@
     },
     "automated_web_tests": "passed",
     "visual_inspection": "Source sequences, joins and final closing sampled at full resolution. No mechanism demonstration is claimed. This is not a complete human motion/listening sign-off.",
-    "live_browser": "pending",
-    "physical_iPhone": "not tested"
+    "live_browser": {
+      "browser": "Cloud Chrome",
+      "desktop": "Live inline film readyState 4; 21.5 seconds; autoplay fell back to muted without opening a dialog. Direct sound control restarted at 0.0516 seconds, unmuted, with dialog closed.",
+      "mobile": "390 px review frame / 375 px content; film 331 x 186.19 px; no horizontal overflow; inline unmuted playback advanced to 18.73 seconds.",
+      "after_playback_polish": "Garden poster restored after completion; explicit replay only; status contrast increased. Covered by regression tests; final deployment check follows."
+    },
+    "physical_iPhone": "not tested",
+    "scene_analysis": {
+      "provider": "Higgsfield",
+      "analysis_id": "1deb74e9-2291-4412-a78c-77991af0e30c",
+      "scope": "Full exported film recognized as original terrace / Douglas / glazing / garden story and retained narration. Approximate analysis is not used as proof of mechanical accuracy or exact timecodes."
+    }
   },
   "output": [
     {
@@ -168,5 +178,14 @@
       "sha256": "27b383e00a1cb9610eb80b5f7e91d1d656850c87b26ec2e59ea0a7231334cb62"
     }
   ],
-  "client_approval": "not recorded"
+  "client_approval": "not recorded",
+  "deployment": {
+    "commit": "f71f63fa8b26de5211cd391a0c72e8912e6c6ff2",
+    "url": "https://mccainl.github.io/care4gardens/",
+    "workflow": "https://github.com/mccainl/care4gardens/actions/runs/40492674852",
+    "build": "success",
+    "tests": "success",
+    "deploy": "success",
+    "live_film_sha256": "1fe724d3c9f9359cff22c4ed783d0f10697e055baf794882407c212e336c164e"
+  }
 }

@@ -18,6 +18,7 @@ function setup({blocked=false, reduced=false}={}) {
     return Promise.resolve();
   };
   video.pause = function() { calls.push({type:'pause'}); if (!paused) { paused=true; this.dispatchEvent(new w.Event('pause')); } };
+  video.load = function() { calls.push({type:'load'}); paused=true; ended=false; this.currentTime=0; };
   w.matchMedia = () => ({matches:reduced, addEventListener(){}});
   let observer;
   w.IntersectionObserver = class {constructor(callback){observer=callback;}observe(){}};
@@ -46,11 +47,16 @@ function setup({blocked=false, reduced=false}={}) {
   s.video.pause(); s.visibility(0); s.visibility(.9); await tick(); assert(s.video.paused,'Explicit pause survives scrolling');
   await s.video.play(); s.finish(); const plays=s.calls.filter(c=>c.type==='play').length;
   s.visibility(0);s.visibility(1);await tick();assert.equal(s.calls.filter(c=>c.type==='play').length,plays,'Completed narration does not repeat automatically');
+  assert.equal(s.video.currentTime,0,'Completed film resets for an intentional replay');
+  assert(s.video.poster.endsWith('garden-living-poster.webp'),'A garden poster replaces the black end frame');
   assert.equal(s.video.loop,false);
   await s.video.play();
   s.d.dispatchEvent(new s.w.CustomEvent('care4gardens:film',{detail:{open:true}}));await tick();assert(s.video.paused,'Expanded film has exclusive audio');
   s.d.dispatchEvent(new s.w.CustomEvent('care4gardens:film',{detail:{open:false,introduction:true,time:11,muted:false,ended:false}}));await tick();
   assert.equal(s.video.currentTime,11);assert(!s.video.paused,'Closing the expanded view continues inline');
+  s.d.dispatchEvent(new s.w.CustomEvent('care4gardens:film',{detail:{open:true}}));
+  s.d.dispatchEvent(new s.w.CustomEvent('care4gardens:film',{detail:{open:false,introduction:true,time:21.5,muted:false,ended:true}}));await tick();
+  assert.equal(s.video.currentTime,0);assert(s.video.paused,'Completing the enlarged film also returns to the garden poster without replay');
   Object.defineProperty(s.d,'hidden',{configurable:true,value:true});s.d.dispatchEvent(new s.w.Event('visibilitychange'));await tick();assert(s.video.paused);
   s.dom.window.close();
   const a=setup();a.visibility(1);await tick();assert(!a.video.muted&&!a.video.paused,'Audio starts on visibility when browser policy permits');a.dom.window.close();

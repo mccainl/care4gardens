@@ -57,7 +57,15 @@
   video.addEventListener('pause', () => {
     if (!automaticPause && !video.ended) manualPause = true;
   });
-  video.addEventListener('ended', () => { finished = true; updateSound(); });
+  function finishPlayback() {
+    finished = true;
+    automaticPause = true;
+    // Keep a welcoming garden image after the film's fade, ready for a deliberate replay.
+    video.poster = document.querySelector('.hero-video')?.poster || video.poster;
+    video.load();
+    updateSound();
+  }
+  video.addEventListener('ended', finishPlayback);
   video.addEventListener('volumechange', updateSound);
   video.addEventListener('error', () => { status.textContent = 'De film kon niet laden. Probeer de pagina opnieuw te openen.'; });
   sound.addEventListener('click', () => {
@@ -84,6 +92,7 @@
       video.muted = event.detail.muted;
       finished = event.detail.ended;
       if (!video.muted) soundHeard = true;
+      if (finished) finishPlayback();
       updateSound();
     }
     playVisible();
