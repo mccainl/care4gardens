@@ -2,7 +2,7 @@
 
 **A new 30.25-second introduction with generated moving footage in the original visual style.**
 
-Status: five moving scenes are assembled; the corrected personal-advice scene replaces a rejected device demonstration. Dutch voice selection, narration alignment, final review and website publication are still pending. The user authorised the 29-credit ceiling; 24 credits have been submitted at their exact quoted prices.
+Status: the 30.25-second film is rendered with Arthur’s Dutch narration, synchronized captions, instrumental music and closing branding. Five new moving scenes replace the rejected montage. Build and control tests pass; live browser verification follows publication to the existing MCC concept.
 
 The viewer should understand what Care4Gardens offers: aluminium and Douglas overkappingen, glazen schuifwanden, and personal help from advice and measurement through installation. The film opens automatically in the first hero of the website.
 
@@ -43,7 +43,7 @@ The existing reference images establish the intended architecture and styling. T
 >
 > Care4Gardens maakt buitenleven mooier.
 
-Warm, clear Dutch delivery, with a relaxed pace and a small pause between thoughts. The voice must pronounce the products and brand naturally. Select an actual supported voice before quoting or generating the narration. Align cuts and fresh captions to its real waveform. Keep the final brand line intact; leave room for the closing image to breathe. No paid music job or unlicensed commercial music is included in this plan.
+Warm, clear Dutch delivery, with a relaxed pace and a small pause between thoughts. The voice must pronounce the products and brand naturally. Arthur was explicitly selected by the user and rendered at an exact quote of 2 credits. Phrase cuts fall inside measured silence, and captions follow the actual voice timing. Keep the final brand line intact; leave room for the closing image to breathe. No paid music job or unlicensed commercial music is included in this plan.
 
 ## The opening website experience
 
@@ -53,7 +53,7 @@ Warm, clear Dutch delivery, with a relaxed pace and a small pause between though
 - On mobile, the complete landscape film sits above the hero text so glass, people and important action are not cropped out.
 - Scrolling away pauses the film; returning resumes it. Deliberate pauses remain paused. The narration does not loop. The final garden frame remains until the visitor chooses replay. Reduced-motion visitors choose when to play.
 
-The hero controller is implemented on the `cinematic-rebuild-20261027` branch. The existing rejected film is only a development fixture. New footage is assembled. Final narration, browser review and deployment are still pending.
+The hero controller is implemented on the `cinematic-rebuild-20261027` branch. The existing rejected film is only a development fixture. The new narrated film is packaged for the existing MCC GitHub Pages concept. Live browser verification is the remaining release check.
 
 ## Production order and acceptance
 
@@ -71,14 +71,14 @@ Reject sliding panes that merge or disappear, bending posts, extra fingers, chan
 |---|---:|---|
 | Five new eight-second Kling 4.0 clips, 720p, 16:9 | 20 | Completed at exact submitted quotes of 4 per shot |
 | One replacement personal-advice clip | 4 | Quoted, generated and selected for assembly; original device take rejected |
-| Dutch narration | Up to 5 | Reserve only; voice and exact quote pending |
+| Arthur Dutch narration | 2 | Generated; wording and timing checked with source and final-export transcription |
 | **Authorised maximum new spend** | **29** | **Authorised by the user on 27 October 2026** |
 
-Six video jobs were submitted for 24 quoted credits, including the rejected take and its correction. Up to 5 credits remain for separately quoted narration. Settled billing has not been reported. The prior 21-credit production is separate. The current export is a motion preview with instrumental music; it is not the narrated client film and is not deployed.
+Six video jobs and one Arthur narration job were submitted for 26 quoted credits, including the rejected take and its correction. Three credits of the ceiling remain unused. Settled billing has not been reported; the prior 21-credit production is separate.
 
 Technical preparation: the site build, existing media checks, experience/configurator tests and the new hero playback state tests pass. These tests do not establish the creative quality of the new film. Source integrity, strict decoding, frame inspection and automated temporal analysis are recorded separately; direct full-film playback/listening approval is not claimed. Real browser and physical-device review remain part of the final release work.
 
-The current [motion preview](https://d2ol7oe51mr4n9.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/a1b38781-060f-4eae-9356-09635e93c76f.mp4) contains music but no final narration. Its exact bytes, frame count and review coverage are recorded in [review-record.json](review-record.json).
+The [narrated film](https://d2ol7oe51mr4n9.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/44d800f2-953c-4b5c-a5aa-d2c0158be112.mp4) includes Arthur, the music mix and closing titles. Its exact bytes, frame count and review coverage are recorded in [review-record.json](review-record.json).
 
 The detailed prompts, frame plan, budget state and release gates are in [production.json](production.json). Exact provider requests and returned prices are in [quotes.json](quotes.json).
 

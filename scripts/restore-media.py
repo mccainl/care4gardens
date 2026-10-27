@@ -14,7 +14,7 @@ WITHDRAWN = {'garden-living.mp4', 'hero-loop.mp4', 'glass-installation.mp4', 'in
 for name in WITHDRAWN:
     (DEST / name).unlink(missing_ok=True)
 restored = 0
-for manifest_name in ['manifest.json', 'motion-manifest.json', 'product-manifest.json', 'film-manifest.json', 'repair-manifest.json']:
+for manifest_name in ['manifest.json', 'motion-manifest.json', 'product-manifest.json', 'film-manifest.json', 'repair-manifest.json', 'cinematic-manifest.json']:
     manifest = json.loads((SOURCE / manifest_name).read_text())
     pieces = []
     for part in manifest['parts']:

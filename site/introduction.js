@@ -29,7 +29,7 @@
     captions.setAttribute('aria-label', show ? 'Ondertiteling uitschakelen' : 'Ondertiteling inschakelen');
   }
   function updateCopy() {
-    const quiet = desktop.matches && !reduced.matches && !video.paused && !finished && !failed && video.currentTime > 4 && !copy.contains(document.activeElement);
+    const quiet = desktop.matches && !reduced.matches && (!video.paused || finished) && !failed && video.currentTime > 4 && !copy.contains(document.activeElement);
     hero.classList.toggle('film-view', quiet);
     copy.inert = quiet;
   }

@@ -1,0 +1,55 @@
+{
+  "id": "1b7396ae-41ff-4713-956c-c06fcc62fb46",
+  "video_input_id": "44d800f2-953c-4b5c-a5aa-d2c0158be112",
+  "youtube_url": null,
+  "status": "completed",
+  "fail_reason": null,
+  "video_s3_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/44d800f2-953c-4b5c-a5aa-d2c0158be112.mp4",
+  "scenes": [
+    {
+      "audio": "Enjoy more of your garden with an aluminum patio cover. (Light, upbeat acoustic background music starts and continues throughout.)",
+      "label": "Opening Hook",
+      "visual": "A woman (approx. 30s, fair skin, long brown hair, wearing a white long-sleeved blouse and black trousers) walks from left to right across a lush green lawn towards a sleek, dark grey aluminum and glass patio cover attached to a two-story red brick house. Under the cover, there is a modern outdoor beige sofa set and a low wooden coffee table. The lighting is warm late-afternoon sun, creating long shadows and a golden glow. The background features mature trees and white flowering shrubs.",
+      "shot_type": "Wide Shot",
+      "scene_number": 1,
+      "timestamp_end": "0:05",
+      "timestamp_start": "0:00"
+    },
+    {
+      "audio": "Or the warm look of Douglas, matching your garden.",
+      "label": "Product Information",
+      "visual": "A man (approx. 30s, fair skin, short dark hair, wearing a light blue button-up shirt and dark trousers) stands under a rustic wooden Douglas fir patio cover. He is placing a white ceramic mug onto a large wooden dining table. The floor is paved with dark bricks. The lighting is warm and soft, with two modern black wall-mounted lights glowing on the wooden wall behind him. Potted plants and a glass vase with greenery are on the table.",
+      "shot_type": "Medium Shot",
+      "scene_number": 2,
+      "timestamp_end": "0:11",
+      "timestamp_start": "0:05"
+    },
+    {
+      "audio": "Glass sliding walls provide shelter while maintaining your view.",
+      "label": "Product Selling Points",
+      "visual": "The same man from the previous scene is seen from the side, sliding a large glass wall of a garden room closed. The camera is positioned inside the glass enclosure looking out. Through the glass, a meticulously landscaped garden with green lawns and large white hydrangea bushes is visible. The man's gesture is smooth as the glass panels slide into place.",
+      "shot_type": "Medium Shot",
+      "scene_number": 3,
+      "timestamp_end": "0:17",
+      "timestamp_start": "0:11"
+    },
+    {
+      "audio": "From personal advice and measuring to professional installation.",
+      "label": "Real Experience",
+      "visual": "An older man (approx. 50s, grey hair, wearing a green polo shirt) is seated at a table with the woman from the first scene. They are both looking down at a detailed architectural blueprint of a patio cover. The man is holding a yellow pencil and pointing at the design. They are sitting on the outdoor sofa under the aluminum patio cover. Both look engaged and content.",
+      "shot_type": "Medium Shot",
+      "scene_number": 4,
+      "timestamp_end": "0:23",
+      "timestamp_start": "0:17"
+    },
+    {
+      "audio": "Care4Gardens makes outdoor living more beautiful. (The music swells slightly and then fades out.)",
+      "label": "Call to Action",
+      "visual": "Two people, a man and a woman, are seen from behind sitting on an outdoor sofa inside the glass garden room. They are both holding mugs, looking out at the sunny garden. The scene is bright and airy with high-key lighting. The overall color palette is natural with greens, browns, and neutral beige tones. The shot conveys a sense of peace and relaxation.",
+      "shot_type": "Wide Shot",
+      "scene_number": 5,
+      "timestamp_end": "0:29",
+      "timestamp_start": "0:23"
+    }
+  ]
+}

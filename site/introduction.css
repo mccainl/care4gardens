@@ -1,5 +1,9 @@
 /* The complete introduction lives in the opening hero. */
-.hero .hero-video{object-position:center;transition:opacity .35s}
+.hero{background:#142b20}
+.hero .hero-video,.hero .hero-image{object-fit:contain;object-position:center;animation:none}
+.hero .hero-video{transition:opacity .35s}
+.hero .hero-shade{transition:opacity .7s ease}
+.hero.film-view .hero-shade{opacity:0}
 .hero-content{transition:opacity .7s ease,transform .7s ease}
 .hero.film-view .hero-content{opacity:0;transform:translateY(10px);pointer-events:none}
 .hero-film-row .film-button{background:#10261c99;border-color:#ffffff70;min-height:44px}

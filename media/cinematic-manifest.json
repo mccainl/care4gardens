@@ -1,0 +1,123 @@
+{
+  "sha256": "d8df27bc891fdfd72c540cfd1d7187187147343223b656db8531bf75197c2746",
+  "parts": [
+    {
+      "file": "cinematic.part000",
+      "sha256": "e3d99c71c783b603df06810852b58dbfc86c212b466d08b6b9b895e59552e984"
+    },
+    {
+      "file": "cinematic.part001",
+      "sha256": "cebb06210fb2593dc0b1ca3b33e983d9a0bc1dd49ee43c806a54fae77057450f"
+    },
+    {
+      "file": "cinematic.part002",
+      "sha256": "323abcbfdee20de95ad1664119416820da2094c70c2fa3718f2d51e4a9880874"
+    },
+    {
+      "file": "cinematic.part003",
+      "sha256": "f4582d79abbb1a516a4c0c695f42cd0e1ac4ee716918bb309da9d87de39bd6c1"
+    },
+    {
+      "file": "cinematic.part004",
+      "sha256": "a03e7a9c62ff610aa50c3c1bfa50a68abda7769a43cfea8da36931a57ecc8d0a"
+    },
+    {
+      "file": "cinematic.part005",
+      "sha256": "826c931f3fea214b79aa7dc1ba3065095b8b9645e99c3ed81c302c117d92d979"
+    },
+    {
+      "file": "cinematic.part006",
+      "sha256": "32d2ba43952a217939d0964120e6533ff4c932b4f1d22e5b65084588163166e2"
+    },
+    {
+      "file": "cinematic.part007",
+      "sha256": "d54bcf2ac760cc0273c540cec63735644eb2bf00b18643a8ebe68322b601ebe6"
+    },
+    {
+      "file": "cinematic.part008",
+      "sha256": "cb029f8e31d0f12a44953a1ae2101f4eec1b917b331af1f56b295fa3f05a69ca"
+    },
+    {
+      "file": "cinematic.part009",
+      "sha256": "279a5e9421e1d0538782848fffb29fe5a18c994743eb59eb6c03f97733aa5e84"
+    },
+    {
+      "file": "cinematic.part010",
+      "sha256": "7ef896a75c566e5da27910555703066dabc2ab8543671d34c7148459b245a5b6"
+    },
+    {
+      "file": "cinematic.part011",
+      "sha256": "b800d7006a00bd30fff90155e152f2d8a641688dad6c9b7dd9b1a73c879b1fa6"
+    },
+    {
+      "file": "cinematic.part012",
+      "sha256": "e6bb9370ab0417db4025f7c3a097ef5a1c4b4d9196d3981864f92eb80c1ee0bb"
+    },
+    {
+      "file": "cinematic.part013",
+      "sha256": "9d46219bde6a5c084bd675a451480cdc3bc4caeb08cfab19530b3ba7df003906"
+    },
+    {
+      "file": "cinematic.part014",
+      "sha256": "738d6b3df41499bcb6ee9e34821151c0a6e8c9cbd9dae1667bdee561cc23c7f8"
+    },
+    {
+      "file": "cinematic.part015",
+      "sha256": "92562b5db61fc2041027a8b339c4db59df0a14ca3d257993636e280c7b043c4a"
+    },
+    {
+      "file": "cinematic.part016",
+      "sha256": "061c378d71f56af16b1627968e0a8a4d5c66b757003c56898c1fe12909852c37"
+    },
+    {
+      "file": "cinematic.part017",
+      "sha256": "d593f0815b174cdebeb48367497afe52c924b13268fa5054d51482ad501579d4"
+    },
+    {
+      "file": "cinematic.part018",
+      "sha256": "45f0350eef675e6535017d376e2019a7bfecc6c2ccc8ed99a1ce473f66ecaa6c"
+    },
+    {
+      "file": "cinematic.part019",
+      "sha256": "e79882e379332221de8f38635d3cabd0815e61cdcabc2a443cf2824031bfb197"
+    },
+    {
+      "file": "cinematic.part020",
+      "sha256": "c0499db38e30883b78fb57a13e14b698a6fbab12559c1c1e0bc73b5cf9cfa3df"
+    },
+    {
+      "file": "cinematic.part021",
+      "sha256": "48e143d0a09c33173be9b266d074b056fc882c7b81f3bf7a3e7e99a3926c0b04"
+    },
+    {
+      "file": "cinematic.part022",
+      "sha256": "f7f683e98bc665724ba250a8933f9c38b4cf8ceb6540be895e1d4a7f285d7962"
+    },
+    {
+      "file": "cinematic.part023",
+      "sha256": "11157f3cd55d8240e60873670eb0e737c01fe0960331635903f782f4db62d370"
+    }
+  ],
+  "files": [
+    {
+      "name": "introduction-cinematic.mp4",
+      "bytes": 12123049,
+      "sha256": "fbe097b97612baf77c5e44c5ef9713c9c36a7c167e77498dea6930b16b25b767"
+    },
+    {
+      "name": "introduction-cinematic.webp",
+      "bytes": 201910,
+      "sha256": "9cb19321d1225b815008e2fa644f79d91ad140dd7b35da80f0778dcefd2b89ed"
+    },
+    {
+      "name": "narration-cinematic.vtt",
+      "bytes": 562,
+      "sha256": "cf82758937af76aac4edb3179bc0b3156eb81513fb520fde40b04b8912fb9134"
+    },
+    {
+      "name": "descriptions-cinematic.vtt",
+      "bytes": 475,
+      "sha256": "3da2428ae6691e0dc55da7061197a8e7e10fac5a8c7ba4da27d89e9290f85755"
+    }
+  ]
+}

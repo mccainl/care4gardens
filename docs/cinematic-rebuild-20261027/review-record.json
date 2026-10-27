@@ -1,5 +1,5 @@
 {
-  "status": "preview_only_not_client_release",
+  "status": "narrated_export_automated_review_complete_browser_pending",
   "date": "2026-10-27",
   "artifact": {
     "status": "motion_preview_narration_pending",
@@ -64,5 +64,40 @@
       "reason": "First assembled export had incomplete 2-second audio; corrected before preview delivery."
     }
   ],
-  "release_ready": false
+  "release_ready": false,
+  "final_artifact": {
+    "media_id": "44d800f2-953c-4b5c-a5aa-d2c0158be112",
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/44d800f2-953c-4b5c-a5aa-d2c0158be112.mp4",
+    "sha256": "fbe097b97612baf77c5e44c5ef9713c9c36a7c167e77498dea6930b16b25b767",
+    "bytes": 12123049,
+    "duration_seconds": 30.25,
+    "video_frames": 726,
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "audio_duration_seconds": 30.25,
+    "integrated_lufs": -16.25,
+    "true_peak_dbtp": -3.35,
+    "strict_decode": "passed",
+    "archive_manifest": "media/cinematic-manifest.json",
+    "scene_analysis_id": "1b7396ae-41ff-4713-956c-c06fcc62fb46",
+    "automatic_transcription_language": "nl",
+    "automatic_transcription_language_probability": 0.8545681834220886
+  },
+  "narration_review": {
+    "voice": "Arthur",
+    "source_job": "5710af24-2d97-4945-9ae5-681e30b257d7",
+    "word_timing_evidence": "arthur-transcript.json and final-transcript.json; cut points also checked against silencedetect, not ASR silence-inclusive word onsets alone.",
+    "final_speech_end_seconds": 27.3276,
+    "moving_ending_after_speech_seconds": 2.9224,
+    "no_time_stretch": true,
+    "asr_limitations": "Small-model transcript spells inmeten + tot as inmetend tot, vakkundige as vakundige, and transcribes the brand phonetically. Script, source waveform and full-export semantic analysis corroborate the intended passages; direct human pronunciation approval is not claimed."
+  },
+  "automated_full_export_analysis": {
+    "id": "1b7396ae-41ff-4713-956c-c06fcc62fb46",
+    "status": "completed",
+    "result": "All five picture chapters and corresponding narration passages identified.",
+    "limitations": "Analysis timestamps are approximate; some person/gender, location and glass-direction details are inaccurate. The exact 24 fps edit timeline and inspected frames govern those details."
+  },
+  "release_scope": "Authorised concept preview publication; client approval and direct human continuous playback/listening are not asserted."
 }

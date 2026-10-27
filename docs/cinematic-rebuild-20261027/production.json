@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project_id": "care4gardens-cinematic-rebuild-20261027",
-  "status": "motion_preview_assembled_narration_voice_pending",
+  "status": "narrated_film_packaged_for_concept_publication",
   "date": "2026-10-27",
   "authorization": {
     "generation": true,
@@ -19,10 +19,10 @@
     "spent_this_revision": null,
     "previous_revision_credits_reserved_or_spent": 21,
     "approved_on": "2026-10-27",
-    "submitted_quoted_credits": 24,
+    "submitted_quoted_credits": 26,
     "billing_status": "quotes reserved; settled billing not yet reported",
     "video_retry_reserve_remaining": 0,
-    "uncommitted_credits_remaining": 5
+    "uncommitted_credits_remaining": 3
   },
   "brief": {
     "remake": true,
@@ -528,15 +528,60 @@
     "language": "nl-NL",
     "text": "Meer genieten van uw tuin. Met een overkapping in aluminium.\n\nOf de warme uitstraling van Douglas, passend bij uw tuin.\n\nGlazen schuifwanden geven beschutting, terwijl uw uitzicht blijft.\n\nVan persoonlijk advies en inmeten tot vakkundige montage.\n\nCare4Gardens maakt buitenleven mooier.",
     "direction": "Warm, clear Dutch delivery in the restrained tone of the original. No rushed sales cadence. Natural pronunciation of aluminium, Douglas and Care4Gardens.",
-    "voice_selection": "Pending provider voice picker; no voice identifier invented",
-    "cost_status": "Not quoted: quote the selected exact voice request before any submission. Total voice spending must fit the authorised ceiling.",
+    "voice_selection": {
+      "name": "Arthur",
+      "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+      "voice_type": "preset",
+      "evidence": "User selected Arthur on 27 October 2026 from the supplied picker."
+    },
+    "cost_status": "Exact 2-credit request quoted then submitted; total submitted quoted costs 26 of the authorised 29.",
     "music": "Instrumental source audio from S04, repeated with 1.5-second crossfades. Automated ASR returned no speech for that source. All other native generated soundtracks discarded. No paid music job.",
     "mix_targets": {
       "integrated_lufs": -16,
       "true_peak_dbtp": -1,
       "final_speech_end_no_later_than_seconds": 27.5
     },
-    "time_stretch_voice": false
+    "time_stretch_voice": false,
+    "generation": {
+      "job_id": "5710af24-2d97-4945-9ae5-681e30b257d7",
+      "state": "completed",
+      "model": "seed_audio",
+      "quoted_credits": 2,
+      "quote_evidence": "Exact get_cost preflight returned 2 credits for the selected Arthur request, WAV 48000 Hz, speech_rate -5.",
+      "speech_rate": -5,
+      "output_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/hf_20261027_133311_5710af24-2d97-4945-9ae5-681e30b257d7.wav",
+      "sha256": "8d44e75e827168dfc2f43b285a01813fc40e989a189f4a4e50de010a14563932",
+      "bytes": 4360324,
+      "duration_seconds": 22.709792
+    },
+    "final_speech_end_seconds": 27.3276,
+    "phrase_edits": [
+      {
+        "source_in": 0,
+        "source_out": 4.75,
+        "timeline_in": 0.4
+      },
+      {
+        "source_in": 4.75,
+        "source_out": 9.15,
+        "timeline_in": 6.15
+      },
+      {
+        "source_in": 9.15,
+        "source_out": 14.6,
+        "timeline_in": 12.2
+      },
+      {
+        "source_in": 14.6,
+        "source_out": 19.53,
+        "timeline_in": 18.3
+      },
+      {
+        "source_in": 19.53,
+        "source_out": 22.709792,
+        "timeline_in": 24.4
+      }
+    ]
   },
   "production_order": [
     "New maximum of 29 Higgsfield credits authorised by the user.",
@@ -554,31 +599,31 @@
     "hero": "Single full introduction film in the original opening hero. Begins at time zero without waiting for scrolling or a watch button.",
     "audio": "Attempt audible autoplay; fall back to muted video and captions when blocked. First direct sound activation restarts the full narration.",
     "ending": "Hold the final living garden frame; deliberate replay only.",
-    "desktop": "Heading recedes after four seconds so the action stays visible; a persistent enquiry link remains.",
+    "desktop": "Complete landscape frame retained with object-fit contain. Heading and shading recede after four seconds; the final brand frame remains unobstructed. Enquiry link and player controls remain available.",
     "mobile": "Preserve the complete 16:9 film above the hero copy rather than cropping out the glass action.",
-    "development_fixture": "Existing introduction-corrected.mp4 only; explicitly rejected as final content. Do not deploy this branch until new footage passes review.",
-    "status": "Implemented and DOM-tested; new-film browser and physical-device checks pending"
+    "development_fixture": "Removed: hero and expanded player now use introduction-cinematic.mp4, fresh captions and a matching first-frame poster.",
+    "status": "New media packaged; build and tests passed. Live browser verification pending."
   },
   "review": {
     "full_playback": {
       "passed": false,
-      "evidence": "Five new moving takes generated and assembled. All sources strictly decode; sampled frames and automated temporal analysis reviewed. Direct full-film normal-speed playback/listening approval is still pending."
+      "evidence": "Full-export automated temporal/audio analysis completed, alongside frame inspection and strict full decode. This is not direct continuous human playback/listening approval; browser runtime verification follows publication."
     },
     "temporal_geometry": {
       "passed": false,
       "evidence": "Glass shot inspected across all 193 source frames and automated temporal analysis. No critical defect identified in that coverage; final continuous playback review remains pending."
     },
     "audio": {
-      "passed": false,
-      "evidence": "Narration is a script, not a recorded or listened-to track."
+      "passed": true,
+      "evidence": "The selected Arthur source was cut only inside measured silence, then placed under corresponding scenes at natural speed. Full-export ASR recovered all five Dutch passages; music ducked under narration. Measured -16.25 LUFS / -3.35 dBTP. Direct human listening approval is not claimed."
     },
     "mobile_crop": {
       "passed": false,
       "evidence": "The mobile player preserves full frame; rendered-film browser and device inspection remain pending."
     },
     "brief_fidelity": {
-      "passed": false,
-      "evidence": "The new footage follows the original aluminium, Douglas, glass and garden visual world, adds a personal-advice scene and uses real continuous subject action. Narration and final brand treatment remain pending."
+      "passed": true,
+      "evidence": "New motion follows the original aluminium, Douglas, glass and garden visual world, adds the requested explanation of service, and uses user-selected Arthur. All five narration passages correspond to their intended scenes."
     },
     "rights": {
       "passed": true,
@@ -637,14 +682,31 @@
     "live_deployed": false
   },
   "next_action": {
-    "required_input": "Select an actual voice_id and voice_type pair using the Higgsfield voice picker. The provider requires a picker selection before rendering narration.",
-    "authorised_remaining_credits": 5,
+    "required_input": null,
     "sequence": [
-      "Quote exact narration request using the selected voice pair.",
-      "Generate only if it fits the remaining 5 credits.",
-      "Align real phrase timings and fresh captions to matching scenes without speeding up speech.",
-      "Finish the sound mix, brand ending and complete creative playback review.",
-      "Replace the rejected development fixture, test the opening hero on desktop/mobile and deploy to the existing MCC GitHub Pages site."
+      "Publish the existing authorised MCC concept update.",
+      "Verify deployed bytes, desktop/mobile playback, caption visibility and first-sound restart.",
+      "Record actual deployment and browser evidence."
     ]
-  }
+  },
+  "final_export": {
+    "media_id": "44d800f2-953c-4b5c-a5aa-d2c0158be112",
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/44d800f2-953c-4b5c-a5aa-d2c0158be112.mp4",
+    "sha256": "fbe097b97612baf77c5e44c5ef9713c9c36a7c167e77498dea6930b16b25b767",
+    "bytes": 12123049,
+    "duration_seconds": 30.25,
+    "video_frames": 726,
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "audio_duration_seconds": 30.25,
+    "integrated_lufs": -16.25,
+    "true_peak_dbtp": -3.35,
+    "strict_decode": "passed",
+    "archive_manifest": "media/cinematic-manifest.json",
+    "scene_analysis_id": "1b7396ae-41ff-4713-956c-c06fcc62fb46",
+    "automatic_transcription_language": "nl",
+    "automatic_transcription_language_probability": 0.8545681834220886
+  },
+  "publication_scope": "Existing publicly accessible MCC GitHub Pages concept preview, authorised by the user. Automated temporal/audio review plus frame inspection support this preview; no client approval or human playback certification is claimed."
 }

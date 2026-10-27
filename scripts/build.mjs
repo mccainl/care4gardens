@@ -20,7 +20,7 @@ for(const page of ['index.html','collectie.html','checkout.html']){
  for(const file of ['introduction.css','introduction.js','styles.css','experience.css','refinement.css','configurator.css','configurator-model.js','configurator.js','app.js','integrations.js','customer-media.js','films.js','studio-loader.js','shop.css','shop.js','catalogue.js']){
   html=html.replaceAll(file+'?v=3',file+'?v='+await version(file));
  }
- for(const file of new Set(html.match(/assets\/[\w-]+\.mp4/g)||[])){
+ for(const file of new Set(html.match(/assets\/(?:[\w-]+\.(?:mp4|vtt)|introduction-cinematic\.webp)/g)||[])){
   html=html.replaceAll(file,file+'?v='+await version(file));
  }
  await writeFile('_site/'+page,html);

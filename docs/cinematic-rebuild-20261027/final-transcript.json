@@ -1,0 +1,282 @@
+{
+  "language": "nl",
+  "language_probability": 0.8545681834220886,
+  "duration": 30.2506875,
+  "segments": [
+    {
+      "start": 0.05,
+      "end": 4.57,
+      "text": " Meer genieten van uw tuin, met een overkapping in aluminium.",
+      "words": [
+        {
+          "start": 0.05,
+          "end": 0.63,
+          "word": " Meer",
+          "probability": 0.43116962909698486
+        },
+        {
+          "start": 0.63,
+          "end": 1.11,
+          "word": " genieten",
+          "probability": 0.9945341050624847
+        },
+        {
+          "start": 1.11,
+          "end": 1.41,
+          "word": " van",
+          "probability": 0.9979871511459351
+        },
+        {
+          "start": 1.41,
+          "end": 1.57,
+          "word": " uw",
+          "probability": 0.9572684168815613
+        },
+        {
+          "start": 1.57,
+          "end": 2.01,
+          "word": " tuin,",
+          "probability": 0.9903102815151215
+        },
+        {
+          "start": 2.53,
+          "end": 2.91,
+          "word": " met",
+          "probability": 0.9876505732536316
+        },
+        {
+          "start": 2.91,
+          "end": 3.05,
+          "word": " een",
+          "probability": 0.9941444993019104
+        },
+        {
+          "start": 3.05,
+          "end": 3.81,
+          "word": " overkapping",
+          "probability": 0.7750159911811352
+        },
+        {
+          "start": 3.81,
+          "end": 3.97,
+          "word": " in",
+          "probability": 0.9912694692611694
+        },
+        {
+          "start": 3.97,
+          "end": 4.57,
+          "word": " aluminium.",
+          "probability": 0.9345670938491821
+        }
+      ]
+    },
+    {
+      "start": 5.61,
+      "end": 10.51,
+      "text": " Of de warme uitstraling van Douglas passend bij uw tuin.",
+      "words": [
+        {
+          "start": 5.61,
+          "end": 6.69,
+          "word": " Of",
+          "probability": 0.9600965976715088
+        },
+        {
+          "start": 6.69,
+          "end": 6.83,
+          "word": " de",
+          "probability": 0.9937989115715027
+        },
+        {
+          "start": 6.83,
+          "end": 7.21,
+          "word": " warme",
+          "probability": 0.9752123057842255
+        },
+        {
+          "start": 7.21,
+          "end": 7.93,
+          "word": " uitstraling",
+          "probability": 0.9730958044528961
+        },
+        {
+          "start": 7.93,
+          "end": 8.13,
+          "word": " van",
+          "probability": 0.9980390667915344
+        },
+        {
+          "start": 8.13,
+          "end": 8.49,
+          "word": " Douglas",
+          "probability": 0.950463593006134
+        },
+        {
+          "start": 8.49,
+          "end": 9.59,
+          "word": " passend",
+          "probability": 0.9687932431697845
+        },
+        {
+          "start": 9.59,
+          "end": 9.85,
+          "word": " bij",
+          "probability": 0.9972426891326904
+        },
+        {
+          "start": 9.85,
+          "end": 10.05,
+          "word": " uw",
+          "probability": 0.9651017189025879
+        },
+        {
+          "start": 10.05,
+          "end": 10.51,
+          "word": " tuin.",
+          "probability": 0.9979141056537628
+        }
+      ]
+    },
+    {
+      "start": 11.99,
+      "end": 17.07,
+      "text": " Glazen schuifwanden geven beschutting terwijl uw uitzicht blijft.",
+      "words": [
+        {
+          "start": 11.99,
+          "end": 12.77,
+          "word": " Glazen",
+          "probability": 0.7489479184150696
+        },
+        {
+          "start": 12.77,
+          "end": 13.51,
+          "word": " schuifwanden",
+          "probability": 0.8362641096115112
+        },
+        {
+          "start": 13.51,
+          "end": 13.85,
+          "word": " geven",
+          "probability": 0.990851104259491
+        },
+        {
+          "start": 13.85,
+          "end": 14.57,
+          "word": " beschutting",
+          "probability": 0.8603801528612772
+        },
+        {
+          "start": 14.57,
+          "end": 15.69,
+          "word": " terwijl",
+          "probability": 0.8975611130396525
+        },
+        {
+          "start": 15.69,
+          "end": 15.85,
+          "word": " uw",
+          "probability": 0.6353837251663208
+        },
+        {
+          "start": 15.85,
+          "end": 16.45,
+          "word": " uitzicht",
+          "probability": 0.9915590484937032
+        },
+        {
+          "start": 16.45,
+          "end": 17.07,
+          "word": " blijft.",
+          "probability": 0.9984904825687408
+        }
+      ]
+    },
+    {
+      "start": 18.77,
+      "end": 22.93,
+      "text": " Van persoonlijk advies en inmetend tot vakundige montage.",
+      "words": [
+        {
+          "start": 18.77,
+          "end": 19.07,
+          "word": " Van",
+          "probability": 0.9609070420265198
+        },
+        {
+          "start": 19.07,
+          "end": 19.63,
+          "word": " persoonlijk",
+          "probability": 0.9708142876625061
+        },
+        {
+          "start": 19.63,
+          "end": 20.15,
+          "word": " advies",
+          "probability": 0.9421531856060028
+        },
+        {
+          "start": 20.15,
+          "end": 20.77,
+          "word": " en",
+          "probability": 0.9356586337089539
+        },
+        {
+          "start": 20.77,
+          "end": 21.41,
+          "word": " inmetend",
+          "probability": 0.8757660786310831
+        },
+        {
+          "start": 21.41,
+          "end": 21.61,
+          "word": " tot",
+          "probability": 0.9982171654701233
+        },
+        {
+          "start": 21.61,
+          "end": 22.25,
+          "word": " vakundige",
+          "probability": 0.9397136171658834
+        },
+        {
+          "start": 22.25,
+          "end": 22.93,
+          "word": " montage.",
+          "probability": 0.6862361580133438
+        }
+      ]
+    },
+    {
+      "start": 24.61,
+      "end": 27.27,
+      "text": " Kerforgardens maakt buitenleven mooier.",
+      "words": [
+        {
+          "start": 24.61,
+          "end": 25.69,
+          "word": " Kerforgardens",
+          "probability": 0.5636852100491524
+        },
+        {
+          "start": 25.69,
+          "end": 26.01,
+          "word": " maakt",
+          "probability": 0.9569260776042938
+        },
+        {
+          "start": 26.01,
+          "end": 26.77,
+          "word": " buitenleven",
+          "probability": 0.9069270342588425
+        },
+        {
+          "start": 26.77,
+          "end": 27.27,
+          "word": " mooier.",
+          "probability": 0.9825343191623688
+        }
+      ]
+    }
+  ]
+}

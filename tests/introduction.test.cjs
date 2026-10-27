@@ -54,6 +54,7 @@ function setup({blocked=false, denyAll=false, reduced=false, deferred=false, inV
   s.video.currentTime=12;s.click('#intro-sound');s.click('#intro-sound');await tick();assert.equal(s.video.currentTime,12,'Later sound toggles preserve position');
   s.finish();const plays=s.calls.filter(c=>c.type==='play').length;s.visibility(0);s.visibility(1);await tick();
   assert.equal(s.calls.filter(c=>c.type==='play').length,plays,'The narration never loops automatically');assert.equal(s.video.currentTime,30,'Natural final frame remains visible');assert(!s.video.loop);
+  assert(s.hero.classList.contains('film-view'),'Closing wordmark remains unobstructed after the film ends');
   s.click('#hero-pause');await tick();assert.equal(s.video.currentTime,0);assert(!s.video.paused);
   s.modal({open:true,introduction:true});assert(s.video.paused,'Expanded player has exclusive sound');
   s.modal({open:false,introduction:true,time:11,muted:false,ended:false,paused:false});await tick();assert.equal(s.video.currentTime,11);assert(!s.video.paused);

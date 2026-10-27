@@ -81,7 +81,7 @@
   addEventListener('keydown',e=>{if(e.key==='Escape'&&menu?.classList.contains('open'))closeMenu(true);if(e.key==='Tab'&&menu?.classList.contains('open')){const focusable=[menuButton,...$$('a',menu)];const first=focusable[0],last=focusable.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
   addEventListener('resize',()=>{if(innerWidth>900)closeMenu();});
   const filmDialog=$('#film-dialog'),film=$('#brand-film');
-  const defaultFilmSource=$('#intro-film source')?.getAttribute('src')||film?.querySelector('source')?.getAttribute('src')||'assets/introduction-corrected.mp4';
+  const defaultFilmSource=$('#intro-film source')?.getAttribute('src')||film?.querySelector('source')?.getAttribute('src')||'assets/introduction-cinematic.mp4';
   const defaultFilmPoster=$('#intro-film')?.getAttribute('poster')||film?.getAttribute('poster')||'assets/01_aluminium_after.webp';
   $$('[data-film]').forEach(b=>b.addEventListener('click',()=>{
     filmOpen=true;
