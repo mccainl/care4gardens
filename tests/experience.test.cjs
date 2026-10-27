@@ -67,14 +67,9 @@ function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchE
  assert.equal(new URL(review.src).searchParams.get('id'),'1210516');
  assert.equal(d.querySelector('#quote-direct').href,'https://care4gardens.nl/pages/offerte-aanvragen-reuzenpanda');
  assert(d.querySelector('#quote-status a[href^="https://wa.me/"]'));
- const hero=d.querySelector('.hero-video');assert(hero.autoplay&&hero.loop&&hero.playsInline);assert(hero.src.endsWith('assets/garden-living.mp4'));assert(hero.muted);
- assert(w.mediaCalls.some(([type,name])=>type==='play'&&name==='hero-video'),'Clean background footage starts without a click');
- hero.currentTime=8;click(w,'#hero-pause');assert.equal(d.querySelector('#hero-pause').getAttribute('aria-pressed'),'true');assert.deepEqual(w.mediaCalls.at(-1),['pause','hero-video']);
- click(w,'#hero-pause');assert.equal(d.querySelector('#hero-pause').getAttribute('aria-pressed'),'false');assert.equal(hero.currentTime,8);assert.deepEqual(w.mediaCalls.at(-1),['play','hero-video']);
- hero.dispatchEvent(new w.Event('playing'));assert(hero.classList.contains('playing'));
- assert(d.querySelector('#hero-pause svg'));assert(!d.querySelector('.motion-toggle'));assert(d.querySelector('#brand-film').loop);assert.equal(d.querySelector('#brand-film').controls,false);
+ assert(!d.querySelector('.hero-video'));assert(d.querySelector('.hero-image'));
  assert(!/[↗→←↺↓✓▶Ⅱ‹›]/u.test(d.body.textContent),'No emoji-style UI characters; multiplication signs are used for dimensions');
- click(w,'[data-film]');assert(w.mediaCalls.some(([type,name])=>type==='pause'&&name.includes('hero-video')));assert.equal(d.querySelector('#brand-film').muted,false);click(w,'#film-dialog .dialog-close');
+ click(w,'[data-film]');assert.equal(d.querySelector('#brand-film').muted,false);click(w,'#film-dialog .dialog-close');
 
  click(w,'[data-compare="douglas"]');assert(d.querySelector('#compare-after').src.endsWith('02_douglas_after.webp'));
  change(w,'#compare-range','75');assert.equal(d.querySelector('.comparison').style.getPropertyValue('--split'),'75%');

@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'media'
 DEST = ROOT / 'site' / 'assets'
 DEST.mkdir(parents=True, exist_ok=True)
-WITHDRAWN = {'hero-loop.mp4', 'glass-installation.mp4', 'installation-descriptions.vtt'}
+WITHDRAWN = {'garden-living.mp4', 'hero-loop.mp4', 'glass-installation.mp4', 'installation-descriptions.vtt'}
 for name in WITHDRAWN:
     (DEST / name).unlink(missing_ok=True)
 restored = 0
