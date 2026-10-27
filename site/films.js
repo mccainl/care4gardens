@@ -30,7 +30,7 @@
     video.muted=true;video.defaultMuted=true;
     visibility.observe(video);preload.observe(video);
     video.addEventListener('loadeddata',()=>sync(video));
-    video.addEventListener('playing',()=>{video.closest('.motion-media,.installation-media').dataset.playing='true';retryFor(video).hidden=true;});
+    video.addEventListener('playing',()=>{video.closest('.motion-media').dataset.playing='true';retryFor(video).hidden=true;});
     video.addEventListener('error',()=>{const retry=retryFor(video);retry.textContent='Film opnieuw laden';retry.hidden=false;});
     video.addEventListener('timeupdate',()=>{
       const progress=video.closest('.motion-card')?.querySelector('.motion-progress span');
@@ -48,31 +48,4 @@
   document.addEventListener('care4gardens:motion',e=>{motionPaused=e.detail.paused;syncAll();});
   reduced.addEventListener('change',e=>{motionPaused=e.matches;syncAll();});
 
-  const installation=document.querySelector('#installation-film');
-  const seek=document.querySelector('#installation-seek');
-  const chapters=[{time:0,label:'Een goede basis.'},{time:2,label:'Glas op zijn plek.'},{time:6.5,label:'Soepel in beweging.'},{time:10.3,label:'Het complete plaatje.'}];
-  const clock=number=>'00:'+String(Math.floor(number||0)).padStart(2,'0');
-  let dragging=false,pendingSeek=null;
-  function updateTimeline(){
-    const duration=Number.isFinite(installation.duration)?installation.duration:15;
-    const time=installation.currentTime||0;
-    if(!dragging)seek.value=String(time);
-    seek.max=String(duration);
-    document.querySelector('#installation-time').textContent=clock(time)+' / '+clock(duration);
-    let active=chapters[0];
-    chapters.forEach(chapter=>{if(time>=chapter.time)active=chapter;});
-    document.querySelector('#installation-stage').textContent=active.label;
-    seek.setAttribute('aria-valuetext',`${clock(time)}. ${active.label}`);
-  }
-  function jump(time){
-    load(installation);states.get(installation).manual=true;
-    if(installation.readyState>=1){installation.currentTime=Math.min(time,Math.max(0,installation.duration-.05));pendingSeek=null;}
-    else pendingSeek=time;
-    updateTimeline();sync(installation);
-  }
-  installation.addEventListener('loadedmetadata',()=>{if(pendingSeek!==null)jump(pendingSeek);updateTimeline();});
-  installation.addEventListener('timeupdate',updateTimeline);
-  seek.addEventListener('pointerdown',()=>{dragging=true;});
-  addEventListener('pointerup',()=>{dragging=false;});
-  seek.addEventListener('input',()=>jump(Number(seek.value)));
 })();

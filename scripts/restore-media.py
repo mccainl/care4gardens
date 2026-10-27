@@ -9,7 +9,9 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'media'
 DEST = ROOT / 'site' / 'assets'
 DEST.mkdir(parents=True, exist_ok=True)
-(DEST / 'hero-loop.mp4').unlink(missing_ok=True)
+WITHDRAWN = {'hero-loop.mp4', 'glass-installation.mp4', 'installation-descriptions.vtt'}
+for name in WITHDRAWN:
+    (DEST / name).unlink(missing_ok=True)
 restored = 0
 for manifest_name in ['manifest.json', 'motion-manifest.json', 'product-manifest.json']:
     manifest = json.loads((SOURCE / manifest_name).read_text())
@@ -29,7 +31,7 @@ for manifest_name in ['manifest.json', 'motion-manifest.json', 'product-manifest
         for name in z.namelist():
             if PurePosixPath(name).name != name or name in ('.', '..'):
                 raise ValueError('Unexpected media entry path')
-            if name == 'hero-loop.mp4':
+            if name in WITHDRAWN:
                 continue
             payload = z.read(name)
             if not payload:

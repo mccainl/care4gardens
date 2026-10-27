@@ -155,20 +155,18 @@ function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchE
  }
  for(const p of data.products){assert(p.variants.length>0);assert(p.images.length>0,'Every product has a matching image');assert(p.imageSources.length===p.images.length);for(const img of p.images)assert(fs.existsSync(path.join(root,img)),img);for(const v of p.variants)assert(Number.isFinite(v.price)&&v.price>0);}
  const fw=setup('index.html','https://example.com/care4gardens/');const fd=fw.document;fw.eval(fs.readFileSync(path.join(root,'films.js'),'utf8'));
- const inline=[...fd.querySelectorAll('[data-loop-film]')];assert.equal(inline.length,3);
+ const inline=[...fd.querySelectorAll('[data-loop-film]')];assert.equal(inline.length,2);
  assert.equal(fd.querySelectorAll('.motion-expand,[data-installation-time]').length,0,'No repeated video or chapter buttons');
  for(const video of inline)assert(video.autoplay&&video.loop&&video.playsInline&&video.muted&&!video.controls);
  const visibility=fw.observers.find(o=>o.options?.threshold===.12);assert(visibility);
  visibility.callback(inline.map(target=>({target,isIntersecting:true})));
  await Promise.resolve();assert(inline.every(video=>video.src.endsWith(video.dataset.src)));
- assert(fw.mediaCalls.some(([type,name])=>type==='play'&&name==='installation-film'));
- const installation=fd.querySelector('#installation-film');Object.defineProperty(installation,'readyState',{value:4});Object.defineProperty(installation,'duration',{value:15.041667});
- change(fw,'#installation-seek','10.3');assert.equal(installation.currentTime,10.3);assert.equal(fd.querySelector('#installation-stage').textContent,'Het complete plaatje.');
- change(fw,'#installation-seek','3');assert.equal(installation.currentTime,3);assert.equal(fd.querySelector('#installation-stage').textContent,'Glas op zijn plek.');
+ assert(fw.mediaCalls.some(([type,name])=>type==='play'&&name==='glass-film'));
+ const glassVideo=fd.querySelector('#glass-film');
  const beforeExpanded=fw.mediaCalls.length;click(fw,'.hero-film-row [data-film]');assert(fd.querySelector('#brand-film').src.endsWith('introduction.mp4'));assert(!fd.querySelector('#film-sound').hidden);
  for(const video of inline)assert(fw.mediaCalls.slice(beforeExpanded).some(([type,name])=>type==='pause'&&name===video.id));
- click(fw,'#film-dialog .dialog-close');assert(fw.mediaCalls.slice(beforeExpanded).some(([type,name])=>type==='play'&&name==='installation-film'));
- visibility.callback([{target:installation,isIntersecting:false}]);assert.deepEqual(fw.mediaCalls.at(-1),['pause','installation-film']);
+ click(fw,'#film-dialog .dialog-close');assert(fw.mediaCalls.slice(beforeExpanded).some(([type,name])=>type==='play'&&name==='glass-film'));
+ visibility.callback([{target:glassVideo,isIntersecting:false}]);assert.deepEqual(fw.mediaCalls.at(-1),['pause','glass-film']);
  click(fw,'.hero-film-row [data-film]');assert(fd.querySelector('#brand-film').src.endsWith('introduction.mp4'));assert(!fd.querySelector('#film-sound').hidden);assert(!fd.querySelector('#brand-film').muted);
  click(fw,'#film-dialog .dialog-close');await Promise.resolve();fw.close();
  const cw=setup('index.html','https://example.com/care4gardens/');
@@ -183,7 +181,7 @@ function change(w,s,v){const e=w.document.querySelector(s);e.value=v;e.dispatchE
  console.log('PASS: public customer posts embed only after a click, with source links.');
  console.log('PASS: planner, input escaping, comparisons, atmosphere controls, mobile menu state, looping film and tab return, 100-product catalogue, category/width/search filters, pagination, exact variant prices and links, local assets, unique IDs.');
  console.log('PASS: autoplay setup, drawn icons, sound toggles, exclusive film playback and 3D preferences in enquiry.');
- console.log('PASS: three distinct inline looping films, viewport playback, simple timeline, intro selection and exclusive playback.');
+ console.log('PASS: two inline looping films, viewport playback, intro selection and exclusive playback.');
  console.log('PASS: variant-specific cart prices, quantities, removal, persistence, invalid baskets, demo checkout validation, confirmation, and no order or payment transmission.');
  console.log('DOM tests only. Rendering, media playback and real browser behavior require browser verification.');
 })().catch(e=>{console.error(e);process.exit(1)});
