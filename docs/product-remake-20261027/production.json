@@ -1,0 +1,142 @@
+{
+  "status": "completed_for_user_review",
+  "budget": {
+    "maximum_new_quoted_credits": 24,
+    "submitted": 24,
+    "authorization": "User instructed go and make the video after 24-credit proposal and three-scene outline."
+  },
+  "duration": 24,
+  "no_people": true,
+  "website_changes": false,
+  "shots": [
+    {
+      "id": "aluminium",
+      "params": {
+        "model": "kling4_0",
+        "mode": "reference-to-video",
+        "resolution": "1080p",
+        "duration": 8,
+        "aspect_ratio": "16:9",
+        "count": 1,
+        "medias": [
+          {
+            "role": "image",
+            "value": "https://mccainl.github.io/care4gardens/assets/01_aluminium_before.webp"
+          }
+        ],
+        "prompt": "Eight-second premium photorealistic before-and-after architectural film, no people. Use the reference as the exact AFTER setting: red-brick Dutch house, anthracite aluminium veranda with transparent glass roof, patio sofa and timber table, hydrangeas and lawn, warm afternoon sunlight. 0-3 seconds show the very same house, garden and furnished paved terrace BEFORE installation, with NO veranda roof, beams or posts. Gentle real camera lateral movement and wind in leaves; keep the terrace readable. At 3 seconds make one clean editorial MATCH CUT to the identical composition AFTER installation with the complete rigid aluminium veranda and glass roof exactly matching the reference. This is a before/after edit, NOT an animated assembly or morph: never grow, melt or fly components into place. 3-8 seconds continue a gentle real lateral camera move revealing the completed roof and open front. Same furniture, walls, garden, framing and light before and after. No glass front wall yet, no people, hands, installers, animals, text, logos, voice or music. Natural depth and optical parallax, straight rigid architecture, no slideshow or still-photo zoom. End on the completed veranda."
+      }
+    },
+    {
+      "id": "douglas",
+      "params": {
+        "model": "kling4_0",
+        "mode": "reference-to-video",
+        "resolution": "1080p",
+        "duration": 8,
+        "aspect_ratio": "16:9",
+        "count": 1,
+        "medias": [
+          {
+            "role": "image",
+            "value": "https://mccainl.github.io/care4gardens/assets/02_douglas_before.webp"
+          },
+          {
+            "role": "image",
+            "value": "https://mccainl.github.io/care4gardens/assets/02_douglas_after.webp"
+          }
+        ],
+        "prompt": "Eight-second photorealistic before-and-after architectural product film with absolutely no people. First reference is the BEFORE open Douglas timber pavilion; second is the AFTER same pavilion enclosed with glass. Preserve exact posts, timber roof, wood rear wall, dining furniture, patio brickwork, lawn, trees and hydrangeas. 0-3 seconds show the open pavilion from the first reference with subtle foliage motion and an extremely slow real forward camera move. At 3 seconds use one clean editorial MATCH CUT to the same composition with complete closed glass walls from the second reference. No morph, no panes materialising gradually, no magical assembly: a clear before/after editorial cut. 3-8 seconds continue the same restrained camera movement to appreciate the glass enclosure, roof and unobstructed garden view. All glass stays rigid, vertical and stationary in this shot. Stable panel count, straight guides and joints, consistent daylight and materials. No people, hands, food actions, text, logos, speech or music. This must be moving architectural footage, not a slideshow, optical-flow dissolve or digital photograph zoom."
+      }
+    },
+    {
+      "id": "glass",
+      "params": {
+        "model": "kling4_0",
+        "mode": "reference-to-video",
+        "resolution": "1080p",
+        "duration": 8,
+        "aspect_ratio": "16:9",
+        "count": 1,
+        "medias": [
+          {
+            "role": "image",
+            "value": "https://mccainl.github.io/care4gardens/assets/03_glass_sliding_wall_after.webp"
+          }
+        ],
+        "prompt": "One uncut eight-second photorealistic architectural glass sliding-wall demonstration, absolutely NO people, hands or reflections of people. Match the supplied garden-room reference exactly: fixed anthracite structure, transparent glass roof, sofas, low table, potted tree and garden view. Locked tripod camera, wide composition with the full glazing, upper guide and lower guide visible. Begin with the leftmost sliding glass leaf already partially open and overlapping its neighbour on a distinct parallel depth plane; all other leaves stay closed and stationary. From second 0.5 to 4.5, that ONE rigid rectangular leaf slides slowly horizontally to its closed end position along its existing guides, with a gentle deceleration. It is an illustrative product motion demonstration with the operator outside frame; do not invent a motor or mechanism. Preserve the same glass leaf, dimensions, handle, rigid vertical edges and reflections continuously. No hinges, rotation, bending, crossing through another pane, changing number of panels, shrinking or vanishing glass. The frame and every other leaf stay fixed. From 4.5 to 8 seconds the completed enclosed garden room remains intact; subtle foliage motion outside provides a living final view with space for later voiceover closure. No cuts, no new architecture, no people, no text, logos, speech or music. Natural glass transparency and warm light, premium restrained architectural cinematography."
+      }
+    }
+  ],
+  "glass_job": "c5795f28-9e7a-4d65-9507-025563017c82",
+  "jobs": {
+    "glass": "c5795f28-9e7a-4d65-9507-025563017c82",
+    "aluminium": "f694db71-4772-4e53-be49-f13a649216a8",
+    "douglas": "24cc27d0-4cf6-48b2-83d9-2f3563ea62cd"
+  },
+  "narration": {
+    "source": "Existing Arthur recording, four complete product-focused phrases; no new narration charged",
+    "script": "Meer genieten van uw tuin. Met een overkapping in aluminium. Of de warme uitstraling van Douglas, passend bij uw tuin. Glazen schuifwanden geven beschutting, terwijl uw uitzicht blijft. Care4Gardens maakt buitenleven mooier.",
+    "natural_speed": true,
+    "closing_start": 19.8,
+    "estimated_last_spoken_word_end": 22.69,
+    "tail_seconds": 1.31
+  },
+  "glass_review": {
+    "source_direction": "Opening, despite closing request.",
+    "edit": "Reverse the new source at native speed to demonstrate closing; no old footage, interpolation or still holds.",
+    "coverage": "64 sequential samples, every third source frame, plus half-second overview; strict full decode.",
+    "status": "candidate",
+    "limitations": "Frame sampled; no continuous human certification."
+  },
+  "source_results": {
+    "glass": {
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/hf_20261027_150740_c5795f28-9e7a-4d65-9507-025563017c82.mp4",
+      "bytes": 10014217,
+      "sha256": "9656f02490d472d59ca4874a0602d9f2b81661298e0ddb36cb06c088e1ef2b57"
+    },
+    "aluminium": {
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/hf_20261027_151247_f694db71-4772-4e53-be49-f13a649216a8.mp4",
+      "bytes": 28299229,
+      "sha256": "10c0115ceff9dd8c19d1d737bb27e61f86a46c2a57f6acc8827531dd9b72cd01"
+    },
+    "douglas": {
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/hf_20261027_151252_24cc27d0-4cf6-48b2-83d9-2f3563ea62cd.mp4",
+      "bytes": 35128918,
+      "sha256": "f34fca67250be10d9288caa3fe80919424c3670c467714b4d8f712863331d77e"
+    }
+  },
+  "aluminium_review": {
+    "observation": "Uncovered patio before; clean cut to aluminium veranda after. Real camera movement and foliage. No people.",
+    "limitation": "Before framing is wider and more frontal than after; not pixel-registered comparison."
+  },
+  "douglas_review": {
+    "observation": "Same pavilion open, then enclosed with fixed glass via a clean cut. No people; architecture remains intact in temporal samples.",
+    "coverage": "Half-second samples throughout eight seconds."
+  },
+  "final_media_id": "2d7fdd4b-dedb-4c07-8b82-4f93c1d482a3",
+  "final_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/2d7fdd4b-dedb-4c07-8b82-4f93c1d482a3.mp4",
+  "analysis_id": "efb74234-b449-49d8-a358-7804418aef98",
+  "audio_measurements": {
+    "integrated_lufs": -15.35,
+    "true_peak_dbtp": -3.44
+  },
+  "frame_review": {
+    "source_glass": "64 consecutive samples at three-frame spacing plus overview",
+    "final": "One frame per second across 24-second final, including before/after states and branded closing",
+    "continuous_human_playback_approval": false
+  },
+  "automated_final_review": {
+    "id": "efb74234-b449-49d8-a358-7804418aef98",
+    "status": "completed",
+    "result": "Identifies uncovered patio, aluminium cover, open Douglas pavilion, glass enclosure, interior garden view, and closing brand line with corresponding narration. No people identified.",
+    "limitation": "Approximate model timecodes differ from exact edit boundaries. Does not certify mechanical accuracy or replace continuous human playback/listening approval."
+  },
+  "delivery": {
+    "scope": "Standalone film only; website and live deployment unchanged.",
+    "resolution": "1920x1080",
+    "duration_seconds": 24,
+    "new_generation_quotes_total": 24,
+    "new_audio_generation_cost": 0
+  }
+}

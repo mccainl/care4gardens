@@ -1,0 +1,34 @@
+{
+  "file": "care4gardens-product-remake.mp4",
+  "sha256": "8950b828e3beab191b1ffc5aa1412f47937c6651a36a03b788aa805a56a16e6e",
+  "bytes": 23326117,
+  "duration": 24,
+  "frames": 576,
+  "narration": "Existing Arthur recording; four complete phrases, natural speed; no new voice generation.",
+  "phrase_edits": [
+    [
+      0,
+      4.75,
+      0.3
+    ],
+    [
+      4.75,
+      9.15,
+      8.1
+    ],
+    [
+      9.15,
+      14.6,
+      13.2
+    ],
+    [
+      19.53,
+      22.709792,
+      19.8
+    ]
+  ],
+  "visual_sources": "Three newly generated clips; no footage from either prior film.",
+  "website_changed": false,
+  "strict_decode": "passed",
+  "creative_approval": false
+}
