@@ -132,10 +132,56 @@
   "output": {
     "location": "site/assets/introduction-v2.mp4",
     "sha256": "b2336306cef271888c4de60aba26ac22305d609e16c8b59b414fc9cf0142b216",
-    "published": false
+    "published": true,
+    "published_url": "https://mccainl.github.io/care4gardens/assets/introduction-v2.mp4"
   },
   "limitations": [
     "Illustrative product footage, not a certified installation or exact-travel demonstration",
     "Physical iPhone/Safari device test not performed"
-  ]
+  ],
+  "delivery_verification": {
+    "verified_on": "2026-10-27",
+    "deployment": {
+      "site_url": "https://mccainl.github.io/care4gardens/",
+      "commit": "beb84fe0733f51aa6294d01e326f797b66338b42",
+      "workflow_run": "https://github.com/mccainl/care4gardens/actions/runs/40479330318",
+      "build": "success",
+      "tests": "success",
+      "pages_deployment": "success"
+    },
+    "local_checks": {
+      "commands": [
+        "npm ci --no-audit --no-fund",
+        "npm run build",
+        "npm test"
+      ],
+      "result": "passed",
+      "raster_images_fully_decoded": 150,
+      "h264_videos_fully_decoded": 4,
+      "live_film_manifest_files_checked": 6,
+      "live_sha256_matches_manifest": true,
+      "introduction": {
+        "duration_seconds": 21.083333,
+        "width": 1920,
+        "height": 1080,
+        "frames_per_second": 24,
+        "audio_codec": "aac",
+        "audio_channels": 2,
+        "audio_peak_dbfs": -3.7
+      }
+    },
+    "browser_checks": {
+      "browser": "Cloud Chrome",
+      "desktop": true,
+      "mobile_layout": "390px preview frame, 375px content viewport; no horizontal overflow",
+      "comparison": "Immediately after hero benefit strip; keyboard slider and Douglas variant selection verified on desktop and mobile",
+      "introduction": "Loads and plays in desktop and mobile dialog; sound toggle verified; closing pauses the film and restores the page",
+      "product_films": "Screens and shutters both reach readyState 4 and advance in the live expanded gallery without media errors; hero and introduction paused",
+      "mobile_menu": "Opens and closes correctly"
+    },
+    "scope": "Deployment, asset integrity, layout and playback verification. Earlier production review retained; this pass does not add a new continuous-motion or listening approval.",
+    "additional_generation_credits_spent": 0,
+    "client_approval": "not recorded",
+    "production_shop_replaced": false
+  }
 }
