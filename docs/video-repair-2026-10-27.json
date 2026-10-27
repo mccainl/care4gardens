@@ -137,14 +137,16 @@
       "browser": "Cloud Chrome",
       "desktop": "Live inline film readyState 4; 21.5 seconds; autoplay fell back to muted without opening a dialog. Direct sound control restarted at 0.0516 seconds, unmuted, with dialog closed.",
       "mobile": "390 px review frame / 375 px content; film 331 x 186.19 px; no horizontal overflow; inline unmuted playback advanced to 18.73 seconds.",
-      "after_playback_polish": "Garden poster restored after completion; explicit replay only; status contrast increased. Covered by regression tests; final deployment check follows."
+      "after_playback_polish": "Verified live after the final deployment: complete inline mobile playback ends paused at time 0 with garden-living-poster.webp; no automatic replay. Status text is rgb(218,227,215)."
     },
     "physical_iPhone": "not tested",
     "scene_analysis": {
       "provider": "Higgsfield",
       "analysis_id": "1deb74e9-2291-4412-a78c-77991af0e30c",
       "scope": "Full exported film recognized as original terrace / Douglas / glazing / garden story and retained narration. Approximate analysis is not used as proof of mechanical accuracy or exact timecodes."
-    }
+    },
+    "live_assets": "All six published repair assets downloaded and SHA-256 matched against repair-manifest.json.",
+    "mobile_screenshot": "docs/care4gardens-film-mobile-20261027.png"
   },
   "output": [
     {
@@ -186,6 +188,9 @@
     "build": "success",
     "tests": "success",
     "deploy": "success",
-    "live_film_sha256": "1fe724d3c9f9359cff22c4ed783d0f10697e055baf794882407c212e336c164e"
+    "live_film_sha256": "1fe724d3c9f9359cff22c4ed783d0f10697e055baf794882407c212e336c164e",
+    "player_polish_commit": "81a59b095aac08796600d7ad55b8aca775bc992d",
+    "player_polish_workflow": "https://github.com/mccainl/care4gardens/actions/runs/40494167189",
+    "player_polish_result": "success"
   }
 }
