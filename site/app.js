@@ -31,41 +31,22 @@
   let manualStoryY = null;
   let lastStage = -1;
   const header = $('#header');
-  const heroVideo=$('.hero-video'),pauseButton=$('#hero-pause'),startButton=$('#hero-start');
-  let heroVisible=true,filmOpen=false,heroPaused=reduced.matches;
+  let filmOpen=false;
   const story = $('.story-section');
-  function syncHeroControl(){
-    if(!pauseButton)return;
-    const label=heroPaused?'Achtergrondvideo afspelen':'Achtergrondvideo pauzeren';
-    pauseButton.innerHTML=icon(heroPaused?'play':'pause')+`<span class="control-label">${label}</span>`;
-    pauseButton.setAttribute('aria-pressed',String(heroPaused));
-    pauseButton.setAttribute('aria-label',label);
-  }
-  function syncHeroVideo(){
-    if(!heroVideo)return;
-    syncHeroControl();
-    if(heroPaused||!heroVisible||filmOpen||document.hidden){heroVideo.pause();return;}
-    heroVideo.play().then(()=>{if(startButton)startButton.hidden=true;}).catch(error=>{if(error?.name==='AbortError')return;if(startButton)startButton.hidden=false;else{heroPaused=true;syncHeroControl();}});
-  }
   function applyMotion(){
     document.body.classList.toggle('motion-off',motionPaused);
     document.documentElement.classList.toggle('js-motion',!motionPaused);
     document.dispatchEvent(new CustomEvent('care4gardens:motion',{detail:{paused:motionPaused}}));
-    syncHeroVideo();
   }
-  if(heroVideo){heroVideo.muted=true;heroVideo.defaultMuted=true;}
   applyMotion();
-  heroVideo?.addEventListener('ended',()=>{heroPaused=true;syncHeroControl();});
-  heroVideo?.addEventListener('playing',()=>{heroVideo.classList.add('playing');if(startButton)startButton.hidden=true;});
-  heroVideo?.addEventListener('error',()=>{heroVideo.classList.remove('playing');if(startButton){startButton.hidden=false;startButton.querySelector('span').textContent='Film opnieuw laden';}else{heroPaused=true;syncHeroControl();}});
-  if(heroVideo)new IntersectionObserver(entries=>{heroVisible=entries[0].isIntersecting;syncHeroVideo();},{threshold:.08}).observe(heroVideo);
+  reduced.addEventListener('change',e=>{motionPaused=e.matches;applyMotion();});
+  let resumeExpanded=false;
   document.addEventListener('visibilitychange',()=>{
-    syncHeroVideo();
-    if(filmOpen){const activeFilm=$('#brand-film');if(document.hidden)activeFilm.pause();else activeFilm.play().catch(()=>{});}
+    if(!filmOpen)return;
+    const activeFilm=$('#brand-film');
+    if(document.hidden){resumeExpanded=!activeFilm.paused;activeFilm.pause();}
+    else if(resumeExpanded){resumeExpanded=false;activeFilm.play().catch(()=>{});}
   });
-  pauseButton?.addEventListener('click',()=>{heroPaused=!heroPaused;if(!heroPaused&&heroVideo?.error)heroVideo.load();syncHeroVideo();});
-  startButton?.addEventListener('click',()=>{heroPaused=false;if(heroVideo.error)heroVideo.load();syncHeroVideo();});
-  reduced.addEventListener('change',e=>{motionPaused=e.matches;heroPaused=e.matches;applyMotion();});
   const revealObserver = new IntersectionObserver(entries=>entries.forEach(entry=>{
     if(entry.isIntersecting)entry.target.classList.add('is-visible');
     else if(entry.boundingClientRect.top>innerHeight)entry.target.classList.remove('is-visible');
@@ -101,17 +82,20 @@
   addEventListener('resize',()=>{if(innerWidth>900)closeMenu();});
   const filmDialog=$('#film-dialog'),film=$('#brand-film');
   const defaultFilmSource=$('#intro-film source')?.getAttribute('src')||film?.querySelector('source')?.getAttribute('src')||'assets/introduction-corrected.mp4';
-  const defaultFilmPoster=film?.getAttribute('poster')||'assets/01_aluminium_after.webp';
+  const defaultFilmPoster=$('#intro-film')?.getAttribute('poster')||film?.getAttribute('poster')||'assets/01_aluminium_after.webp';
   $$('[data-film]').forEach(b=>b.addEventListener('click',()=>{
-    filmOpen=true;heroVideo?.pause();
-    document.dispatchEvent(new CustomEvent('care4gardens:film',{detail:{open:true}}));
+    filmOpen=true;
+    document.dispatchEvent(new CustomEvent('care4gardens:film',{detail:{open:true,introduction:!b.dataset.filmSrc}}));
     const source=b.dataset.filmSrc||defaultFilmSource;
     film.src=source;film.poster=b.dataset.filmPoster||defaultFilmPoster;
     const title=b.dataset.filmTitle||'Care4Gardens. Maakt buitenleven mooier.';
     filmDialog.setAttribute('aria-label',title);$('.film-footer>span',filmDialog).textContent=title;
     $('#film-sound').hidden=!!b.dataset.filmSrc;
-    const track=$('track',film);if(track)track.src=source.includes('introduction')?'assets/descriptions-corrected.vtt':'assets/gallery-descriptions-v2.vtt';
-    filmDialog.showModal();document.body.classList.add('locked');const inline=$('#intro-film');film.currentTime=!b.dataset.filmSrc&&inline?inline.currentTime:0;film.muted=!!b.dataset.filmSrc;film.play().catch(()=>{});
+    const track=$('track[kind=descriptions]',film);if(track)track.src=!b.dataset.filmSrc?$('#intro-film track[kind=descriptions]').getAttribute('src'):'assets/gallery-descriptions-v2.vtt';
+    const captions=$('track[kind=captions]',film);if(captions){if(b.dataset.filmSrc)captions.removeAttribute('src');else captions.src=$('#intro-film track[kind=captions]').getAttribute('src');}
+    for(const track of film.textTracks)if(track.kind==='captions')track.mode=!b.dataset.filmSrc&&$('#intro-captions')?.getAttribute('aria-pressed')==='true'?'showing':'hidden';
+    film.loop=!!b.dataset.filmSrc;
+    filmDialog.showModal();document.body.classList.add('locked');const inline=$('#intro-film');film.currentTime=!b.dataset.filmSrc&&inline?inline.currentTime:0;film.muted=!!b.dataset.filmSrc||!!inline?.muted;film.play().catch(()=>{});
   }));
   const filmSound=$('#film-sound');
   function syncFilmSound(){if(!filmSound)return;filmSound.innerHTML=icon(film.muted?'muted':'sound')+`<span>${film.muted?'Geluid inschakelen':'Geluid uitschakelen'}</span>`;filmSound.setAttribute('aria-pressed',String(!film.muted));filmSound.setAttribute('aria-label',film.muted?'Filmgeluid inschakelen':'Filmgeluid uitschakelen');}
@@ -121,7 +105,7 @@
     film.addEventListener('volumechange',syncFilmSound);
     $('.dialog-close',filmDialog).addEventListener('click',()=>filmDialog.close());
     filmDialog.addEventListener('click',e=>{const r=filmDialog.getBoundingClientRect();if(e.target===filmDialog&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))filmDialog.close();});
-    filmDialog.addEventListener('close',()=>{film.pause();filmOpen=false;document.body.classList.remove('locked');syncHeroVideo();document.dispatchEvent(new CustomEvent('care4gardens:film',{detail:{open:false,introduction:film.src.includes('introduction-corrected'),time:film.currentTime,muted:film.muted,ended:film.ended}}));});
+    filmDialog.addEventListener('close',()=>{const paused=film.paused;film.pause();filmOpen=false;resumeExpanded=false;document.body.classList.remove('locked');document.dispatchEvent(new CustomEvent('care4gardens:film',{detail:{open:false,introduction:!film.loop,time:film.currentTime,muted:film.muted,ended:film.ended,paused}}));});
   }
   const comparisons={aluminium:['01_aluminium','een aluminium overkapping'],douglas:['02_douglas','een Douglas overkapping'],glas:['03_glass_sliding_wall','glazen schuifwanden'],compact:['05_compact_veranda','een compacte veranda']};
   const range=$('#compare-range');

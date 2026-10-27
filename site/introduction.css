@@ -1,15 +1,29 @@
-.introduction-section{background:#e9ede3;padding-block:65px}
-.introduction-heading{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:30px}
-.introduction-heading h2{font-size:clamp(34px,4vw,58px)}
-.introduction-heading p{max-width:350px;font-size:14px;line-height:1.8}
-.introduction-player{background:#10251f;border-radius:12px;overflow:hidden;box-shadow:0 18px 55px #142b2315}
-#intro-film{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:#10251f}
-.introduction-controls{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:18px 22px;color:#f7f7f0}
-.introduction-controls button{min-height:44px;border:1px solid #ffffff75;border-radius:4px;padding:10px 16px;font-size:12px;color:inherit}
-.introduction-controls button:hover{background:#ffffff15}
-.introduction-controls button:focus-visible{outline:2px solid #fff;outline-offset:4px}
-.introduction-controls #intro-sound{background:#f2f3e9;color:#183b2a;border-color:#f2f3e9}
-#intro-status{font-size:11px;line-height:1.6;flex:1;min-width:180px;color:#dae3d7}
-.introduction-controls .film-button{margin-left:auto;white-space:nowrap}
-.introduction-section .image-disclosure{margin-top:14px}
-@media(max-width:600px){.introduction-section{padding-block:45px}.introduction-heading{display:block;margin-bottom:22px}.introduction-heading h2{font-size:36px}.introduction-heading p{margin-top:20px;font-size:13px}.introduction-controls{gap:12px;padding:14px}.introduction-controls button{padding:10px 12px;font-size:11px}#intro-status{order:3;flex-basis:100%}.introduction-controls .film-button{margin-left:auto}.introduction-player{border-radius:6px}}
+/* The complete introduction lives in the opening hero. */
+.hero .hero-video{object-position:center;transition:opacity .35s}
+.hero-content{transition:opacity .7s ease,transform .7s ease}
+.hero.film-view .hero-content{opacity:0;transform:translateY(10px);pointer-events:none}
+.hero-film-row .film-button{background:#10261c99;border-color:#ffffff70;min-height:44px}
+.hero-film-row #intro-sound{min-width:108px}
+.hero-film-row #intro-captions,.hero-film-row #intro-expand{width:44px;padding:10px}
+.hero-film-row #intro-captions[aria-pressed=true]{background:#f5f3e9;color:#163b2b}
+.hero .film-button:focus-visible,.hero-plan-link:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.hero-plan-link{position:absolute;right:48px;bottom:24px;z-index:3;display:flex;align-items:center;gap:12px;min-height:44px;padding:10px 16px;border:1px solid #ffffff70;border-radius:99px;background:#10261c99;color:#fff;font-size:11px}
+.hero-film-progress{position:absolute;bottom:0;left:0;right:0;z-index:3;height:3px;background:#ffffff24;pointer-events:none}
+.hero-film-progress span{display:block;height:100%;background:#e2edce;transform:scaleX(0);transform-origin:left}
+.hero-video::cue{color:#fff;background:#10261ce6;font:500 17px/1.5 sans-serif}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+@media(max-width:600px){
+ .hero{--film-height:calc((100vw - 16px)*.5625);height:auto;min-height:0;max-height:none;background:#183d2c}
+ .hero .hero-video,.hero .hero-image{height:var(--film-height);object-fit:contain;object-position:center;animation:none}
+ .hero .hero-shade{height:var(--film-height);background:linear-gradient(0deg,#10261c66,transparent 36%);pointer-events:none}
+ .hero .hero-content{height:auto;width:auto;margin:var(--film-height) 0 0;padding:84px 24px 28px;opacity:1;transform:none;justify-content:flex-start}
+ .hero .hero-content .eyebrow{font-size:8px;margin-bottom:15px}
+ .hero h1{font-size:clamp(43px,12vw,64px);line-height:1;letter-spacing:-2px}
+ .hero .hero-description{font-size:13px;margin-top:18px}
+ .hero .hero-buttons{margin-top:16px}
+ .hero .hero-film-row{top:calc(var(--film-height) + 15px);left:24px;bottom:auto;gap:6px}
+ .hero .hero-plan-link{display:none}
+ .hero .hero-film-progress{top:var(--film-height);bottom:auto}
+ .hero-video::cue{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){.hero-content,.hero .hero-video{transition:none}}

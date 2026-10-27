@@ -1,0 +1,276 @@
+{
+  "quoted_on": "2026-10-27",
+  "jobs_submitted": 0,
+  "model_catalog": {
+    "id": "kling4_0",
+    "name": "Kling 4.0",
+    "provider_name": "Kling",
+    "description": "Generate video from text, ordered keyframes, references, or edit an input video",
+    "output_type": "video",
+    "parameters": [
+      {
+        "name": "mode",
+        "required": "optional",
+        "type": "string",
+        "description": "Generation mode.",
+        "options": [
+          "text-to-video",
+          "image-to-video",
+          "reference-to-video",
+          "video-edit"
+        ],
+        "default": "text-to-video"
+      },
+      {
+        "name": "resolution",
+        "required": "optional",
+        "type": "string",
+        "description": "Output resolution.",
+        "options": [
+          "720p",
+          "1080p"
+        ],
+        "default": "1080p"
+      },
+      {
+        "name": "duration",
+        "required": "optional",
+        "type": "number",
+        "description": "Duration in whole seconds (3-30). Whole number.",
+        "min": 3,
+        "max": 30,
+        "default": 10
+      },
+      {
+        "name": "kling_element_ids",
+        "required": "optional",
+        "type": "string_array",
+        "description": "Accessible, ready Kling element IDs or reference UUIDs (up to seven)."
+      }
+    ],
+    "medias": [
+      {
+        "name": "medias",
+        "type": "image",
+        "roles": [
+          "start_image",
+          "end_image",
+          "image_references",
+          "video_references"
+        ]
+      }
+    ],
+    "aspect_ratios": [
+      "21:9",
+      "16:9",
+      "9:16",
+      "1:1",
+      "auto"
+    ],
+    "tags": [
+      "text-to-video",
+      "image-to-video",
+      "reference-to-video",
+      "video-edit",
+      "keyframes"
+    ],
+    "free_gens": [
+      {
+        "job_set_types": [
+          "ai_influencer_motion_control",
+          "ai_influencer_replace_object",
+          "hf_mult_motion_control",
+          "hf_mult_replace_object"
+        ],
+        "remaining": 3,
+        "parameters": {
+          "resolution": [
+            "480p",
+            "720p"
+          ]
+        },
+        "max_duration": 30
+      },
+      {
+        "job_set_types": [
+          "viral_hub_video"
+        ],
+        "remaining": 0,
+        "parameters": {
+          "resolution": [
+            "480p",
+            "720p"
+          ]
+        },
+        "max_duration": null
+      },
+      {
+        "job_set_types": [
+          "ai_influencer_sheet"
+        ],
+        "remaining": 5,
+        "parameters": {},
+        "max_duration": null
+      }
+    ]
+  },
+  "quotes": [
+    {
+      "shot": "S01",
+      "request": {
+        "model": "kling4_0",
+        "mode": "reference-to-video",
+        "resolution": "720p",
+        "duration": 8,
+        "aspect_ratio": "16:9",
+        "count": 1,
+        "prompt": "Create a single continuous eight-second photorealistic architectural lifestyle film, using the supplied image as the exact architecture and garden reference. Preserve the red-brick Dutch house, attached anthracite aluminium veranda, transparent roof, visible support posts, sofa, low timber table and planting. Warm late-afternoon light stays constant. Start with one adult woman in a plain cream linen shirt and dark trousers already visible on the patio path at the left edge; her single action is to walk naturally from left toward the open veranda and stop beside the seating. Her feet remain on the patio; she never passes through furniture or glazing. One camera behavior: a smooth waist-height lateral dolly of about half a metre from left to right with visible foreground-to-background parallax, keeping the whole veranda visible. Leaves and ornamental grasses move naturally in a light breeze throughout. This must be genuinely continuous live-action motion, never a still-photo zoom, freeze, timelapse, morph or transition. Keep all posts, roof bars, wall attachments and furniture fixed in count, size and location. No construction transformation, no changing weather, no written text, no logo, no dialogue. Wide 16:9 composition; central garden and veranda remain readable in a 4:5 safe crop.",
+        "medias": [
+          {
+            "role": "image",
+            "value": "https://mccainl.github.io/care4gardens/assets/01_aluminium_before.webp"
+          }
+        ]
+      },
+      "response": {
+        "cost": {
+          "credits": 4,
+          "credits_exact": 4
+        },
+        "adjustments": {
+          "medias[0].role": {
+            "requested": "image",
+            "used": "image_references",
+            "reason": "Kling 4.0 backend expects schema-key media roles"
+          }
+        }
+      }
+    },
+    {
+      "shot": "S02",
+      "request": {
+        "model": "kling4_0",
+        "mode": "reference-to-video",
+        "resolution": "720p",
+        "duration": 8,
+        "aspect_ratio": "16:9",
+        "count": 1,
+        "prompt": "One continuous eight-second photorealistic lifestyle shot, in the exact open Douglas timber garden pavilion from the supplied image. Preserve the heavy natural timber posts and beams, flat dark roof edge, vertical boarded back wall, two warm wall lamps, dining table, chairs, brick patio and surrounding olive tree and hydrangeas. This is the Douglas chapter of the same calm premium garden film. An adult man in an unbranded pale blue shirt is already standing at the open front of the dining table at the start. His one action is to set a ceramic coffee cup gently onto the existing tabletop and withdraw his hand naturally; the cup remains there. One camera behavior: a short, level, smooth forward dolly toward the table, with genuine depth parallax and no zoom. No new doors, glass, beams, furniture or roof geometry. Natural hand and body movement, physically grounded shadows, subtle continuous foliage movement. Warm late-afternoon light, natural colour, no dramatic lighting change, no slow frozen holds, no slideshow, no text, logos or dialogue. Keep the action and main timber front post visible in a central 4:5 crop.",
+        "medias": [
+          {
+            "role": "image",
+            "value": "https://mccainl.github.io/care4gardens/assets/02_douglas_before.webp"
+          }
+        ]
+      },
+      "response": {
+        "cost": {
+          "credits": 4,
+          "credits_exact": 4
+        },
+        "adjustments": {
+          "medias[0].role": {
+            "requested": "image",
+            "used": "image_references",
+            "reason": "Kling 4.0 backend expects schema-key media roles"
+          }
+        }
+      }
+    },
+    {
+      "shot": "S03",
+      "request": {
+        "model": "kling4_0",
+        "mode": "reference-to-video",
+        "resolution": "720p",
+        "duration": 8,
+        "aspect_ratio": "16:9",
+        "count": 1,
+        "prompt": "Create one uncut eight-second photorealistic product-use candidate based on the exact interior and closed glazing in the supplied reference. Locked waist-height tripod camera: no pan, zoom, orbit or cuts. Preserve the anthracite top beam, glass roof bars, two sofas, low coffee table, potted tree, lawn, hydrangeas and background roof. Begin with one adult already standing just inside the glazing at the left side, in a neutral unbranded linen shirt, shown from behind. Their only action is to guide the leftmost full-height glass leaf smoothly a short distance to the right, then stop. The moving leaf stays a rigid transparent rectangle, vertical, within the existing top and bottom guide area, and overlaps its neighbour on a separate depth plane; it never intersects or becomes part of another pane. All other glass leaves stay stationary. Retain the six visible full-width leaf divisions of the closed reference; never create, remove, merge, flex or shrink any leaf. The person does not walk through glass. Keep hands, glass edges and floor guide area visible. Do not reveal or invent hidden rollers, hinges, tracks or seals. Light, reflections and exterior landmarks stay consistent. Continuous natural-speed action with gentle acceleration and deceleration, no dissolve or architectural morph. No text, logo, voice or music. This is an illustrative candidate and must preserve physical plausibility throughout.",
+        "medias": [
+          {
+            "role": "image",
+            "value": "https://mccainl.github.io/care4gardens/assets/03_glass_sliding_wall_after.webp"
+          }
+        ]
+      },
+      "response": {
+        "cost": {
+          "credits": 4,
+          "credits_exact": 4
+        },
+        "adjustments": {
+          "medias[0].role": {
+            "requested": "image",
+            "used": "image_references",
+            "reason": "Kling 4.0 backend expects schema-key media roles"
+          }
+        }
+      }
+    },
+    {
+      "shot": "S04",
+      "request": {
+        "model": "kling4_0",
+        "mode": "reference-to-video",
+        "resolution": "720p",
+        "duration": 8,
+        "aspect_ratio": "16:9",
+        "count": 1,
+        "prompt": "One continuous eight-second photorealistic closing lifestyle shot, based on the exact open interior and garden in the supplied reference. Preserve the anthracite roof structure, open garden view, glazing stacked at the right, pale sofas, low square timber table, rug, potted olive tree, lawn and hydrangeas. Keep all glazing completely stationary. At the start a relaxed adult couple is already seated naturally on the existing sofas, in understated unbranded cream and pale blue clothing. Their single visible action is a warm natural exchange over coffee: one person gently lifts a cup toward a sip while the other turns toward them. No posing for camera, no exaggerated gestures, no extra limbs or changing faces. One camera behavior: a slow smooth backward dolly of about half a metre, revealing the sheltered living space while the garden retains depth and parallax. Continue natural body and foliage motion through the final frame; no freeze, no fade to black, no abrupt rush, no artificially prolonged still. Maintain the original warm late-afternoon light without a day-to-night transformation. Leave clear lower central space for later editable brand copy. No generated text, logos, captions, dialogue or music. Wide 16:9 composition with both the activity and garden visible in the central 4:5 safe crop.",
+        "medias": [
+          {
+            "role": "image",
+            "value": "https://mccainl.github.io/care4gardens/assets/03_glass_sliding_wall_before.webp"
+          }
+        ]
+      },
+      "response": {
+        "cost": {
+          "credits": 4,
+          "credits_exact": 4
+        },
+        "adjustments": {
+          "medias[0].role": {
+            "requested": "image",
+            "used": "image_references",
+            "reason": "Kling 4.0 backend expects schema-key media roles"
+          }
+        }
+      }
+    },
+    {
+      "shot": "S05",
+      "request": {
+        "model": "kling4_0",
+        "mode": "reference-to-video",
+        "resolution": "720p",
+        "duration": 8,
+        "aspect_ratio": "16:9",
+        "count": 1,
+        "prompt": "Create one continuous eight-second photorealistic advice-and-measurement scene using the supplied aluminium veranda as the exact architectural reference. Preserve the red-brick Dutch house, anthracite front posts and roof grid, existing sofa and table, patio and garden; the structure is already installed and never transforms. Medium-wide stable tripod view of the front-left post and the adjacent open veranda. One adult adviser in an unbranded dark green polo is already standing beside the post with a small handheld laser distance meter; a homeowner in plain cream clothing stands nearby and watches. The adviser's only primary action is to place the device gently against the inside face of the existing post, hold it still to take a measurement, then lower the hand naturally. Do not show or invent readable measurement values, a visible laser beam, client logos or certificates. The adviser and homeowner remain naturally balanced on the patio; no changing faces or extra fingers. Keep the post, floor and roof geometry fixed and unobstructed, with natural small body motion and soft foliage motion throughout. One locked camera, no zoom, no cuts, no timelapse, no installation morph or additional tools. Warm late-afternoon natural light matching the veranda reference. No written text, captions, logo, dialogue or music. This is an illustrative consultation scene, not documentary footage of a real client.",
+        "medias": [
+          {
+            "role": "image",
+            "value": "https://mccainl.github.io/care4gardens/assets/01_aluminium_before.webp"
+          }
+        ]
+      },
+      "response": {
+        "cost": {
+          "credits": 4,
+          "credits_exact": 4
+        },
+        "adjustments": {
+          "medias[0].role": {
+            "requested": "image",
+            "used": "image_references",
+            "reason": "Kling 4.0 backend expects schema-key media roles"
+          }
+        }
+      }
+    }
+  ],
+  "video_total": 20,
+  "narration_quote_pending": true
+}
