@@ -1,8 +1,8 @@
 # Care4Gardens — Meer tijd buiten
 
-**A newly filmed 30-second introduction in the original visual style.**
+**A new 30.25-second introduction with generated moving footage in the original visual style.**
 
-Status: script, shot prompts and website integration prepared. No new video or narration has been generated. This is the production plan, not a finished film.
+Status: five moving scenes are assembled; the corrected personal-advice scene replaces a rejected device demonstration. Dutch voice selection, narration alignment, final review and website publication are still pending. The user authorised the 29-credit ceiling; 24 credits have been submitted at their exact quoted prices.
 
 The viewer should understand what Care4Gardens offers: aluminium and Douglas overkappingen, glazen schuifwanden, and personal help from advice and measurement through installation. The film opens automatically in the first hero of the website.
 
@@ -12,9 +12,9 @@ The viewer should understand what Care4Gardens offers: aluminium and Douglas ove
 |---|---|---|
 | 00–06 | A smooth lateral camera move reveals the aluminium veranda. A person walks naturally along the patio into the open seating area. Garden plants move in the breeze. | Meer genieten van uw tuin. Met een overkapping in aluminium. |
 | 06–12 | A person places a coffee cup on the table beneath the Douglas pavilion. A short forward dolly reveals the timber, roof and sheltered dining area. | Of de warme uitstraling van Douglas, passend bij uw tuin. |
-| 12–18 | A locked view shows a person guiding **one** glass leaf along its guide. Its neighbours stay fixed and separate. The garden remains visible through the glass. | Glazen schuifwanden geven beschutting, terwijl uw uitzicht blijft. |
-| 18–24 | An adviser measures beside the veranda while the homeowner watches. Small editable captions identify the service: **Persoonlijk advies · Inmeten · Montage**. | Van persoonlijk advies en inmeten tot vakkundige montage. |
-| 24–30 | A couple enjoys coffee in the sheltered garden room. A slow backward move reveals the space. The scene continues moving while the brand line finishes, followed by approximately 2.5 seconds of breathing room. | Care4Gardens maakt buitenleven mooier. |
+| 12–18.25 | A locked view shows a person guiding **one** glass leaf along its guide. Its neighbours stay fixed and separate. The garden remains visible through the glass. | Glazen schuifwanden geven beschutting, terwijl uw uitzicht blijft. |
+| 18.25–24.25 | An adviser traces a garden plan with a pencil, then looks up toward the homeowner. Small editable captions identify the service: **Persoonlijk advies · Inmeten · Montage**. | Van persoonlijk advies en inmeten tot vakkundige montage. |
+| 24.25–30.25 | Two adults enjoy coffee in the sheltered garden room. A slow backward move reveals the space. The scene continues moving while the brand line finishes, followed by approximately 2.75 seconds of breathing room. | Care4Gardens maakt buitenleven mooier. |
 
 These are planning windows. The final cut follows the recorded voice and the complete actions. If a shot or phrase needs more time, the edit becomes slightly longer; the voice will not be rushed and the action will not be cut short.
 
@@ -22,7 +22,7 @@ These are planning windows. The final cut follows the recorded voice and the com
 
 Warm Dutch gardens, natural late-afternoon light, anthracite aluminium, a red-brick house, Douglas timber and an inviting interior looking out over lawn and hydrangeas. These are the recognisable elements of the original film.
 
-Every shot is continuous footage with a visible human or product action. A camera move must reveal real depth. All footage will be newly generated; none of the rejected near-static ranges will be repackaged. Straight cuts on natural breaths connect the scenes. No photo pans, artificial construction morphs, frozen closing frame or large green caption band in the video.
+Every shot is continuous footage with a visible human or product action. A camera move must reveal real depth. All selected footage is newly generated; none of the rejected near-static ranges is reused. Straight cuts on natural breaths connect the scenes. No photo pans, artificial construction morphs, frozen closing frame or large green caption band in the video.
 
 The existing reference images establish the intended architecture and styling. They are illustrative concept assets, not documentary evidence of an installation:
 
@@ -53,11 +53,11 @@ Warm, clear Dutch delivery, with a relaxed pace and a small pause between though
 - On mobile, the complete landscape film sits above the hero text so glass, people and important action are not cropped out.
 - Scrolling away pauses the film; returning resumes it. Deliberate pauses remain paused. The narration does not loop. The final garden frame remains until the visitor chooses replay. Reduced-motion visitors choose when to play.
 
-The hero controller is implemented on the `cinematic-rebuild-20261027` branch. The existing rejected film is only a development fixture. New footage, final browser review and deployment are still pending.
+The hero controller is implemented on the `cinematic-rebuild-20261027` branch. The existing rejected film is only a development fixture. New footage is assembled. Final narration, browser review and deployment are still pending.
 
 ## Production order and acceptance
 
-1. Confirm the new credit ceiling and select the narration voice; obtain its exact quote before spending.
+1. The new credit ceiling is authorised. Select the narration voice and obtain its exact quote before its generation.
 2. Render the glass shot first in **Kling 4.0 at 720p**. Inspect the entire movement: rigid leaves, separate paths, fixed structure, credible hands, and a complete start and stop. Matching start/end images alone cannot pass this check.
 3. Only after that passes, render the remaining four shots. Each is an eight-second candidate with room for natural edit handles.
 4. Record the narration and assemble the film around actual speech and action. Add editable captions and exact brand graphics in editing, not in generated pixels.
@@ -69,14 +69,16 @@ Reject sliding panes that merge or disappear, bending posts, extra fingers, chan
 
 | Item | Credits | Status |
 |---|---:|---|
-| Five new eight-second Kling 4.0 clips, 720p, 16:9 | 20 | Exact quotes obtained: 4 per shot |
-| One replacement clip, only if needed | 4 | Proposed reserve; re-quote the exact replacement before submission |
+| Five new eight-second Kling 4.0 clips, 720p, 16:9 | 20 | Completed at exact submitted quotes of 4 per shot |
+| One replacement personal-advice clip | 4 | Quoted, generated and selected for assembly; original device take rejected |
 | Dutch narration | Up to 5 | Reserve only; voice and exact quote pending |
-| **Proposed maximum new spend** | **29** | **Awaiting a new authorised ceiling** |
+| **Authorised maximum new spend** | **29** | **Authorised by the user on 27 October 2026** |
 
-No credits have been spent on this rebuild. The previous 21-credit allowance was used by the earlier production. There is no new generation job, final film, continuous-playback approval or deployment for this revision yet.
+Six video jobs were submitted for 24 quoted credits, including the rejected take and its correction. Up to 5 credits remain for separately quoted narration. Settled billing has not been reported. The prior 21-credit production is separate. The current export is a motion preview with instrumental music; it is not the narrated client film and is not deployed.
 
-Technical preparation: the site build, existing media checks, experience/configurator tests and the new hero playback state tests pass. These tests do not establish the quality of a video that has not yet been generated. Real browser and physical-device review remain part of the final release work.
+Technical preparation: the site build, existing media checks, experience/configurator tests and the new hero playback state tests pass. These tests do not establish the creative quality of the new film. Source integrity, strict decoding, frame inspection and automated temporal analysis are recorded separately; direct full-film playback/listening approval is not claimed. Real browser and physical-device review remain part of the final release work.
+
+The current [motion preview](https://d2ol7oe51mr4n9.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/a1b38781-060f-4eae-9356-09635e93c76f.mp4) contains music but no final narration. Its exact bytes, frame count and review coverage are recorded in [review-record.json](review-record.json).
 
 The detailed prompts, frame plan, budget state and release gates are in [production.json](production.json). Exact provider requests and returned prices are in [quotes.json](quotes.json).
 

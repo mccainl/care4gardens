@@ -1,0 +1,68 @@
+{
+  "status": "preview_only_not_client_release",
+  "date": "2026-10-27",
+  "artifact": {
+    "status": "motion_preview_narration_pending",
+    "media_id": "a1b38781-060f-4eae-9356-09635e93c76f",
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/a1b38781-060f-4eae-9356-09635e93c76f.mp4",
+    "local_path": "qa_media/cinematic-rebuild/care4gardens-motion-preview.mp4",
+    "sha256": "7b78e3b74e2fae8a2593b823bc955689dacdc0f4480ada41b86c3e60317fe07b",
+    "bytes": 11338828,
+    "duration_seconds": 30.25,
+    "video_frames": 726,
+    "fps": "24/1",
+    "width": 1280,
+    "height": 720,
+    "video_codec": "h264",
+    "pixel_format": "yuv420p",
+    "audio_codec": "aac",
+    "audio_sample_rate": 48000,
+    "audio_duration_seconds": 30.25,
+    "music_integrated_lufs": -22.49,
+    "music_true_peak_dbtp": -7.05,
+    "download_length_and_hash": "passed",
+    "strict_full_decode": "passed",
+    "direct_full_playback_approval": false,
+    "live_deployed": false
+  },
+  "review_coverage": {
+    "sources": "Six source files downloaded with exact byte-length and SHA256 verification; all strictly decoded. Five selected, one rejected.",
+    "visual": "Eight temporal samples per source, additional full-resolution frames, all 193 glass source frames in sequential grids, and full-clip automated descriptions.",
+    "edit": "Inspected first frame, immediate frames either side of all four cuts, 27.5 and 29.5 seconds, and final frame at 30.2083 seconds.",
+    "audio": "All generated speech removed by selecting only the S04 instrumental source. Automated ASR found no speech in that source. The assembled audio spans the full 30.25 seconds.",
+    "limitations": "No direct normal-speed human playback/listening approval claimed. Dutch narration, final sound mix, brand graphics and fresh subtitle timing remain pending."
+  },
+  "cut_observations": [
+    {
+      "time": 6,
+      "observation": "Aluminium veranda entry cuts to a forward-moving Douglas pavilion scene; no dissolve or geometry morph."
+    },
+    {
+      "time": 12,
+      "observation": "Coffee cup is on the table and hand has withdrawn before the cut to the glass action."
+    },
+    {
+      "time": 18.25,
+      "observation": "Glass motion retained through the end of its chosen range; distinct panel edge remains visible before the consultation cut."
+    },
+    {
+      "time": 24.25,
+      "observation": "Adviser has lifted his head toward the homeowner before the garden-room reveal begins."
+    },
+    {
+      "time": 30.208333,
+      "observation": "Both people remain present, cup is lowered and the garden stays visible. No artificial black or still-frame tail was added."
+    }
+  ],
+  "rejected_attempts": [
+    {
+      "request_id": "s05-v1",
+      "reason": "Conspicuous fake glowing device/post effect."
+    },
+    {
+      "media_id": "0764610b-63a9-49cc-9508-6da1146017bb",
+      "reason": "First assembled export had incomplete 2-second audio; corrected before preview delivery."
+    }
+  ],
+  "release_ready": false
+}

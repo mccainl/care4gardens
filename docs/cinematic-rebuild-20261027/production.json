@@ -1,23 +1,28 @@
 {
   "schema_version": 1,
   "project_id": "care4gardens-cinematic-rebuild-20261027",
-  "status": "script_and_website_prepared_generation_not_authorized",
+  "status": "motion_preview_assembled_narration_voice_pending",
   "date": "2026-10-27",
   "authorization": {
-    "generation": false,
-    "evidence": "User explicitly requested a complete new smooth film following the original style, script first, then a professional website. Prior 21-credit allowance is exhausted; no new ceiling has been agreed.",
+    "generation": true,
+    "evidence": "User approved the proposed maximum 29 Higgsfield credits: yes you can go, with high-end professional fluid smooth quality. Approval applies to the five new clips, one correction reserve and up to five credits for separately quoted Dutch narration.",
     "publication": true,
     "publication_evidence": "The user requested completion of the existing Care4Gardens website and the new opening film. Publish to the existing MCC GitHub Pages concept only after the replacement passes review."
   },
   "budget": {
     "unit": "Higgsfield credits",
-    "ceiling": 0,
+    "ceiling": 29,
     "proposed_ceiling": 29,
     "quoted_video_first_pass": 20,
     "proposed_video_retry_reserve": 4,
     "unquoted_narration_reserve_maximum": 5,
-    "spent_this_revision": 0,
-    "previous_revision_credits_reserved_or_spent": 21
+    "spent_this_revision": null,
+    "previous_revision_credits_reserved_or_spent": 21,
+    "approved_on": "2026-10-27",
+    "submitted_quoted_credits": 24,
+    "billing_status": "quotes reserved; settled billing not yet reported",
+    "video_retry_reserve_remaining": 0,
+    "uncommitted_credits_remaining": 5
   },
   "brief": {
     "remake": true,
@@ -35,22 +40,22 @@
       "Full film in the opening hero at time zero on entry"
     ]
   },
-  "duration_seconds": 30,
+  "duration_seconds": 30.25,
   "frame_rate": {
     "numerator": 24,
     "denominator": 1
   },
-  "total_frames": 720,
+  "total_frames": 726,
   "shots": [
     {
       "id": "S01",
       "revision": 1,
-      "seconds": 6,
+      "seconds": 6.0,
       "in_frame": 0,
       "out_frame_exclusive": 144,
       "provider_duration_seconds": 8,
-      "planned_source_in_frame": 24,
-      "planned_source_out_frame_exclusive": 168,
+      "planned_source_in_frame": 36,
+      "planned_source_out_frame_exclusive": 180,
       "source": "https://mccainl.github.io/care4gardens/assets/01_aluminium_before.webp",
       "reference_status": "Existing authorised illustrative concept asset; visually inspected; not evidence of a real installation",
       "action": "An adult walks naturally along the patio into the open veranda",
@@ -67,17 +72,18 @@
       "voice_timing_status": "Planning window only. Final boundaries must follow the actual recorded voice and complete action; extend the film instead of rushing speech or truncating motion.",
       "transition": "Immediate motion at entry",
       "prompt": "Create a single continuous eight-second photorealistic architectural lifestyle film, using the supplied image as the exact architecture and garden reference. Preserve the red-brick Dutch house, attached anthracite aluminium veranda, transparent roof, visible support posts, sofa, low timber table and planting. Warm late-afternoon light stays constant. Start with one adult woman in a plain cream linen shirt and dark trousers already visible on the patio path at the left edge; her single action is to walk naturally from left toward the open veranda and stop beside the seating. Her feet remain on the patio; she never passes through furniture or glazing. One camera behavior: a smooth waist-height lateral dolly of about half a metre from left to right with visible foreground-to-background parallax, keeping the whole veranda visible. Leaves and ornamental grasses move naturally in a light breeze throughout. This must be genuinely continuous live-action motion, never a still-photo zoom, freeze, timelapse, morph or transition. Keep all posts, roof bars, wall attachments and furniture fixed in count, size and location. No construction transformation, no changing weather, no written text, no logo, no dialogue. Wide 16:9 composition; central garden and veranda remain readable in a 4:5 safe crop.",
-      "review_status": "not generated"
+      "review_status": "candidate_for_assembly; final release review pending",
+      "candidate_request_id": "s01-v1"
     },
     {
       "id": "S02",
       "revision": 1,
-      "seconds": 6,
+      "seconds": 6.0,
       "in_frame": 144,
       "out_frame_exclusive": 288,
       "provider_duration_seconds": 8,
-      "planned_source_in_frame": 24,
-      "planned_source_out_frame_exclusive": 168,
+      "planned_source_in_frame": 48,
+      "planned_source_out_frame_exclusive": 192,
       "source": "https://mccainl.github.io/care4gardens/assets/02_douglas_before.webp",
       "reference_status": "Existing authorised illustrative concept asset; visually inspected; not evidence of a real installation",
       "action": "An adult gently sets a coffee cup on the Douglas pavilion table",
@@ -94,17 +100,18 @@
       "voice_timing_status": "Planning window only. Final boundaries must follow the actual recorded voice and complete action; extend the film instead of rushing speech or truncating motion.",
       "transition": "Straight cut on a natural breath; no architectural dissolve",
       "prompt": "One continuous eight-second photorealistic lifestyle shot, in the exact open Douglas timber garden pavilion from the supplied image. Preserve the heavy natural timber posts and beams, flat dark roof edge, vertical boarded back wall, two warm wall lamps, dining table, chairs, brick patio and surrounding olive tree and hydrangeas. This is the Douglas chapter of the same calm premium garden film. An adult man in an unbranded pale blue shirt is already standing at the open front of the dining table at the start. His one action is to set a ceramic coffee cup gently onto the existing tabletop and withdraw his hand naturally; the cup remains there. One camera behavior: a short, level, smooth forward dolly toward the table, with genuine depth parallax and no zoom. No new doors, glass, beams, furniture or roof geometry. Natural hand and body movement, physically grounded shadows, subtle continuous foliage movement. Warm late-afternoon light, natural colour, no dramatic lighting change, no slow frozen holds, no slideshow, no text, logos or dialogue. Keep the action and main timber front post visible in a central 4:5 crop.",
-      "review_status": "not generated"
+      "review_status": "candidate_for_assembly; final release review pending",
+      "candidate_request_id": "s02-v1"
     },
     {
       "id": "S03",
       "revision": 1,
-      "seconds": 6,
+      "seconds": 6.25,
       "in_frame": 288,
-      "out_frame_exclusive": 432,
+      "out_frame_exclusive": 438,
       "provider_duration_seconds": 8,
-      "planned_source_in_frame": 24,
-      "planned_source_out_frame_exclusive": 168,
+      "planned_source_in_frame": 42,
+      "planned_source_out_frame_exclusive": 192,
       "source": "https://mccainl.github.io/care4gardens/assets/03_glass_sliding_wall_after.webp",
       "reference_status": "Existing authorised illustrative concept asset; visually inspected; not evidence of a real installation",
       "action": "An adult guides one rigid glass leaf a short distance on its existing guide plane",
@@ -122,45 +129,48 @@
       "voice_timing_status": "Planning window only. Final boundaries must follow the actual recorded voice and complete action; extend the film instead of rushing speech or truncating motion.",
       "transition": "Straight cut on a natural breath; no architectural dissolve",
       "prompt": "Create one uncut eight-second photorealistic product-use candidate based on the exact interior and closed glazing in the supplied reference. Locked waist-height tripod camera: no pan, zoom, orbit or cuts. Preserve the anthracite top beam, glass roof bars, two sofas, low coffee table, potted tree, lawn, hydrangeas and background roof. Begin with one adult already standing just inside the glazing at the left side, in a neutral unbranded linen shirt, shown from behind. Their only action is to guide the leftmost full-height glass leaf smoothly a short distance to the right, then stop. The moving leaf stays a rigid transparent rectangle, vertical, within the existing top and bottom guide area, and overlaps its neighbour on a separate depth plane; it never intersects or becomes part of another pane. All other glass leaves stay stationary. Retain the six visible full-width leaf divisions of the closed reference; never create, remove, merge, flex or shrink any leaf. The person does not walk through glass. Keep hands, glass edges and floor guide area visible. Do not reveal or invent hidden rollers, hinges, tracks or seals. Light, reflections and exterior landmarks stay consistent. Continuous natural-speed action with gentle acceleration and deceleration, no dissolve or architectural morph. No text, logo, voice or music. This is an illustrative candidate and must preserve physical plausibility throughout.",
-      "review_status": "not generated"
+      "review_status": "candidate_for_assembly; final release review pending",
+      "candidate_request_id": "s03-v1"
     },
     {
       "id": "S05",
-      "revision": 1,
-      "seconds": 6,
+      "revision": 2,
+      "seconds": 6.0,
       "source": "https://mccainl.github.io/care4gardens/assets/01_aluminium_before.webp",
       "reference_status": "Existing authorised illustrative concept asset, inspected; not documentary installation evidence",
-      "action": "An adviser takes a measurement beside the veranda while a homeowner watches",
-      "camera": "Locked medium-wide view",
+      "action": "An adviser traces a garden plan with a pencil and turns to the homeowner for a natural response",
+      "camera": "Locked medium-wide consultation view",
       "geometry": [
-        "Existing left front post and roof grid remain fixed",
-        "Both adults stay grounded on the patio; device remains one rigid object",
-        "No readable numeric measurement, invented laser beam or construction transformation"
+        "Existing aluminium veranda, sofa, table and garden remain fixed",
+        "One paper plan and pencil retain their shape",
+        "Two distinct adults stay seated; hands remain in plausible contact with the plan and pencil"
       ],
       "narration": "Van persoonlijk advies en inmeten tot vakkundige montage.",
       "voice_window_seconds": [
-        18.3,
-        22.8
+        18.65,
+        23.55
       ],
-      "prompt": "Create one continuous eight-second photorealistic advice-and-measurement scene using the supplied aluminium veranda as the exact architectural reference. Preserve the red-brick Dutch house, anthracite front posts and roof grid, existing sofa and table, patio and garden; the structure is already installed and never transforms. Medium-wide stable tripod view of the front-left post and the adjacent open veranda. One adult adviser in an unbranded dark green polo is already standing beside the post with a small handheld laser distance meter; a homeowner in plain cream clothing stands nearby and watches. The adviser's only primary action is to place the device gently against the inside face of the existing post, hold it still to take a measurement, then lower the hand naturally. Do not show or invent readable measurement values, a visible laser beam, client logos or certificates. The adviser and homeowner remain naturally balanced on the patio; no changing faces or extra fingers. Keep the post, floor and roof geometry fixed and unobstructed, with natural small body motion and soft foliage motion throughout. One locked camera, no zoom, no cuts, no timelapse, no installation morph or additional tools. Warm late-afternoon natural light matching the veranda reference. No written text, captions, logo, dialogue or music. This is an illustrative consultation scene, not documentary footage of a real client.",
-      "review_status": "not generated",
-      "in_frame": 432,
-      "out_frame_exclusive": 576,
+      "prompt": "Create one continuous eight-second photorealistic on-site garden-design consultation, using the supplied veranda image as the exact architectural and furnishing reference. Medium-wide locked camera, with the attached red-brick house, anthracite roof and posts, beige outdoor sofa and low timber coffee table clearly recognisable. Two distinct adults are already seated comfortably at the sofa and table at the opening: a middle-aged adviser with short greying hair in an unbranded forest-green polo, and an adult woman homeowner in a plain cream cardigan. Their faces and clothing stay consistent. A simple large folded paper garden plan is already lying flat on the existing coffee table. The adviser's only primary action is to use a pencil to trace one edge of the plan slowly and clearly, then lift the pencil and look toward the homeowner; she responds with a small natural nod. Complete the gesture by six seconds and continue natural relaxed body motion through the final two seconds. Hands remain anatomically plausible, above the tabletop and in contact with the same pencil and paper. Paper, pencil and furniture stay the same size and shape. The linework on the plan is understated and not readable as text. No electronics, no laser, no measuring display, no glowing post, no projected graphics, no new hardware, no building transformation. Preserve the original garden, sunlight, construction, sofa and table placement. Natural late-afternoon warmth, real skin texture and softly moving foliage. No camera movement, no zoom, no cuts, no photo animation, no posing for the camera. No written captions, logo, voice, dialogue or music. This is an illustrative personal-advice scene, not documentary footage of a real customer.",
+      "review_status": "candidate_for_assembly; final release review pending",
+      "in_frame": 438,
+      "out_frame_exclusive": 582,
       "provider_duration_seconds": 8,
       "planned_source_in_frame": 24,
       "planned_source_out_frame_exclusive": 168,
       "voice_timing_status": "Planning window only. Final boundaries must follow the actual recorded voice and complete action; extend the film instead of rushing speech or truncating motion.",
-      "transition": "Straight cut on a natural breath; no architectural dissolve"
+      "transition": "Straight cut on a natural breath; no architectural dissolve",
+      "revision_reason": "The first candidate introduced a false-looking device effect. The revised shot illustrates the personal-advice service; measurement and installation remain correctly stated service steps rather than being staged as a hardware demonstration.",
+      "candidate_request_id": "s05-v2"
     },
     {
       "id": "S04",
       "revision": 1,
-      "seconds": 6,
-      "in_frame": 576,
-      "out_frame_exclusive": 720,
+      "seconds": 6.0,
+      "in_frame": 582,
+      "out_frame_exclusive": 726,
       "provider_duration_seconds": 8,
-      "planned_source_in_frame": 24,
-      "planned_source_out_frame_exclusive": 168,
+      "planned_source_in_frame": 48,
+      "planned_source_out_frame_exclusive": 192,
       "source": "https://mccainl.github.io/care4gardens/assets/03_glass_sliding_wall_before.webp",
       "reference_status": "Existing authorised illustrative concept asset; visually inspected; not evidence of a real installation",
       "action": "A seated couple exchanges a natural moment over coffee",
@@ -171,13 +181,14 @@
       ],
       "narration": "Care4Gardens maakt buitenleven mooier.",
       "voice_window_seconds": [
-        24.8,
+        24.65,
         27.5
       ],
       "voice_timing_status": "Planning window only. Final boundaries must follow the actual recorded voice and complete action; extend the film instead of rushing speech or truncating motion.",
       "transition": "Straight cut on a natural breath; no architectural dissolve",
       "prompt": "One continuous eight-second photorealistic closing lifestyle shot, based on the exact open interior and garden in the supplied reference. Preserve the anthracite roof structure, open garden view, glazing stacked at the right, pale sofas, low square timber table, rug, potted olive tree, lawn and hydrangeas. Keep all glazing completely stationary. At the start a relaxed adult couple is already seated naturally on the existing sofas, in understated unbranded cream and pale blue clothing. Their single visible action is a warm natural exchange over coffee: one person gently lifts a cup toward a sip while the other turns toward them. No posing for camera, no exaggerated gestures, no extra limbs or changing faces. One camera behavior: a slow smooth backward dolly of about half a metre, revealing the sheltered living space while the garden retains depth and parallax. Continue natural body and foliage motion through the final frame; no freeze, no fade to black, no abrupt rush, no artificially prolonged still. Maintain the original warm late-afternoon light without a day-to-night transformation. Leave clear lower central space for later editable brand copy. No generated text, logos, captions, dialogue or music. Wide 16:9 composition with both the activity and garden visible in the central 4:5 safe crop.",
-      "review_status": "not generated"
+      "review_status": "candidate_for_assembly; final release review pending",
+      "candidate_request_id": "s04-v1"
     }
   ],
   "attempts": [
@@ -187,7 +198,7 @@
       "model": "kling4_0",
       "quoted_cost": 4,
       "quote_evidence": "Higgsfield estimate_video_cost, 2026-10-27: reference-to-video, 8 seconds, 720p, 16:9, one output with this exact prompt/reference = 4 credits exact. Canonical image role maps to image_references.",
-      "state": "planned",
+      "state": "completed",
       "parameters": {
         "model": "kling4_0",
         "mode": "reference-to-video",
@@ -202,7 +213,40 @@
             "value": "https://mccainl.github.io/care4gardens/assets/01_aluminium_before.webp"
           }
         ]
-      }
+      },
+      "job_id": "7491dd8a-72f4-4a8a-ad5b-110156f24751",
+      "provider_reference_ids": [
+        "c465233f-658d-437f-88ef-5159a8fd4168"
+      ],
+      "asset_sha256": "ec51e4a60db96c118178b77b6ee8febb9a41e71460461c512a555a56b483617f",
+      "received_bytes": 18216192,
+      "expected_bytes": 18216192,
+      "asset_path": "qa_media/cinematic-rebuild/s01-v1.mp4",
+      "strict_decode": "passed",
+      "observed": {
+        "duration_seconds": 8.041667,
+        "width": 1280,
+        "height": 720,
+        "fps": "24/1",
+        "video_frames": 193,
+        "audio_present": true
+      },
+      "output_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/hf_20261027_123553_7491dd8a-72f4-4a8a-ad5b-110156f24751.mp4",
+      "analysis_media_id": "e1d0c27f-5f2b-435e-81ef-330f7d617fe5",
+      "analysis_id": "a169f7d0-60c3-4b1d-8b7f-5218e2014b1e",
+      "review": {
+        "decision": "candidate_for_assembly",
+        "observations": [
+          "A woman walks from the patio into the veranda. Lateral camera travel produces parallax; the house, roof and posts retain their geometry."
+        ],
+        "frame_coverage": "Eight temporal samples at 0, 1, 2, 3, 4, 5, 6 and 7.9 seconds plus automated full-clip temporal analysis.",
+        "full_clip_analysis_id": "a169f7d0-60c3-4b1d-8b7f-5218e2014b1e",
+        "limitations": [
+          "Sampled frames and automated analysis do not constitute direct normal-speed human playback/listening approval.",
+          "These are generated illustrative concept scenes, not documentary evidence of an installation."
+        ]
+      },
+      "audio_use": "Only instrumental source audio from S04 is retained for the music preview; every other native soundtrack is discarded."
     },
     {
       "request_id": "s02-v1",
@@ -210,7 +254,7 @@
       "model": "kling4_0",
       "quoted_cost": 4,
       "quote_evidence": "Higgsfield estimate_video_cost, 2026-10-27: reference-to-video, 8 seconds, 720p, 16:9, one output with this exact prompt/reference = 4 credits exact. Canonical image role maps to image_references.",
-      "state": "planned",
+      "state": "completed",
       "parameters": {
         "model": "kling4_0",
         "mode": "reference-to-video",
@@ -225,7 +269,40 @@
             "value": "https://mccainl.github.io/care4gardens/assets/02_douglas_before.webp"
           }
         ]
-      }
+      },
+      "job_id": "1e97119d-b895-47ab-8816-5cd145072283",
+      "provider_reference_ids": [
+        "1b4d9deb-ea17-4514-8ae6-81cd24cde0c5"
+      ],
+      "asset_sha256": "3063c3c18b3c722b03a816d8542b998c27864f87a0782230aa163025770324fd",
+      "received_bytes": 13484646,
+      "expected_bytes": 13484646,
+      "asset_path": "qa_media/cinematic-rebuild/s02-v1.mp4",
+      "strict_decode": "passed",
+      "observed": {
+        "duration_seconds": 8.041667,
+        "width": 1280,
+        "height": 720,
+        "fps": "24/1",
+        "video_frames": 193,
+        "audio_present": true
+      },
+      "output_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/hf_20261027_123557_1e97119d-b895-47ab-8816-5cd145072283.mp4",
+      "analysis_media_id": "75d7c077-26d9-42de-b5e5-c6516112ced3",
+      "analysis_id": "4fcdf08b-32ec-4cbd-b04c-0002cbd66d97",
+      "review": {
+        "decision": "candidate_for_assembly",
+        "observations": [
+          "A man places a cup and withdraws his hand as the camera advances into the Douglas pavilion. The edit keeps the completed cup placement."
+        ],
+        "frame_coverage": "Eight temporal samples at 0, 1, 2, 3, 4, 5, 6 and 7.9 seconds plus automated full-clip temporal analysis.",
+        "full_clip_analysis_id": "4fcdf08b-32ec-4cbd-b04c-0002cbd66d97",
+        "limitations": [
+          "Sampled frames and automated analysis do not constitute direct normal-speed human playback/listening approval.",
+          "These are generated illustrative concept scenes, not documentary evidence of an installation."
+        ]
+      },
+      "audio_use": "Only instrumental source audio from S04 is retained for the music preview; every other native soundtrack is discarded."
     },
     {
       "request_id": "s03-v1",
@@ -233,7 +310,7 @@
       "model": "kling4_0",
       "quoted_cost": 4,
       "quote_evidence": "Higgsfield estimate_video_cost, 2026-10-27: reference-to-video, 8 seconds, 720p, 16:9, one output with this exact prompt/reference = 4 credits exact. Canonical image role maps to image_references.",
-      "state": "planned",
+      "state": "completed",
       "parameters": {
         "model": "kling4_0",
         "mode": "reference-to-video",
@@ -248,7 +325,38 @@
             "value": "https://mccainl.github.io/care4gardens/assets/03_glass_sliding_wall_after.webp"
           }
         ]
-      }
+      },
+      "job_id": "a4131e7b-4e3d-4b3d-bd3b-4ecbc451ac3c",
+      "provider_reference_id": "99c56d9a-3b5d-4850-974d-d43967c332d1",
+      "asset_sha256": "5306eb7b0a3a782008dd1fe28746dfa24e19990a6a88453ccaf426192a29f614",
+      "received_bytes": 5822332,
+      "expected_bytes": 5822332,
+      "asset_path": "qa_media/cinematic-rebuild/s03-v1.mp4",
+      "analysis_id": "c9decf9d-80e6-4b0b-85e0-582f12c27671",
+      "analysis_media_id": "216170b4-d34a-4725-b3aa-56b41d4f0911",
+      "strict_decode": "passed",
+      "observed": {
+        "duration_seconds": 8.041667,
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "video_frames": 193,
+        "audio": "AAC 44100 Hz present despite silence prompt; soundtrack review pending"
+      },
+      "review": {
+        "decision": "candidate_for_assembly",
+        "observations": [
+          "One rigid glass leaf moves right, with its edge distinct during overlap. Roof bars, neighbouring pane divisions and furniture remain stable in the inspected sequences."
+        ],
+        "frame_coverage": "All source frames 0–192 inspected in sequential contact-area grids; full-resolution endpoints and intermediate frames additionally inspected. Automated full-clip temporal analysis also completed.",
+        "full_clip_analysis_id": "c9decf9d-80e6-4b0b-85e0-582f12c27671",
+        "limitations": [
+          "Sampled frames and automated analysis do not constitute direct normal-speed human playback/listening approval.",
+          "These are generated illustrative concept scenes, not documentary evidence of an installation."
+        ]
+      },
+      "output_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/hf_20261027_122628_a4131e7b-4e3d-4b3d-bd3b-4ecbc451ac3c.mp4",
+      "audio_use": "Only instrumental source audio from S04 is retained for the music preview; every other native soundtrack is discarded."
     },
     {
       "request_id": "s04-v1",
@@ -256,7 +364,7 @@
       "model": "kling4_0",
       "quoted_cost": 4,
       "quote_evidence": "Higgsfield estimate_video_cost, 2026-10-27: reference-to-video, 8 seconds, 720p, 16:9, one output with this exact prompt/reference = 4 credits exact. Canonical image role maps to image_references.",
-      "state": "planned",
+      "state": "completed",
       "parameters": {
         "model": "kling4_0",
         "mode": "reference-to-video",
@@ -271,7 +379,40 @@
             "value": "https://mccainl.github.io/care4gardens/assets/03_glass_sliding_wall_before.webp"
           }
         ]
-      }
+      },
+      "job_id": "4e21ab81-a2cd-4488-b0b3-cc7da5ed85c8",
+      "provider_reference_ids": [
+        "2a488694-175a-4d48-bed4-3f8b5ff314a9"
+      ],
+      "asset_sha256": "5edc45475e8bea048fb87e173ff84df3e255219bbed578e2224baf57fbae0ff2",
+      "received_bytes": 15965843,
+      "expected_bytes": 15965843,
+      "asset_path": "qa_media/cinematic-rebuild/s04-v1.mp4",
+      "strict_decode": "passed",
+      "observed": {
+        "duration_seconds": 8.041667,
+        "width": 1280,
+        "height": 720,
+        "fps": "24/1",
+        "video_frames": 193,
+        "audio_present": true
+      },
+      "output_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/hf_20261027_123605_4e21ab81-a2cd-4488-b0b3-cc7da5ed85c8.mp4",
+      "analysis_media_id": "5c399a6b-7327-45f7-8264-8a613ab75526",
+      "analysis_id": "32f95cf8-5d55-4ab9-a9e0-47b21167fe22",
+      "review": {
+        "decision": "candidate_for_assembly",
+        "observations": [
+          "A backward camera move reveals two adults over coffee. One lifts and lowers a cup; the other turns toward them. Clothing remains consistent in full-resolution samples."
+        ],
+        "frame_coverage": "Eight temporal samples at 0, 1, 2, 3, 4, 5, 6 and 7.9 seconds plus automated full-clip temporal analysis.",
+        "full_clip_analysis_id": "32f95cf8-5d55-4ab9-a9e0-47b21167fe22",
+        "limitations": [
+          "Sampled frames and automated analysis do not constitute direct normal-speed human playback/listening approval.",
+          "These are generated illustrative concept scenes, not documentary evidence of an installation."
+        ]
+      },
+      "audio_use": "Only instrumental source audio from S04 is retained for the music preview; every other native soundtrack is discarded."
     },
     {
       "request_id": "s05-v1",
@@ -279,7 +420,7 @@
       "model": "kling4_0",
       "quoted_cost": 4,
       "quote_evidence": "Higgsfield estimate_video_cost, 2026-10-27: exact reference-to-video request, 8 seconds, 720p, 16:9, one output = 4 credits exact. Image role maps to image_references.",
-      "state": "planned",
+      "state": "rejected",
       "parameters": {
         "model": "kling4_0",
         "mode": "reference-to-video",
@@ -294,7 +435,93 @@
             "value": "https://mccainl.github.io/care4gardens/assets/01_aluminium_before.webp"
           }
         ]
-      }
+      },
+      "job_id": "ffd0f444-50f2-41e1-a953-69d08ccc3669",
+      "provider_reference_ids": [
+        "bd2fb51d-e6a5-40e2-88d1-c70086089f5b"
+      ],
+      "asset_sha256": "442e9c083fd82fa19c9c958353ff1412bc870b6bcc4b680d699c5e3e9aec0002",
+      "received_bytes": 3559631,
+      "expected_bytes": 3559631,
+      "asset_path": "qa_media/cinematic-rebuild/s05-v1.mp4",
+      "strict_decode": "passed",
+      "observed": {
+        "duration_seconds": 8.041667,
+        "width": 1280,
+        "height": 720,
+        "fps": "24/1",
+        "video_frames": 193,
+        "audio_present": true
+      },
+      "analysis_id": "80236e95-b2cf-4fc2-ae49-8fc9cd87ea5a",
+      "analysis_media_id": "727202c0-6306-40a7-8dee-8861103f67f9",
+      "review": {
+        "decision": "reject",
+        "time_range_seconds": [
+          1,
+          6.5
+        ],
+        "severity": "major",
+        "observed": "A visible green display-like glow appears on the post when the adviser points the handheld device at it. The action reads as a remote-control demonstration, not credible measurement. Generated English speech is also reported by audio analysis.",
+        "repair": "Replace with a simple personal-advice scene using a paper garden plan; discard all source dialogue from the final mix."
+      },
+      "output_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/hf_20261027_123600_ffd0f444-50f2-41e1-a953-69d08ccc3669.mp4"
+    },
+    {
+      "request_id": "s05-v2",
+      "shot_id": "S05",
+      "model": "kling4_0",
+      "quoted_cost": 4,
+      "quote_evidence": "Higgsfield estimate_video_cost on 2026-10-27, exact revised reference-to-video request: 8 seconds, 720p, 16:9, one result = 4 credits exact.",
+      "state": "completed",
+      "parameters": {
+        "model": "kling4_0",
+        "mode": "reference-to-video",
+        "resolution": "720p",
+        "duration": 8,
+        "aspect_ratio": "16:9",
+        "count": 1,
+        "prompt": "Create one continuous eight-second photorealistic on-site garden-design consultation, using the supplied veranda image as the exact architectural and furnishing reference. Medium-wide locked camera, with the attached red-brick house, anthracite roof and posts, beige outdoor sofa and low timber coffee table clearly recognisable. Two distinct adults are already seated comfortably at the sofa and table at the opening: a middle-aged adviser with short greying hair in an unbranded forest-green polo, and an adult woman homeowner in a plain cream cardigan. Their faces and clothing stay consistent. A simple large folded paper garden plan is already lying flat on the existing coffee table. The adviser's only primary action is to use a pencil to trace one edge of the plan slowly and clearly, then lift the pencil and look toward the homeowner; she responds with a small natural nod. Complete the gesture by six seconds and continue natural relaxed body motion through the final two seconds. Hands remain anatomically plausible, above the tabletop and in contact with the same pencil and paper. Paper, pencil and furniture stay the same size and shape. The linework on the plan is understated and not readable as text. No electronics, no laser, no measuring display, no glowing post, no projected graphics, no new hardware, no building transformation. Preserve the original garden, sunlight, construction, sofa and table placement. Natural late-afternoon warmth, real skin texture and softly moving foliage. No camera movement, no zoom, no cuts, no photo animation, no posing for the camera. No written captions, logo, voice, dialogue or music. This is an illustrative personal-advice scene, not documentary footage of a real customer.",
+        "medias": [
+          {
+            "role": "image",
+            "value": "https://mccainl.github.io/care4gardens/assets/01_aluminium_before.webp"
+          }
+        ]
+      },
+      "job_id": "d07d31e5-2e46-4058-8b94-7ed642cca5a6",
+      "provider_reference_ids": [
+        "7c701634-1b74-4b89-b1b7-e2605b122af9"
+      ],
+      "asset_sha256": "1c7eec20b6b3ecac26c48788bd599ab5c2a8cc50420e9d8a57738731d527e1eb",
+      "received_bytes": 5635054,
+      "expected_bytes": 5635054,
+      "asset_path": "qa_media/cinematic-rebuild/s05-v2.mp4",
+      "strict_decode": "passed",
+      "observed": {
+        "duration_seconds": 8.041667,
+        "width": 1280,
+        "height": 720,
+        "fps": "24/1",
+        "video_frames": 193,
+        "audio_present": true
+      },
+      "output_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/hf_20261027_124954_d07d31e5-2e46-4058-8b94-7ed642cca5a6.mp4",
+      "analysis_media_id": "92b31efd-60a3-4133-b659-e4f9f9bb4fae",
+      "analysis_id": "72317012-e624-4bbf-8619-444cd054b590",
+      "review": {
+        "decision": "candidate_for_assembly",
+        "observations": [
+          "An adviser traces a paper garden plan with a pencil, then looks toward the homeowner. Additional foreground consultation seating is plausible staging; the original veranda remains in the background."
+        ],
+        "frame_coverage": "Eight temporal samples at 0, 1, 2, 3, 4, 5, 6 and 7.9 seconds plus automated full-clip temporal analysis.",
+        "full_clip_analysis_id": "72317012-e624-4bbf-8619-444cd054b590",
+        "limitations": [
+          "Sampled frames and automated analysis do not constitute direct normal-speed human playback/listening approval.",
+          "These are generated illustrative concept scenes, not documentary evidence of an installation."
+        ]
+      },
+      "audio_use": "Only instrumental source audio from S04 is retained for the music preview; every other native soundtrack is discarded."
     }
   ],
   "narration": {
@@ -303,7 +530,7 @@
     "direction": "Warm, clear Dutch delivery in the restrained tone of the original. No rushed sales cadence. Natural pronunciation of aluminium, Douglas and Care4Gardens.",
     "voice_selection": "Pending provider voice picker; no voice identifier invented",
     "cost_status": "Not quoted: quote the selected exact voice request before any submission. Total voice spending must fit the authorised ceiling.",
-    "music": "No paid music job planned. Do not borrow unlicensed commercial music.",
+    "music": "Instrumental source audio from S04, repeated with 1.5-second crossfades. Automated ASR returned no speech for that source. All other native generated soundtracks discarded. No paid music job.",
     "mix_targets": {
       "integrated_lufs": -16,
       "true_peak_dbtp": -1,
@@ -312,7 +539,7 @@
     "time_stretch_voice": false
   },
   "production_order": [
-    "Confirm new spending ceiling",
+    "New maximum of 29 Higgsfield credits authorised by the user.",
     "Select a real supported Dutch voice and get the exact quote; do not submit if the full budget would be exceeded",
     "Render S03 as the representative mechanism/motion candidate first",
     "Verify bytes and strict full-file decode; inspect continuous movement, all pane boundaries and the human action",
@@ -335,11 +562,11 @@
   "review": {
     "full_playback": {
       "passed": false,
-      "evidence": "No new footage exists yet."
+      "evidence": "Five new moving takes generated and assembled. All sources strictly decode; sampled frames and automated temporal analysis reviewed. Direct full-film normal-speed playback/listening approval is still pending."
     },
     "temporal_geometry": {
       "passed": false,
-      "evidence": "S03 must pass continuous review; plausible endpoints are insufficient."
+      "evidence": "Glass shot inspected across all 193 source frames and automated temporal analysis. No critical defect identified in that coverage; final continuous playback review remains pending."
     },
     "audio": {
       "passed": false,
@@ -351,7 +578,7 @@
     },
     "brief_fidelity": {
       "passed": false,
-      "evidence": "Plan preserves the original visual world and applies the explicit new-film request; final comparison pending."
+      "evidence": "The new footage follows the original aluminium, Douglas, glass and garden visual world, adds a personal-advice scene and uses real continuous subject action. Narration and final brand treatment remain pending."
     },
     "rights": {
       "passed": true,
@@ -363,9 +590,9 @@
     }
   },
   "assembly": {
-    "target_seconds": 30,
-    "generated_seconds": 40,
-    "handles": "Planned one-second head and tail per clip; retain complete action. Update the integer-frame plan if actual action or speech needs a longer edit.",
+    "target_seconds": 30.25,
+    "generated_seconds": 48,
+    "handles": "Actual native-speed cut uses 726 frames, with individual source in/out points in edit-timeline.json. No repeated stills, frame interpolation or time stretching.",
     "prohibited": [
       "Reusing rejected stable ranges as new footage",
       "Ken Burns/photo zooms",
@@ -374,6 +601,50 @@
       "Forced narration time compression"
     ],
     "captions": "Fresh Dutch WebVTT aligned to actual new voice; no large baked green band",
-    "closing": "Brand line ends near 27.5 seconds, leaving about 2.5 seconds of naturally continuing lifestyle action."
+    "closing": "Brand line planned to finish by 27.5 seconds, leaving 2.75 seconds of continuing lifestyle action. Confirm against the selected voice waveform.",
+    "selected_source_seconds": 40
+  },
+  "preview_export_history": [
+    {
+      "media_id": "0764610b-63a9-49cc-9508-6da1146017bb",
+      "sha256": "6f32ecdf4365dd1e743c6351ed5fdf19186b676b4ebe8b3534fb94927ee5030e",
+      "state": "rejected_export",
+      "reason": "Audio was only 2 seconds although video was 30.25 seconds. Rebuilt crossfades using independent decoder inputs; do not deliver this export."
+    }
+  ],
+  "motion_preview": {
+    "status": "motion_preview_narration_pending",
+    "media_id": "a1b38781-060f-4eae-9356-09635e93c76f",
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/a1b38781-060f-4eae-9356-09635e93c76f.mp4",
+    "local_path": "qa_media/cinematic-rebuild/care4gardens-motion-preview.mp4",
+    "sha256": "7b78e3b74e2fae8a2593b823bc955689dacdc0f4480ada41b86c3e60317fe07b",
+    "bytes": 11338828,
+    "duration_seconds": 30.25,
+    "video_frames": 726,
+    "fps": "24/1",
+    "width": 1280,
+    "height": 720,
+    "video_codec": "h264",
+    "pixel_format": "yuv420p",
+    "audio_codec": "aac",
+    "audio_sample_rate": 48000,
+    "audio_duration_seconds": 30.25,
+    "music_integrated_lufs": -22.49,
+    "music_true_peak_dbtp": -7.05,
+    "download_length_and_hash": "passed",
+    "strict_full_decode": "passed",
+    "direct_full_playback_approval": false,
+    "live_deployed": false
+  },
+  "next_action": {
+    "required_input": "Select an actual voice_id and voice_type pair using the Higgsfield voice picker. The provider requires a picker selection before rendering narration.",
+    "authorised_remaining_credits": 5,
+    "sequence": [
+      "Quote exact narration request using the selected voice pair.",
+      "Generate only if it fits the remaining 5 credits.",
+      "Align real phrase timings and fresh captions to matching scenes without speeding up speech.",
+      "Finish the sound mix, brand ending and complete creative playback review.",
+      "Replace the rejected development fixture, test the opening hero on desktop/mobile and deploy to the existing MCC GitHub Pages site."
+    ]
   }
 }
