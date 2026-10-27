@@ -1,0 +1,10 @@
+{
+  "file": "care4gardens-approved-corrected.mp4",
+  "bytes": 20284036,
+  "sha256": "9e63e31aa5f45823b99221c59e6d8347f2a59635944030b85fc6ec82f71a665e",
+  "frames": 576,
+  "duration": 24,
+  "audio_identical": true,
+  "opening_384_frames_identical": true,
+  "strict_decode": "passed"
+}

@@ -1,123 +1,187 @@
 {
-  "sha256": "d8df27bc891fdfd72c540cfd1d7187187147343223b656db8531bf75197c2746",
+  "sha256": "4c8b7fa8edd13ed90b778d4932626edbf8f9dde0d03d96aed202f4219e654c4b",
   "parts": [
     {
       "file": "cinematic.part000",
-      "sha256": "e3d99c71c783b603df06810852b58dbfc86c212b466d08b6b9b895e59552e984"
+      "sha256": "56d845b054df2144bf95f44a4ed767b75a912471815f5c622c9837b6da0db1ec"
     },
     {
       "file": "cinematic.part001",
-      "sha256": "cebb06210fb2593dc0b1ca3b33e983d9a0bc1dd49ee43c806a54fae77057450f"
+      "sha256": "923a91ea520aae78a68cd24f136e6e50574bb430499f98d94ad3518e058641db"
     },
     {
       "file": "cinematic.part002",
-      "sha256": "323abcbfdee20de95ad1664119416820da2094c70c2fa3718f2d51e4a9880874"
+      "sha256": "ae1dc7a43065b36799d719dc3f595a47e6d0d08b46331456fe1b8889a54c69ad"
     },
     {
       "file": "cinematic.part003",
-      "sha256": "f4582d79abbb1a516a4c0c695f42cd0e1ac4ee716918bb309da9d87de39bd6c1"
+      "sha256": "cbe8102859b2ce110cee964b9c3b57790d81be10e03f9b0b19f0b0d75b6cdf49"
     },
     {
       "file": "cinematic.part004",
-      "sha256": "a03e7a9c62ff610aa50c3c1bfa50a68abda7769a43cfea8da36931a57ecc8d0a"
+      "sha256": "6e7a22068770ea77c525b0e1ffaf52cb630c200dabe3e6f30f2d051f4464f982"
     },
     {
       "file": "cinematic.part005",
-      "sha256": "826c931f3fea214b79aa7dc1ba3065095b8b9645e99c3ed81c302c117d92d979"
+      "sha256": "8321f990e6c047f80ee9f03bdb20f5cd73938d932fdbc47fe33d74b5d19d5107"
     },
     {
       "file": "cinematic.part006",
-      "sha256": "32d2ba43952a217939d0964120e6533ff4c932b4f1d22e5b65084588163166e2"
+      "sha256": "b526a5ea010265ab3920e80a5bc7adfa9279b0ec2f386483706104ecb77368bc"
     },
     {
       "file": "cinematic.part007",
-      "sha256": "d54bcf2ac760cc0273c540cec63735644eb2bf00b18643a8ebe68322b601ebe6"
+      "sha256": "be0afd91dc5a90a2062a0cd1c180f5582779b19353c7a4712466c993e38e36b3"
     },
     {
       "file": "cinematic.part008",
-      "sha256": "cb029f8e31d0f12a44953a1ae2101f4eec1b917b331af1f56b295fa3f05a69ca"
+      "sha256": "bb0438167d3ec9cc3892c3ffbcdc54780ee6b5d70f34bd8d2644d827d11e1b1a"
     },
     {
       "file": "cinematic.part009",
-      "sha256": "279a5e9421e1d0538782848fffb29fe5a18c994743eb59eb6c03f97733aa5e84"
+      "sha256": "0ce27ee7fedcd41cc9082538075641f1691a1c19f0ff41ff7e90b1680be0c858"
     },
     {
       "file": "cinematic.part010",
-      "sha256": "7ef896a75c566e5da27910555703066dabc2ab8543671d34c7148459b245a5b6"
+      "sha256": "9a4b0319c59599cbea611b63cc3de030b7bf5bdeb02ded9cd8edb9362a5bf0cd"
     },
     {
       "file": "cinematic.part011",
-      "sha256": "b800d7006a00bd30fff90155e152f2d8a641688dad6c9b7dd9b1a73c879b1fa6"
+      "sha256": "1530e7f8c31f09c6fb4dc85a60ea519ee2fd333880506e682c7c41b77888857c"
     },
     {
       "file": "cinematic.part012",
-      "sha256": "e6bb9370ab0417db4025f7c3a097ef5a1c4b4d9196d3981864f92eb80c1ee0bb"
+      "sha256": "ae81f36ae0f44ab0fe0132f71751492e6a89b0a16926bd941a6ed997165f2d91"
     },
     {
       "file": "cinematic.part013",
-      "sha256": "9d46219bde6a5c084bd675a451480cdc3bc4caeb08cfab19530b3ba7df003906"
+      "sha256": "93f7883504eb76f465a2935f11374a4075325a82f16f0013e8c1e600900d5ed7"
     },
     {
       "file": "cinematic.part014",
-      "sha256": "738d6b3df41499bcb6ee9e34821151c0a6e8c9cbd9dae1667bdee561cc23c7f8"
+      "sha256": "b4361c1b98379d6ff1d219184559c3b2e728c3f349a1b1675cc76bb535f35969"
     },
     {
       "file": "cinematic.part015",
-      "sha256": "92562b5db61fc2041027a8b339c4db59df0a14ca3d257993636e280c7b043c4a"
+      "sha256": "74a7cff1eda606291420976618dc5d40715f4a1022d686ce6aa72198d09e4ce4"
     },
     {
       "file": "cinematic.part016",
-      "sha256": "061c378d71f56af16b1627968e0a8a4d5c66b757003c56898c1fe12909852c37"
+      "sha256": "da817d60b6c317ea6d7f86f2989b56f00da7e23a6896927c26d829aa319f476c"
     },
     {
       "file": "cinematic.part017",
-      "sha256": "d593f0815b174cdebeb48367497afe52c924b13268fa5054d51482ad501579d4"
+      "sha256": "e3fffe49b69b1de0994b7347291cc79c588d169c55894da628d041a39e43f55a"
     },
     {
       "file": "cinematic.part018",
-      "sha256": "45f0350eef675e6535017d376e2019a7bfecc6c2ccc8ed99a1ce473f66ecaa6c"
+      "sha256": "05cec0804884f011b619d99ec16edec1847d2a7221a5a6ee2ab3716474dd2257"
     },
     {
       "file": "cinematic.part019",
-      "sha256": "e79882e379332221de8f38635d3cabd0815e61cdcabc2a443cf2824031bfb197"
+      "sha256": "260a9271b4db99c02fec81b8c2fb08a3787db82fda561d44ff57d063002076be"
     },
     {
       "file": "cinematic.part020",
-      "sha256": "c0499db38e30883b78fb57a13e14b698a6fbab12559c1c1e0bc73b5cf9cfa3df"
+      "sha256": "1472e2dc2344426fd857e253aa2520b16af5a8bb4ceeab664cfe7df842a2f7db"
     },
     {
       "file": "cinematic.part021",
-      "sha256": "48e143d0a09c33173be9b266d074b056fc882c7b81f3bf7a3e7e99a3926c0b04"
+      "sha256": "39e620143cf033f85dddb4beac2ee56a4378df67c248517ca43c616941c1dd4c"
     },
     {
       "file": "cinematic.part022",
-      "sha256": "f7f683e98bc665724ba250a8933f9c38b4cf8ceb6540be895e1d4a7f285d7962"
+      "sha256": "db874b89b60eded33d55fc2fe325cc50be479990395c0b365a2cdf1434d6dc4d"
     },
     {
       "file": "cinematic.part023",
-      "sha256": "11157f3cd55d8240e60873670eb0e737c01fe0960331635903f782f4db62d370"
+      "sha256": "d38e9e5620af5f5833928811862345106a28c50829928a023968aec41e2061d3"
+    },
+    {
+      "file": "cinematic.part024",
+      "sha256": "b7ee8d0c37eca30c9b75cafd51c0e6baf1524c48033c74b1c47e3ab5c5898def"
+    },
+    {
+      "file": "cinematic.part025",
+      "sha256": "eea131c8655031db003f29e1aa23ee904f93984c6d087de34cd3ae9900d51bff"
+    },
+    {
+      "file": "cinematic.part026",
+      "sha256": "8345cbc9d564e4f3ffe41179dbd571f607a1f11c1ca14522e593b58c42e8c028"
+    },
+    {
+      "file": "cinematic.part027",
+      "sha256": "cc7a2e36b68a6d7bb16e14e02e67e9f9e1cb4a97f74f73c71d0f046caec910d2"
+    },
+    {
+      "file": "cinematic.part028",
+      "sha256": "6c27f3cef8a49d78402b1fee7adcc9bf31f02c0485b2ca41ab7724483dc67446"
+    },
+    {
+      "file": "cinematic.part029",
+      "sha256": "f5db08833a4866037ac858201943e3069468d4d8ec4137838ce4a1a52d456538"
+    },
+    {
+      "file": "cinematic.part030",
+      "sha256": "ddc586a59954d2fd3919a03dead7818dfb0570eab32cb39fce069fbe23dfacbc"
+    },
+    {
+      "file": "cinematic.part031",
+      "sha256": "78bebb8490e490441b6e7f0ddac4f9b4fe156c876c2d6e64aaee9dcff53ab319"
+    },
+    {
+      "file": "cinematic.part032",
+      "sha256": "41327c3f9503f74f827c8595116e6acc252fa19eaed6c488aa27e25d682c329d"
+    },
+    {
+      "file": "cinematic.part033",
+      "sha256": "e67d2151506a1ee990883bc6ab4fce1a8dcb8c3b6252c3e627dcf7e959a1ac17"
+    },
+    {
+      "file": "cinematic.part034",
+      "sha256": "326d118efaba3cd274463548b39938f50b82ba0237c6f366d176971cc4a76a3b"
+    },
+    {
+      "file": "cinematic.part035",
+      "sha256": "b5083056152b80225eb36b3512dd3143807eb9a6a0933dfe5301d3df5bf48d13"
+    },
+    {
+      "file": "cinematic.part036",
+      "sha256": "8e7df71f2285ee224ec0cec5b465621a80b07ffe5ec7d15cd38f9517333dfc87"
+    },
+    {
+      "file": "cinematic.part037",
+      "sha256": "8fe380760fed725591970d512fb038c8c8cb44fc638aaaa72af771f6c4aaa0a3"
+    },
+    {
+      "file": "cinematic.part038",
+      "sha256": "1a7437f16e173fee308fc9cbb19b11624070c2b89dfeec63204b419c4caaea33"
+    },
+    {
+      "file": "cinematic.part039",
+      "sha256": "f85050139cca770d2ab03a5a953cacc607383cd6b2fc41c920c5e30f9e28d319"
     }
   ],
   "files": [
     {
       "name": "introduction-cinematic.mp4",
-      "bytes": 12123049,
-      "sha256": "fbe097b97612baf77c5e44c5ef9713c9c36a7c167e77498dea6930b16b25b767"
+      "bytes": 20284036,
+      "sha256": "9e63e31aa5f45823b99221c59e6d8347f2a59635944030b85fc6ec82f71a665e"
     },
     {
       "name": "introduction-cinematic.webp",
-      "bytes": 201910,
-      "sha256": "9cb19321d1225b815008e2fa644f79d91ad140dd7b35da80f0778dcefd2b89ed"
+      "bytes": 255756,
+      "sha256": "e65c5136b85116d863bb3449a922edaa1a17849a07f012e1c21958dd38c483d9"
     },
     {
       "name": "narration-cinematic.vtt",
-      "bytes": 562,
-      "sha256": "cf82758937af76aac4edb3179bc0b3156eb81513fb520fde40b04b8912fb9134"
+      "bytes": 407,
+      "sha256": "c565b457dfc88076090f2b5ef53c09a11cb86eddef86dd2b31d7c1c153b1a6ee"
     },
     {
       "name": "descriptions-cinematic.vtt",
-      "bytes": 475,
-      "sha256": "3da2428ae6691e0dc55da7061197a8e7e10fac5a8c7ba4da27d89e9290f85755"
+      "bytes": 365,
+      "sha256": "f7b10aa70204a0632621edbfb2cd60b77ed1e288d588b8c50647fa435df32a60"
     }
   ]
 }

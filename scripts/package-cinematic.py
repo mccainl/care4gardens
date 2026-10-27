@@ -2,24 +2,30 @@
 """Package the finished intro and sidecars for the existing GitHub Pages build."""
 from pathlib import Path
 import hashlib
-import importlib.util
 import io
 import json
 import subprocess
 import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
-SOURCE=ROOT/'qa_media/cinematic-rebuild'
+SOURCE=ROOT/'qa_media/glass-detail'
 DEST=ROOT/'site/assets'
-spec=importlib.util.spec_from_file_location('finish', ROOT/'scripts/finish-cinematic.py')
-finish=importlib.util.module_from_spec(spec)
-spec.loader.exec_module(finish)
 DEST.mkdir(exist_ok=True)
-video=SOURCE/'care4gardens-arthur-final.mp4'
+video=SOURCE/'care4gardens-approved-corrected.mp4'
 subprocess.run(['ffmpeg','-v','error','-xerror','-i',str(video),'-f','null','-'],check=True)
 (DEST/'introduction-cinematic.mp4').write_bytes(video.read_bytes())
-(DEST/'narration-cinematic.vtt').write_text(finish.CAPTIONS)
-(DEST/'descriptions-cinematic.vtt').write_text(finish.DESCRIPTIONS)
+(DEST/'narration-cinematic.vtt').write_text((ROOT/'docs/product-remake-20261027/narration.vtt').read_text())
+(DEST/'descriptions-cinematic.vtt').write_text('''WEBVTT
+
+00:00.000 --> 00:08.000
+Een open terras, gevolgd door een aluminium overkapping in de tuin.
+
+00:08.000 --> 00:16.000
+Een open Douglas overkapping, gevolgd door de uitvoering met glazen wanden.
+
+00:16.000 --> 00:24.000
+Vanuit de tuinkamer blijft de tuin zichtbaar. Een afzonderlijk glaspaneel beweegt een klein stukje. Care4Gardens maakt buitenleven mooier.
+''')
 subprocess.run(['ffmpeg','-y','-v','error','-i',str(video),'-frames:v','1',
                 '-c:v','libwebp','-quality','86',str(DEST/'introduction-cinematic.webp')],check=True)
 names=['introduction-cinematic.mp4','introduction-cinematic.webp',

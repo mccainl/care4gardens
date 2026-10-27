@@ -1,0 +1,57 @@
+{
+  "status": "validated_ready_for_publication",
+  "user_approval": "User approves the 24-second film, requires only small fixed-size glass movement, and authorizes website publication after correction.",
+  "job_id": "788c8e61-e27d-4b13-a1f0-786da87b39f2",
+  "quoted_credits": 8,
+  "parameters": {
+    "model": "kling4_0",
+    "mode": "image-to-video",
+    "resolution": "1080p",
+    "duration": 8,
+    "aspect_ratio": "16:9",
+    "count": 1,
+    "medias": [
+      {
+        "role": "start_image",
+        "value": "https://mccainl.github.io/care4gardens/assets/03_glass_sliding_wall_after.webp"
+      }
+    ],
+    "prompt": "ONE locked-camera eight-second architectural product shot. Begin exactly from the supplied image of the CLOSED glass wall. Absolutely preserve this frame, all glass pane widths, heights, seams, black lower shoes, handle, roof, posts, sofas and garden. The ONLY action is the FIRST SMALL individual glass leaf immediately beside the LEFT structural post moving VERY SLIGHTLY to the right, just THREE CENTIMETRES in real-world scale, less than FOUR PERCENT of that single leaf's own width, then stopping. This is a tiny ventilation gap, NOT opening the doorway. At output resolution the movement should be roughly SIX PIXELS total, not hundreds. Hold still for the first second; translate the complete rigid leaf gently during seconds 1-3; hold it at that tiny offset for seconds 3-8. Both vertical edges of the SAME small leaf must translate TOGETHER by the SAME tiny distance. The leftmost leaf is just the narrow panel from the left post to the FIRST seam, NOT the entire front glazing. Never move the second, third or other glass panes. Every panel remains its exact original full width and height; no narrowing, growing, scaling, morphing, fading, duplication or disappearance. Fixed camera, no pan, zoom, dolly, perspective change or reframing. Keep the entire wall almost fully CLOSED throughout. No people, hands, reflected people, text, logos, sound or music. Only extremely subtle natural foliage movement beyond the glass. Photorealistic transparent glass with stable reflections. Priority: rigid unchanged geometry and almost imperceptibly short travel."
+  },
+  "source_screenshots": [
+    "09975D73-323C-46E2-8A0F-728B774E0E6C.jpeg",
+    "D0E621FE-258B-45DE-B1D8-793824148BE5.jpeg"
+  ],
+  "preserve": [
+    "First 16 seconds",
+    "Full approved audio",
+    "24-second duration",
+    "Closing brand timing"
+  ],
+  "validation_required": [
+    "Pane-width stability",
+    "Small travel only",
+    "Strict video decode",
+    "Opening frame and audio hash equality",
+    "Website build, tests and live asset verification"
+  ],
+  "generation_review": {
+    "decision": "rejected full take",
+    "reason": "Generated pane still travels too far and changes apparent geometry later in the shot. Not used in delivery."
+  },
+  "correction_method": "Fixed-camera video plate with one rigid transparent pane layer translating 8 reference pixels toward closed, without scaling, rotation or deformation. All other panes remain stationary.",
+  "user_clarification": "Only one narrow gap, about five centimetres; close that one door gently.",
+  "measurement_limit": "No physical calibration exists; small visual travel is approximately five centimetres for a typical pane, not a certified measurement.",
+  "final_media_id": "fae3d6d8-bffc-493b-b0de-126784f4af47",
+  "final_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/fae3d6d8-bffc-493b-b0de-126784f4af47.mp4",
+  "validation": {
+    "strict_decode": "passed",
+    "opening_384_frames_identical": true,
+    "approved_audio_identical": true,
+    "build": "passed",
+    "tests": "passed",
+    "pane_width_reference_pixels": 143,
+    "travel_reference_pixels": 8,
+    "motion": "Closing from a narrow gap; easing from 0.75 to 3.25 seconds of the final shot, then stationary."
+  }
+}
