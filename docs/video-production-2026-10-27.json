@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "project_id": "care4gardens-film-replacement",
+  "authorization": {
+    "generation": true,
+    "evidence": "User requested Kling 4.0 remake after cost discussion, then instructed completion of client needs. First-pass scope capped at 21 credits.",
+    "publication": true,
+    "publication_evidence": "User requested implementation of client website corrections and replacement film on the existing proposal site."
+  },
+  "budget": {
+    "unit": "Higgsfield credits",
+    "ceiling": 21
+  },
+  "duration_seconds": 21,
+  "shots": [
+    {
+      "id": "veranda",
+      "seconds": 7,
+      "action": "Closed glazing remains fixed; foliage moves softly",
+      "camera": "Slow lateral dolly left",
+      "source": "https://mccainl.github.io/care4gardens/assets/01_aluminium_after.webp",
+      "geometry": [
+        "Preserve every visible post, pane and frame from the reference",
+        "Glazing remains stationary; no intersecting planes",
+        "Straight guide rails and level bottom bar where applicable"
+      ],
+      "selected_request_id": "veranda-v1"
+    },
+    {
+      "id": "screens",
+      "seconds": 7,
+      "action": "Fabric screen opens substantially while its glass wall remains fixed; illustrative travel, no measured distance claim",
+      "camera": "Locked tripod",
+      "source": "https://mccainl.github.io/care4gardens/assets/collection-screens-v2.webp",
+      "geometry": [
+        "Preserve every visible post, pane and frame from the reference",
+        "Glazing remains stationary; no intersecting planes",
+        "Straight guide rails and level bottom bar where applicable"
+      ],
+      "selected_request_id": "screens-v1"
+    },
+    {
+      "id": "shutters",
+      "seconds": 7,
+      "action": "Shutter lowers to a closed position within its guides; illustrative travel, no measured distance claim",
+      "camera": "Locked tripod",
+      "source": "https://mccainl.github.io/care4gardens/assets/collection-shutters-v2.webp",
+      "geometry": [
+        "Preserve every visible post, pane and frame from the reference",
+        "Glazing remains stationary; no intersecting planes",
+        "Straight guide rails and level bottom bar where applicable"
+      ],
+      "selected_request_id": "shutters-v1"
+    }
+  ],
+  "attempts": [
+    {
+      "request_id": "veranda-v1",
+      "shot_id": "veranda",
+      "model": "kling4_0",
+      "quoted_cost": 7,
+      "quote_evidence": "Higgsfield estimate_video_cost: 7 seconds image-to-video 1080p 16:9 = 7 credits, 2026-10-27",
+      "state": "approved",
+      "job_id": "0c2a3e57-0f4f-41ed-9113-78203435f1a6",
+      "parameters": {
+        "prompt": "Premium architectural product film, one unbroken seven-second shot based exactly on the supplied photograph. A real-looking anthracite aluminium glass-roof veranda attached to a Dutch brick house, at warm late-afternoon light. All glass doors are CLOSED and STATIONARY throughout. Preserve exactly the visible posts, beams, roof panels, glass panel boundaries, sofa, table, plants, house attachment and proportions from the reference. The camera makes one very slow, controlled lateral dolly left of only about twenty centimetres, maintaining the same height, lens and wide composition, with subtle natural parallax. Only garden leaves and ornamental grasses sway gently in a light breeze. Architectural verticals remain straight and metal sections remain rigid. Natural glass reflections, consistent sunlight and exposure, restrained photoreal materials. No opening or closing doors, no sliding panes, no morphing, no intersecting glass, no disappearing or duplicated objects, no cuts, no people or installers, no text, no logos, no sound or dialogue. Calm luxury architectural photography in motion. Finish with the same intact structure.",
+        "aspect_ratio": "16:9",
+        "duration": 7,
+        "reference_images": [
+          "6776b8e7-0136-4b26-8966-5ef9ed0c67ca"
+        ],
+        "mode": "image-to-video",
+        "resolution": "1080p"
+      },
+      "asset_sha256": "0d89992ac431749fd191d299120677f6f52bb677856bff1a03bf82e25da6dae9"
+    },
+    {
+      "request_id": "screens-v1",
+      "shot_id": "screens",
+      "model": "kling4_0",
+      "quoted_cost": 7,
+      "quote_evidence": "Higgsfield estimate_video_cost: 7 seconds image-to-video 1080p 16:9 = 7 credits, 2026-10-27",
+      "state": "approved",
+      "job_id": "09929ab6-424c-4323-be40-6d463326bfca",
+      "parameters": {
+        "prompt": "Create one calm, uncut seven-second photorealistic product demonstration from the exact supplied image. Keep the Dutch white-brick house, anthracite veranda, glass frames, furniture and landscaping exactly fixed. Camera locked on a stable tripod, no zoom, no cuts. Show only the grey microperforated FABRIC zip-screen retracting slowly upward by a modest fifteen centimetres, then easing to a stop. Its single rigid dark horizontal bottom bar moves vertically as one perfectly straight level bar, with both ends constrained inside the existing side guide rails. The fabric remains one taut planar continuous sheet; its weave, transparency and width remain stable while the excess rolls invisibly into the existing top cassette. The glazing behind it stays completely closed and motionless. All posts, joints, rails, roof panels and glass boundaries stay unchanged and straight. Subtle natural leaf motion outside, steady natural daylight and exposure. No folding fabric, no separate horizontal shutter slats, no bending bottom bar, no floating rails, no new mechanisms, no morphing, no moving glass, no people or hands, no text, no logos, no dialogue. Keep the entire screen and both guides comfortably visible. Elegant restrained architectural product cinematography.",
+        "aspect_ratio": "16:9",
+        "duration": 7,
+        "reference_images": [
+          "cc22c510-68e5-4ad7-a74a-7859a76431e6"
+        ],
+        "mode": "image-to-video",
+        "resolution": "1080p"
+      },
+      "asset_sha256": "5fab0b5956d472ba7a04dc0c7daeac60b4d9dc9cc9480bbc0014b17870113fd5"
+    },
+    {
+      "request_id": "shutters-v1",
+      "shot_id": "shutters",
+      "model": "kling4_0",
+      "quoted_cost": 7,
+      "quote_evidence": "Higgsfield estimate_video_cost: 7 seconds image-to-video 1080p 16:9 = 7 credits, 2026-10-27",
+      "state": "approved",
+      "job_id": "805d5058-bc88-4ae1-8355-25d2388be36e",
+      "parameters": {
+        "prompt": "Create one uncut seven-second photorealistic architectural product shot from the exact supplied photograph. Fixed tripod camera; no reframing, zoom or cuts. Preserve the exact brick wall, rectangular window, two white window sashes, sill, anthracite roller cassette and vertical side guide rails. The external aluminium ROLLER SHUTTER lowers smoothly by a modest ten centimetres, then stops gently. Its many narrow interlocking horizontal metal slats move downward together in one flat vertical plane inside the fixed side guides; new slats emerge naturally from the top cassette. The solid bottom rail stays rigid, straight and perfectly level throughout, with both ends inside the guides. Slat width, thickness, spacing and perspective remain consistent. Window glass stays closed and stationary. Keep sunlight, shadows and reflections stable; nearby ornamental grasses move only very subtly in the breeze. Crisp believable powder-coated metal, natural brick and garden colours, premium professional product cinematography. No fabric blinds, no folding panels, no detaching slats, no stretching, no warping or morphing, no duplicate windows, no people, no hands, no text, no logos, no sound or dialogue.",
+        "aspect_ratio": "16:9",
+        "duration": 7,
+        "reference_images": [
+          "b19789e8-c10b-406d-bcb5-70c1607a0a7f"
+        ],
+        "mode": "image-to-video",
+        "resolution": "1080p"
+      },
+      "asset_sha256": "078703bf362ab6ff2dc1d536b70594c1993693964d4aa2d9dfa5ce23606f45dc"
+    }
+  ],
+  "review": {
+    "temporal_geometry": {
+      "passed": true,
+      "evidence": "All169consecutiveframes of each of3source clips reviewed, including full-resolution endpoints and mechanism details. No observed merging, detached guides or structural morphing. Screens native3:2 cropped centrally to16:9 without stretching."
+    },
+    "rights": {
+      "passed": true,
+      "evidence": "References are existing authorised illustrative assets in this client project; no customer likenesses or third-party footage republished. Existing narration retained."
+    },
+    "audio": {
+      "passed": true,
+      "evidence": "Generated clip audio stripped. Existing narration is the sole audio source; full encode including AAC fully decoded without errors. Narration content unchanged."
+    }
+  },
+  "output": {
+    "location": "site/assets/introduction-v2.mp4",
+    "sha256": "b2336306cef271888c4de60aba26ac22305d609e16c8b59b414fc9cf0142b216",
+    "published": false
+  },
+  "limitations": [
+    "Illustrative product footage, not a certified installation or exact-travel demonstration",
+    "Physical iPhone/Safari device test not performed"
+  ]
+}

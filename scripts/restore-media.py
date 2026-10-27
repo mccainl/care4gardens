@@ -9,11 +9,12 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'media'
 DEST = ROOT / 'site' / 'assets'
 DEST.mkdir(parents=True, exist_ok=True)
-WITHDRAWN = {'garden-living.mp4', 'hero-loop.mp4', 'glass-installation.mp4', 'installation-descriptions.vtt'}
+WITHDRAWN = {'garden-living.mp4', 'hero-loop.mp4', 'glass-installation.mp4', 'installation-descriptions.vtt',
+             'introduction.mp4', 'glass-closing.mp4', 'garden-transformations.mp4'}
 for name in WITHDRAWN:
     (DEST / name).unlink(missing_ok=True)
 restored = 0
-for manifest_name in ['manifest.json', 'motion-manifest.json', 'product-manifest.json']:
+for manifest_name in ['manifest.json', 'motion-manifest.json', 'product-manifest.json', 'film-manifest.json']:
     manifest = json.loads((SOURCE / manifest_name).read_text())
     pieces = []
     for part in manifest['parts']:

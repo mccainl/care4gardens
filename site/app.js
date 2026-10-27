@@ -45,7 +45,7 @@
     if(!heroVideo)return;
     syncHeroControl();
     if(heroPaused||!heroVisible||filmOpen||document.hidden){heroVideo.pause();return;}
-    heroVideo.play().then(()=>{if(startButton)startButton.hidden=true;}).catch(()=>{if(startButton)startButton.hidden=false;});
+    heroVideo.play().then(()=>{if(startButton)startButton.hidden=true;}).catch(error=>{if(error?.name==='AbortError')return;if(startButton)startButton.hidden=false;else{heroPaused=true;syncHeroControl();}});
   }
   function applyMotion(){
     document.body.classList.toggle('motion-off',motionPaused);
@@ -56,13 +56,13 @@
   if(heroVideo){heroVideo.muted=true;heroVideo.defaultMuted=true;}
   applyMotion();
   heroVideo?.addEventListener('playing',()=>{heroVideo.classList.add('playing');if(startButton)startButton.hidden=true;});
-  heroVideo?.addEventListener('error',()=>{heroVideo.classList.remove('playing');if(startButton){startButton.hidden=false;startButton.querySelector('span').textContent='Film opnieuw laden';}});
+  heroVideo?.addEventListener('error',()=>{heroVideo.classList.remove('playing');if(startButton){startButton.hidden=false;startButton.querySelector('span').textContent='Film opnieuw laden';}else{heroPaused=true;syncHeroControl();}});
   if(heroVideo)new IntersectionObserver(entries=>{heroVisible=entries[0].isIntersecting;syncHeroVideo();},{threshold:.08}).observe(heroVideo);
   document.addEventListener('visibilitychange',()=>{
     syncHeroVideo();
     if(filmOpen){const activeFilm=$('#brand-film');if(document.hidden)activeFilm.pause();else activeFilm.play().catch(()=>{});}
   });
-  pauseButton?.addEventListener('click',()=>{heroPaused=!heroPaused;syncHeroVideo();});
+  pauseButton?.addEventListener('click',()=>{heroPaused=!heroPaused;if(!heroPaused&&heroVideo?.error)heroVideo.load();syncHeroVideo();});
   startButton?.addEventListener('click',()=>{heroPaused=false;if(heroVideo.error)heroVideo.load();syncHeroVideo();});
   reduced.addEventListener('change',e=>{motionPaused=e.matches;heroPaused=e.matches;applyMotion();});
   const revealObserver = new IntersectionObserver(entries=>entries.forEach(entry=>{
@@ -99,15 +99,17 @@
   addEventListener('keydown',e=>{if(e.key==='Escape'&&menu?.classList.contains('open'))closeMenu(true);if(e.key==='Tab'&&menu?.classList.contains('open')){const focusable=[menuButton,...$$('a',menu)];const first=focusable[0],last=focusable.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
   addEventListener('resize',()=>{if(innerWidth>900)closeMenu();});
   const filmDialog=$('#film-dialog'),film=$('#brand-film');
+  const defaultFilmSource=film?.querySelector('source')?.getAttribute('src')||'assets/introduction-v2.mp4';
+  const defaultFilmPoster=film?.getAttribute('poster')||'assets/01_aluminium_after.webp';
   $$('[data-film]').forEach(b=>b.addEventListener('click',()=>{
     filmOpen=true;heroVideo?.pause();
     document.dispatchEvent(new CustomEvent('care4gardens:film',{detail:{open:true}}));
-    const source=b.dataset.filmSrc||'assets/introduction.mp4';
-    film.src=source;film.poster=b.dataset.filmPoster||'assets/02_douglas_after.webp';
+    const source=b.dataset.filmSrc||defaultFilmSource;
+    film.src=source;film.poster=b.dataset.filmPoster||defaultFilmPoster;
     const title=b.dataset.filmTitle||'Care4Gardens. Maakt buitenleven mooier.';
     filmDialog.setAttribute('aria-label',title);$('.film-footer>span',filmDialog).textContent=title;
     $('#film-sound').hidden=!!b.dataset.filmSrc;
-    const track=$('track',film);if(track)track.src=source.includes('installation')?'assets/installation-descriptions.vtt':source.includes('introduction')?'assets/descriptions.vtt':'assets/gallery-descriptions.vtt';
+    const track=$('track',film);if(track)track.src=source.includes('introduction')?'assets/descriptions-v2.vtt':'assets/gallery-descriptions-v2.vtt';
     filmDialog.showModal();document.body.classList.add('locked');film.currentTime=0;film.muted=!!b.dataset.filmSrc;film.play().catch(()=>{});
   }));
   const filmSound=$('#film-sound');

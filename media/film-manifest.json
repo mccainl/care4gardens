@@ -1,0 +1,97 @@
+{
+  "sha256": "fb0e14b5dba6a35e01c6fdfd25de84a9226494e28da24e07432b0d7f17094981",
+  "parts": [
+    {
+      "file": "films-v2.part000",
+      "sha256": "406bcfba111584ab4c5851b2d577502ad208ba3c04703a9026ec2f11b157f0d5"
+    },
+    {
+      "file": "films-v2.part001",
+      "sha256": "14739f11bae12d7fdcbc9bde1d26b558887fd7c3bef08d2674c99dbebdf6398b"
+    },
+    {
+      "file": "films-v2.part002",
+      "sha256": "83e124b36a78f1b34f7e644125b8698536e97a9d1c4de58d58730142231f6725"
+    },
+    {
+      "file": "films-v2.part003",
+      "sha256": "150b879439e405774c898c2956bdc6cb379dfec700b51f2ca789f7d553ed3f66"
+    },
+    {
+      "file": "films-v2.part004",
+      "sha256": "69ab4b380d61a5bba240eca12e1747dddef267dd1d1f71d61912b309b87f576c"
+    },
+    {
+      "file": "films-v2.part005",
+      "sha256": "75952414deb7ca56c2a8bf7bc1c582fc2189703eab4010442a67785ec1c02532"
+    },
+    {
+      "file": "films-v2.part006",
+      "sha256": "22eac6a6d520472209ec88985699a19bd7c03b043628b7132dd5280057dfb92e"
+    },
+    {
+      "file": "films-v2.part007",
+      "sha256": "714de5f64cc903d80b59db16aa90c3f56b420adaee64a761511575c574786662"
+    },
+    {
+      "file": "films-v2.part008",
+      "sha256": "48023321ca73f0a29e9adacc3648b3b340e780be6ba85f9d6098e07e215037ae"
+    },
+    {
+      "file": "films-v2.part009",
+      "sha256": "39eeedf9e2691d0d94c1df8caa94e02dfa760b34cd7153a469035b5018319d9b"
+    },
+    {
+      "file": "films-v2.part010",
+      "sha256": "3d5e746d12b2517d222ec87b7dc1e7868878b2c47cd9e8b4487f33e5468c241c"
+    },
+    {
+      "file": "films-v2.part011",
+      "sha256": "ea22667c299f9115dc009c1f2365173f775cb336dc47ce63d8ad173c414a3929"
+    },
+    {
+      "file": "films-v2.part012",
+      "sha256": "1bc534f989f95c042a0147696039509f49534f6837029815e98c782498415b84"
+    },
+    {
+      "file": "films-v2.part013",
+      "sha256": "345357df81209cf6dfc547a817fb78dd5b6e6b96898a21221961eb4eec68b8cf"
+    },
+    {
+      "file": "films-v2.part014",
+      "sha256": "d3f36031d012d191d0a31beb4354aeb3c122cb14473ded621cc5335cd497f58b"
+    }
+  ],
+  "files": [
+    {
+      "name": "introduction-v2.mp4",
+      "bytes": 6186452,
+      "sha256": "b2336306cef271888c4de60aba26ac22305d609e16c8b59b414fc9cf0142b216"
+    },
+    {
+      "name": "veranda-atmosphere.mp4",
+      "bytes": 3829246,
+      "sha256": "806bf9fe87d6b3d24b2fb05592e6903c66c18a044375f2b54a2605d55816a17f"
+    },
+    {
+      "name": "screen-detail.mp4",
+      "bytes": 2417580,
+      "sha256": "82fb9827b3f53150d568386e73ca7b893a930b1a8807f616c315c6a09af1d42d"
+    },
+    {
+      "name": "shutter-detail.mp4",
+      "bytes": 2737371,
+      "sha256": "089b4c98c9c2ef4cd2404fe35595243424a5655b5eba836082ce1bfce3d31b61"
+    },
+    {
+      "name": "descriptions-v2.vtt",
+      "bytes": 354,
+      "sha256": "0e03071f997b3d82404a7a63a38bdaaeb58f78402c1eaa8c2a153d9d99b8e9ed"
+    },
+    {
+      "name": "gallery-descriptions-v2.vtt",
+      "bytes": 111,
+      "sha256": "cf0bb749bef6056f7068152145010de8d5b850f1969a4d17c13f59df9cd2f32d"
+    }
+  ]
+}
