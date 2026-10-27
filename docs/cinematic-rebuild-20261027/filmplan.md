@@ -2,7 +2,7 @@
 
 **A new 30.25-second introduction with generated moving footage in the original visual style.**
 
-Status: the 30.25-second film is rendered with Arthur’s Dutch narration, synchronized captions, instrumental music and closing branding. Five new moving scenes replace the rejected montage. Build and control tests pass; live browser verification follows publication to the existing MCC concept.
+Status: the 30.25-second film is rendered with Arthur’s Dutch narration, synchronized captions, instrumental music and closing branding. Five new moving scenes replace the rejected montage. Build and control tests pass. Published to the existing MCC concept; live asset hashes and desktop/mobile playback, captions, first-sound restart and closing frame have been checked.
 
 The viewer should understand what Care4Gardens offers: aluminium and Douglas overkappingen, glazen schuifwanden, and personal help from advice and measurement through installation. The film opens automatically in the first hero of the website.
 
@@ -14,7 +14,7 @@ The viewer should understand what Care4Gardens offers: aluminium and Douglas ove
 | 06–12 | A person places a coffee cup on the table beneath the Douglas pavilion. A short forward dolly reveals the timber, roof and sheltered dining area. | Of de warme uitstraling van Douglas, passend bij uw tuin. |
 | 12–18.25 | A locked view shows a person guiding **one** glass leaf along its guide. Its neighbours stay fixed and separate. The garden remains visible through the glass. | Glazen schuifwanden geven beschutting, terwijl uw uitzicht blijft. |
 | 18.25–24.25 | An adviser traces a garden plan with a pencil, then looks up toward the homeowner. Small editable captions identify the service: **Persoonlijk advies · Inmeten · Montage**. | Van persoonlijk advies en inmeten tot vakkundige montage. |
-| 24.25–30.25 | Two adults enjoy coffee in the sheltered garden room. A slow backward move reveals the space. The scene continues moving while the brand line finishes, followed by approximately 2.75 seconds of breathing room. | Care4Gardens maakt buitenleven mooier. |
+| 24.25–30.25 | Two adults enjoy coffee in the sheltered garden room. A slow backward move reveals the space. The scene continues moving while the brand line finishes, followed by 2.92 seconds of breathing room. | Care4Gardens maakt buitenleven mooier. |
 
 These are planning windows. The final cut follows the recorded voice and the complete actions. If a shot or phrase needs more time, the edit becomes slightly longer; the voice will not be rushed and the action will not be cut short.
 

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project_id": "care4gardens-cinematic-rebuild-20261027",
-  "status": "narrated_film_packaged_for_concept_publication",
+  "status": "published_concept_browser_verified",
   "date": "2026-10-27",
   "authorization": {
     "generation": true,
@@ -602,12 +602,12 @@
     "desktop": "Complete landscape frame retained with object-fit contain. Heading and shading recede after four seconds; the final brand frame remains unobstructed. Enquiry link and player controls remain available.",
     "mobile": "Preserve the complete 16:9 film above the hero copy rather than cropping out the glass action.",
     "development_fixture": "Removed: hero and expanded player now use introduction-cinematic.mp4, fresh captions and a matching first-frame poster.",
-    "status": "New media packaged; build and tests passed. Live browser verification pending."
+    "status": "Published; build, tests, live asset hashes and desktop/mobile playback checks passed."
   },
   "review": {
     "full_playback": {
       "passed": false,
-      "evidence": "Full-export automated temporal/audio analysis completed, alongside frame inspection and strict full decode. This is not direct continuous human playback/listening approval; browser runtime verification follows publication."
+      "evidence": "Full-file decode, automated temporal/audio analysis and browser playback through ended state passed. Direct continuous human creative playback/listening approval is not asserted."
     },
     "temporal_geometry": {
       "passed": false,
@@ -618,8 +618,8 @@
       "evidence": "The selected Arthur source was cut only inside measured silence, then placed under corresponding scenes at natural speed. Full-export ASR recovered all five Dutch passages; music ducked under narration. Measured -16.25 LUFS / -3.35 dBTP. Direct human listening approval is not claimed."
     },
     "mobile_crop": {
-      "passed": false,
-      "evidence": "The mobile player preserves full frame; rendered-film browser and device inspection remain pending."
+      "passed": true,
+      "evidence": "Complete landscape frame with object-fit contain; native Dutch captions visible. Expanded player uses the same final movie and pauses inline playback."
     },
     "brief_fidelity": {
       "passed": true,
@@ -630,8 +630,8 @@
       "evidence": "References are existing authorised illustrative concept assets from this client project; no actual customer's likeness or private screenshot is sent as a generation reference."
     },
     "delivery": {
-      "passed": false,
-      "evidence": "Website branch prepared only. No live deployment or client delivery of this revision."
+      "passed": true,
+      "evidence": "Published to the authorised MCC concept URL; deployment successful and actual live media hashes verified. Client approval is not asserted."
     }
   },
   "assembly": {
@@ -683,11 +683,7 @@
   },
   "next_action": {
     "required_input": null,
-    "sequence": [
-      "Publish the existing authorised MCC concept update.",
-      "Verify deployed bytes, desktop/mobile playback, caption visibility and first-sound restart.",
-      "Record actual deployment and browser evidence."
-    ]
+    "sequence": []
   },
   "final_export": {
     "media_id": "44d800f2-953c-4b5c-a5aa-d2c0158be112",
@@ -706,7 +702,34 @@
     "archive_manifest": "media/cinematic-manifest.json",
     "scene_analysis_id": "1b7396ae-41ff-4713-956c-c06fcc62fb46",
     "automatic_transcription_language": "nl",
-    "automatic_transcription_language_probability": 0.8545681834220886
+    "automatic_transcription_language_probability": 0.8545681834220886,
+    "live_deployed": true
   },
-  "publication_scope": "Existing publicly accessible MCC GitHub Pages concept preview, authorised by the user. Automated temporal/audio review plus frame inspection support this preview; no client approval or human playback certification is claimed."
+  "publication_scope": "Existing publicly accessible MCC GitHub Pages concept preview, authorised by the user. Automated temporal/audio review plus frame inspection support this preview; no client approval or human playback certification is claimed.",
+  "publication": {
+    "url": "https://mccainl.github.io/care4gardens/",
+    "commit": "3d2fee6c6ca58ebc84f1c5b2ce1420b2349d7220",
+    "workflow_run": 40516783789,
+    "workflow_conclusion": "success",
+    "scope": "MCC concept preview",
+    "client_approved": false
+  },
+  "browser_verification": {
+    "entry_autoplay": "Observed playing muted with captions without scroll or watch-button activation.",
+    "first_sound_restart": {
+      "desktop_seconds": 0.241685,
+      "mobile_seconds": 0.141036,
+      "muted": false,
+      "paused": false
+    },
+    "completion": "Observed ended at 30.25 seconds without looping; final branding remains visible.",
+    "mobile": "Complete landscape frame with object-fit contain; native Dutch captions visible. Expanded player uses the same final movie and pauses inline playback.",
+    "desktop": "Final screenshot confirms enquiry control clear of floating WhatsApp button.",
+    "media": "All four live assets HTTP 200, correct MIME and exact expected hashes; see deployed-media-checks.json.",
+    "screenshots": [
+      "desktop-live-arthur.jpg",
+      "mobile-live-arthur.jpg"
+    ],
+    "limitations": "Browser runtime and sampled visual checks, automated full-export analysis and transcription; no direct continuous human creative listening/playback certification."
+  }
 }

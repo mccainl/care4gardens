@@ -1,36 +1,12 @@
 {
-  "status": "narrated_export_automated_review_complete_browser_pending",
+  "status": "published_concept_browser_verified",
   "date": "2026-10-27",
-  "artifact": {
-    "status": "motion_preview_narration_pending",
-    "media_id": "a1b38781-060f-4eae-9356-09635e93c76f",
-    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/a1b38781-060f-4eae-9356-09635e93c76f.mp4",
-    "local_path": "qa_media/cinematic-rebuild/care4gardens-motion-preview.mp4",
-    "sha256": "7b78e3b74e2fae8a2593b823bc955689dacdc0f4480ada41b86c3e60317fe07b",
-    "bytes": 11338828,
-    "duration_seconds": 30.25,
-    "video_frames": 726,
-    "fps": "24/1",
-    "width": 1280,
-    "height": 720,
-    "video_codec": "h264",
-    "pixel_format": "yuv420p",
-    "audio_codec": "aac",
-    "audio_sample_rate": 48000,
-    "audio_duration_seconds": 30.25,
-    "music_integrated_lufs": -22.49,
-    "music_true_peak_dbtp": -7.05,
-    "download_length_and_hash": "passed",
-    "strict_full_decode": "passed",
-    "direct_full_playback_approval": false,
-    "live_deployed": false
-  },
   "review_coverage": {
     "sources": "Six source files downloaded with exact byte-length and SHA256 verification; all strictly decoded. Five selected, one rejected.",
     "visual": "Eight temporal samples per source, additional full-resolution frames, all 193 glass source frames in sequential grids, and full-clip automated descriptions.",
     "edit": "Inspected first frame, immediate frames either side of all four cuts, 27.5 and 29.5 seconds, and final frame at 30.2083 seconds.",
-    "audio": "All generated speech removed by selecting only the S04 instrumental source. Automated ASR found no speech in that source. The assembled audio spans the full 30.25 seconds.",
-    "limitations": "No direct normal-speed human playback/listening approval claimed. Dutch narration, final sound mix, brand graphics and fresh subtitle timing remain pending."
+    "audio": "Arthur narration placed at natural speed, music ducked, full-duration final audio and all five spoken passages verified through waveform/ASR and automated analysis.",
+    "limitations": "Frame-sampled visual inspection and automated analysis do not establish direct continuous human creative playback/listening approval."
   },
   "cut_observations": [
     {
@@ -82,7 +58,8 @@
     "archive_manifest": "media/cinematic-manifest.json",
     "scene_analysis_id": "1b7396ae-41ff-4713-956c-c06fcc62fb46",
     "automatic_transcription_language": "nl",
-    "automatic_transcription_language_probability": 0.8545681834220886
+    "automatic_transcription_language_probability": 0.8545681834220886,
+    "live_deployed": true
   },
   "narration_review": {
     "voice": "Arthur",
@@ -99,5 +76,76 @@
     "result": "All five picture chapters and corresponding narration passages identified.",
     "limitations": "Analysis timestamps are approximate; some person/gender, location and glass-direction details are inaccurate. The exact 24 fps edit timeline and inspected frames govern those details."
   },
-  "release_scope": "Authorised concept preview publication; client approval and direct human continuous playback/listening are not asserted."
+  "release_scope": "Authorised concept preview publication; client approval and direct human continuous playback/listening are not asserted.",
+  "previous_motion_preview": {
+    "status": "motion_preview_narration_pending",
+    "media_id": "a1b38781-060f-4eae-9356-09635e93c76f",
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/a1b38781-060f-4eae-9356-09635e93c76f.mp4",
+    "local_path": "qa_media/cinematic-rebuild/care4gardens-motion-preview.mp4",
+    "sha256": "7b78e3b74e2fae8a2593b823bc955689dacdc0f4480ada41b86c3e60317fe07b",
+    "bytes": 11338828,
+    "duration_seconds": 30.25,
+    "video_frames": 726,
+    "fps": "24/1",
+    "width": 1280,
+    "height": 720,
+    "video_codec": "h264",
+    "pixel_format": "yuv420p",
+    "audio_codec": "aac",
+    "audio_sample_rate": 48000,
+    "audio_duration_seconds": 30.25,
+    "music_integrated_lufs": -22.49,
+    "music_true_peak_dbtp": -7.05,
+    "download_length_and_hash": "passed",
+    "strict_full_decode": "passed",
+    "direct_full_playback_approval": false,
+    "live_deployed": false
+  },
+  "artifact": {
+    "media_id": "44d800f2-953c-4b5c-a5aa-d2c0158be112",
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3IDQioFnKEdiBTSpvyKkSdi5fp9/44d800f2-953c-4b5c-a5aa-d2c0158be112.mp4",
+    "sha256": "fbe097b97612baf77c5e44c5ef9713c9c36a7c167e77498dea6930b16b25b767",
+    "bytes": 12123049,
+    "duration_seconds": 30.25,
+    "video_frames": 726,
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "audio_duration_seconds": 30.25,
+    "integrated_lufs": -16.25,
+    "true_peak_dbtp": -3.35,
+    "strict_decode": "passed",
+    "archive_manifest": "media/cinematic-manifest.json",
+    "scene_analysis_id": "1b7396ae-41ff-4713-956c-c06fcc62fb46",
+    "automatic_transcription_language": "nl",
+    "automatic_transcription_language_probability": 0.8545681834220886,
+    "live_deployed": true
+  },
+  "publication": {
+    "url": "https://mccainl.github.io/care4gardens/",
+    "commit": "3d2fee6c6ca58ebc84f1c5b2ce1420b2349d7220",
+    "workflow_run": 40516783789,
+    "workflow_conclusion": "success",
+    "scope": "MCC concept preview",
+    "client_approved": false
+  },
+  "browser_verification": {
+    "entry_autoplay": "Observed playing muted with captions without scroll or watch-button activation.",
+    "first_sound_restart": {
+      "desktop_seconds": 0.241685,
+      "mobile_seconds": 0.141036,
+      "muted": false,
+      "paused": false
+    },
+    "completion": "Observed ended at 30.25 seconds without looping; final branding remains visible.",
+    "mobile": "Complete landscape frame with object-fit contain; native Dutch captions visible. Expanded player uses the same final movie and pauses inline playback.",
+    "desktop": "Final screenshot confirms enquiry control clear of floating WhatsApp button.",
+    "media": "All four live assets HTTP 200, correct MIME and exact expected hashes; see deployed-media-checks.json.",
+    "screenshots": [
+      "desktop-live-arthur.jpg",
+      "mobile-live-arthur.jpg"
+    ],
+    "limitations": "Browser runtime and sampled visual checks, automated full-export analysis and transcription; no direct continuous human creative listening/playback certification."
+  },
+  "ready_for_concept_review": true
 }
