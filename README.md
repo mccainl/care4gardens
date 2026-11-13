@@ -51,3 +51,9 @@ The screens and roller-shutter films are now included in the replacement product
 The before/after comparison now sits immediately after the hero benefit strip, before the introductory text. The faulty glass-motion hero, old transformation films and installation film are withdrawn from the public build. Original customer Instagram embeds, live reviews, WhatsApp and the existing CRM configurator remain.
 
 New product films are illustrative footage, not documentation of actual installations or certified mechanism specifications. The film archive is restored through `media/film-manifest.json`. Rebuild it with `python3 scripts/package-films.py SOURCE_DIRECTORY --audio EXISTING_NARRATION.m4a` after reviewing all input footage. The package step fully decodes input and output, preserves aspect ratio, verifies durations and writes integrity-checked archive parts. Generation records live in `docs/video-production-2026-10-27.json`.
+
+## Connected design journey (13 November 2026)
+
+The visual design can now be kept as a garden plan, and a plan can continue into the existing quote calculator. Draft plan fields stay in session storage while browsing. The detailed configurator keeps its existing validated local design storage. The visitor chooses when to open the provider, download a text plan or prepare an email. No contact details are collected by the planner.
+
+The production build encodes the approved introduction to a 720p fast-start copy (about 3.6 MB instead of 20.3 MB) without changing the timeline or narration. Cinematic scroll movement is desktop-only and respects reduced motion. Public catalogue values were reconciled on 13 November; real ordering and accounts remain on Care4Gardens' original store. See `docs/MCC-UPGRADE-PLAN.md` for completed checks and the remaining production acceptance items.

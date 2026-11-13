@@ -3,13 +3,30 @@
  const scene=document.querySelector('.cinematic-scene');if(!scene)return;
  const video=scene.querySelector('video'),button=scene.querySelector('button');
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- let visible=false,manual=false,modal=false;
- const update=()=>{const play=visible&&!document.hidden&&!manual&&!modal&&!reduced.matches;
-  if(play){if(!video.src)video.src=video.dataset.src;video.play().catch(()=>{button.textContent='Film afspelen';});}else video.pause();
-  button.textContent=play?'Beweging pauzeren':'Beweging afspelen';button.setAttribute('aria-pressed',String(play));};
- button.addEventListener('click',()=>{manual=!manual;if(reduced.matches){if(video.paused){if(!video.src)video.src=video.dataset.src;video.play().catch(()=>{});button.textContent='Beweging pauzeren';button.setAttribute('aria-pressed','true');}else{video.pause();button.textContent='Beweging afspelen';button.setAttribute('aria-pressed','false');}}else update();});
+ let visible=false,manualPause=false,manualPlay=false,modal=false,pending=false,epoch=0;
+ const eligible=()=>visible&&!document.hidden&&!manualPause&&!modal&&(!reduced.matches||manualPlay);
+ const label=()=>{button.textContent=video.paused?'Beweging afspelen':'Beweging pauzeren';button.setAttribute('aria-pressed',String(!video.paused));};
+ const update=()=>{
+  if(!eligible()){++epoch;pending=false;video.pause();label();return;}
+  if(pending||!video.paused)return;
+  if(!video.src)video.src=video.dataset.src;
+  pending=true;const request=++epoch;
+  video.play().catch(()=>{}).finally(()=>{if(request!==epoch)return;pending=false;if(!eligible())video.pause();label();});
+ };
+ button.addEventListener('click',()=>{manualPause=!video.paused||pending;manualPlay=!manualPause;update();});
+ video.addEventListener('playing',()=>{if(!eligible())video.pause();label();});
+ video.addEventListener('pause',label);
  new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;update();},{threshold:.15}).observe(scene);
- document.addEventListener('visibilitychange',update);reduced.addEventListener('change',update);
+ document.addEventListener('visibilitychange',update);reduced.addEventListener('change',()=>{manualPlay=false;update();});
  document.addEventListener('care4gardens:film',e=>{modal=e.detail.open;update();});
  video.addEventListener('error',()=>{video.hidden=true;button.hidden=true;});
+ // A small camera drift while this scene is visible. Touch and reduced-motion
+ // layouts keep a stable frame; scroll work is scheduled once per frame.
+ let scheduled=false;
+ const drift=()=>{scheduled=false;if(!visible||reduced.matches||innerWidth<=900)return;
+  const rect=scene.getBoundingClientRect(),p=Math.max(-1,Math.min(1,(innerHeight/2-rect.top-rect.height/2)/innerHeight));
+  scene.style.setProperty('--scene-drift',`${(p*24).toFixed(1)}px`);
+ };
+ addEventListener('scroll',()=>{if(!scheduled&&visible){scheduled=true;requestAnimationFrame(drift);}},{passive:true});
+ reduced.addEventListener('change',()=>scene.style.removeProperty('--scene-drift'));
 })();

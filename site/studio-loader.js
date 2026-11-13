@@ -1,7 +1,11 @@
 const shell=document.querySelector('#veranda-studio');
 function photoStudio(shell){
+ if(shell.dataset.fallback==='photo')return;
  const viewport=shell.querySelector('.studio-viewport');
  shell.dataset.fallback='photo';shell.dataset.finish='anthracite';shell.dataset.light='day';shell.dataset.glass='0';
+ shell.dataset.ready='false';
+ shell.querySelectorAll('.studio-camera-controls,.studio-zoom-controls').forEach(el=>el.hidden=true);
+ shell.querySelectorAll('[data-light]').forEach(b=>{b.classList.toggle('active',b.dataset.light==='day');b.setAttribute('aria-pressed',String(b.dataset.light==='day'));});
  viewport.querySelectorAll('canvas').forEach(canvas=>canvas.remove());
  viewport.setAttribute('aria-label','Sfeerweergave van dezelfde veranda met open of gesloten glazen wanden');
  const open=document.createElement('img');open.className='studio-photo-open';open.src='assets/01_aluminium_before.webp';open.alt='Dezelfde veranda, open zonder glazen afsluiting';viewport.prepend(open);
@@ -17,6 +21,7 @@ function photoStudio(shell){
  }));
 }
 if(shell){
+ shell.addEventListener('care4gardens:studio-unavailable',()=>photoStudio(shell));
  let launched=false;
  const observer=new IntersectionObserver(async entries=>{
   if(!entries.some(e=>e.isIntersecting)||launched)return;

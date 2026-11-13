@@ -118,27 +118,58 @@
   const comfortCaptions={open:'Open. Licht. Verbonden.',closed:'Beschut, met alle ruimte voor uitzicht.',screen:'Schaduw, precies waar u wilt.',evening:'Nog lang niet naar binnen.'};
   $$('[data-comfort]').forEach(b=>b.addEventListener('click',()=>{$('.comfort-visual').dataset.mode=b.dataset.comfort;$('#comfort-caption').textContent=comfortCaptions[b.dataset.comfort];$$('[data-comfort]').forEach(x=>{const active=x===b;x.classList.toggle('active',active);x.setAttribute('aria-pressed',String(active));});}));
   // A browser-local brief. Nothing is submitted to a server by this concept.
-  const planner=$('#planner-form');let currentStep=0,brief='';
+  const planner=$('#planner-form');let currentStep=0,brief='',designSummary='';
+  const PLAN_KEY='care4gardens-plan-v1';
+  function planData(){
+    const d=new FormData(planner);
+    return {category:d.get('category'),width:d.get('width'),depth:d.get('depth'),installation:d.get('installation'),extra:d.getAll('extra'),notes:d.get('notes'),designSummary};
+  }
+  function savePlan(){try{sessionStorage.setItem(PLAN_KEY,JSON.stringify(planData()));}catch{}}
   function showStep(step){
     currentStep=step;$$('[data-step]').forEach(el=>el.hidden=Number(el.dataset.step)!==step);$$('.planner-progress span').forEach((el,i)=>el.classList.toggle('active',i<=step));
     $('#plan-back').hidden=step!==1;$('#plan-next').hidden=step===2;$('#plan-reset').hidden=step!==2;$('#plan-next').innerHTML=step===1?'Bekijk uw tuinplan':'Volgende stap';
     $('#plan-error').textContent='';
+    const legend=$(`[data-step="${step}"] legend`,planner);if(legend){legend.tabIndex=-1;legend.focus({preventScroll:true});}
     if(step===1){const cat=new FormData(planner).get('category');$('#depth-label').textContent=['glas','screens'].includes(cat)?'Hoogte in cm':'Diepte in cm';}
   }
   function createBrief(){
     const d=new FormData(planner);const cat=d.get('category');const second=['glas','screens'].includes(cat)?'Hoogte':'Diepte';
     const pairs=[['Uw idee',labels[cat]],['Afmetingen',`${d.get('width')?d.get('width')+' cm breed':'Breedte nog te bepalen'} · ${d.get('depth')?d.get('depth')+' cm '+second.toLowerCase():second+' nog te bepalen'}`],['Montage',d.get('installation')],['Interesse in',d.getAll('extra').join(', ')||'Persoonlijk advies'],['Uw wensen',d.get('notes')?.trim()||'Nog te bespreken']];
+    if(designSummary)pairs.push(['Uw ontwerp',designSummary]);
     $('#plan-summary').innerHTML='<dl>'+pairs.map(([key,value])=>`<dt>${escape(key)}</dt><dd>${escape(value)}</dd>`).join('')+'</dl>';
     brief='Mijn tuinplan voor Care4Gardens\n\n'+pairs.map(([key,value])=>`${key}: ${value}`).join('\n')+'\n\nGraag ontvang ik vrijblijvend advies over de mogelijkheden en een passende offerte.\n\nNaam:\nTelefoon:\nPostcode:\n\nSamengesteld via het MCC websiteconcept. Afmetingen zijn indicatief; uitvoering en prijs moeten worden bevestigd.';
     $('#email-plan').href=`mailto:info@care4gardens.nl?subject=${encodeURIComponent('Mijn tuinplan | vrijblijvend advies')}&body=${encodeURIComponent(brief)}`;
   }
   if(planner){
+    try{
+      const saved=JSON.parse(sessionStorage.getItem(PLAN_KEY)||'null');
+      if(saved&&labels[saved.category]){
+        $(`input[name=category][value="${saved.category}"]`,planner).checked=true;
+        for(const key of ['width','depth'])if(/^\d{0,4}$/.test(String(saved[key])))planner.elements.namedItem(key).value=saved[key];
+        if([...planner.elements.installation.options].some(o=>o.value===saved.installation))planner.elements.installation.value=saved.installation;
+        $$('input[name=extra]',planner).forEach(i=>i.checked=Array.isArray(saved.extra)&&saved.extra.includes(i.value));
+        planner.elements.notes.value=String(saved.notes||'').slice(0,800);designSummary=String(saved.designSummary||'').slice(0,2000);
+      }
+    }catch{}
+    const planChanged=event=>{if(event.target.name!=='notes')designSummary='';savePlan();};
+    planner.addEventListener('input',planChanged);planner.addEventListener('change',planChanged);
     planner.addEventListener('submit',e=>e.preventDefault());
     $('#plan-next').addEventListener('click',()=>{if(currentStep===1){const inputs=$$('input[type=number]',planner);if(inputs.some(i=>!i.checkValidity())){$('#plan-error').textContent='Controleer de afmetingen. Vul een waarde binnen het aangegeven bereik in, of laat het veld leeg.';inputs.find(i=>!i.checkValidity())?.reportValidity();return;}createBrief();}showStep(currentStep+1);});
     $('#plan-back').addEventListener('click',()=>showStep(0));$('#plan-reset').addEventListener('click',()=>showStep(0));
     $('#download-plan').addEventListener('click',()=>{const blob=new Blob([brief],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='Mijn-Care4Gardens-tuinplan.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1500);});
-    $$('[data-plan-category]').forEach(a=>a.addEventListener('click',()=>{$(`input[name=category][value="${a.dataset.planCategory}"]`,planner).checked=true;showStep(0);}));
-    const params=new URLSearchParams(location.search);if(labels[params.get('plan')]){const input=$(`input[name=category][value="${params.get('plan')}"]`,planner);if(input)input.checked=true;}
+    $$('[data-plan-category]').forEach(a=>a.addEventListener('click',()=>{$(`input[name=category][value="${a.dataset.planCategory}"]`,planner).checked=true;savePlan();showStep(0);}));
+    const params=new URLSearchParams(location.search);if(labels[params.get('plan')]){const input=$(`input[name=category][value="${params.get('plan')}"]`,planner);if(input)input.checked=true;savePlan();}
+    $('#plan-to-quote')?.addEventListener('click',()=>{
+      savePlan();document.dispatchEvent(new CustomEvent('care4gardens:plan-to-quote',{detail:{...planData(),summary:brief}}));
+    });
+    document.addEventListener('care4gardens:design-to-plan',event=>{
+      const {state,summary}=event.detail;
+      $('input[name=category][value="aluminium"]',planner).checked=true;
+      planner.elements.width.value=state.width;planner.elements.depth.value=state.depth;
+      planner.elements.installation.value=state.install==='Ja'?'Graag met montage':'Ik wil zelf monteren';
+      $$('input[name=extra]',planner).forEach(i=>i.checked=i.value==='Glazen schuifwanden'?state.front.includes('Glazen schuifwanden')||state.left.includes('Glazen schuifwanden')||state.right.includes('Glazen schuifwanden'):i.value==='Zonwering'?state.shade!=='Geen zonwering':state.light!=='Geen verlichting');
+      designSummary=summary;savePlan();createBrief();showStep(2);
+    });
   }
   $('#studio-to-plan')?.addEventListener('click',()=>{
     const studio=$('#veranda-studio');if(!studio||!planner)return;
@@ -146,7 +177,7 @@
     const glass=$('input[name=extra][value="Glazen schuifwanden"]',planner);if(glass)glass.checked=true;
     const notes=$('textarea[name=notes]',planner);
     const preference=`Interesse in de ontwerpstudio: ${studio.dataset.finish==='stone'?'zandkleur':'antraciet'} frame, glazen schuifwanden${studio.dataset.light==='evening'?', warme verlichting':''}. Graag advies over beschikbare uitvoeringen.`;
-    if(notes&&!notes.value.includes('Interesse in de ontwerpstudio:'))notes.value=(notes.value?notes.value+'\n':'')+preference;
-    showStep(0);
+    if(notes){notes.value=notes.value.replace(/(?:\n|^)Interesse in de ontwerpstudio:[^\n]*/g,'').trim();notes.value=(notes.value?notes.value+'\n':'')+preference;}
+    savePlan();showStep(0);
   });
 })();

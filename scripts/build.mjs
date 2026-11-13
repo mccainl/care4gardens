@@ -1,10 +1,13 @@
 import { build } from 'esbuild';
 import { cp, mkdir, rm, readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 await build({entryPoints:['src/studio.js'],bundle:true,minify:true,format:'esm',target:['es2022'],outfile:'site/studio.bundle.js',legalComments:'linked'});
 await rm('_site',{recursive:true,force:true});
 await mkdir('_site',{recursive:true});
 await cp('site','_site',{recursive:true,filter:path=>!path.endsWith('README.md')});
+// Keep approved source media; serve a lighter copy with the same timing/audio.
+execFileSync('ffmpeg',['-v','error','-y','-i','site/assets/introduction-cinematic.mp4','-vf','scale=1280:-2','-c:v','libx264','-preset','fast','-crf','25','-pix_fmt','yuv420p','-c:a','aac','-b:a','96k','-movflags','+faststart','_site/assets/introduction-cinematic.mp4'],{stdio:'inherit'});
 // Content versions prevent a returning visitor from mixing old controls with a new page.
 const version=async file=>createHash('sha256').update(await readFile('_site/'+file)).digest('hex').slice(0,12);
 for(const name of ['studio-loader.js','configurator.js']){

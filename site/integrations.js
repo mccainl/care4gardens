@@ -8,7 +8,9 @@
   const initialStatus = status.innerHTML;
   const initialHref = directLink.href;
   const initialLinkText = directLink.textContent;
+  document.addEventListener('care4gardens:edit-design',()=>target.querySelector('#edit-visual-design')?.click());
   document.addEventListener('care4gardens:request-quote', event => {
+    if(event.detail.replace)target.querySelector('#edit-visual-design')?.click();
     if (target.querySelector('iframe')) return;
     // Public prefill interface. Both dimension branches share question names,
     // so always let visitors confirm their active dimensions at step four.
@@ -33,7 +35,7 @@
       // Its supported ready/step messages avoid racing that initialization.
       iframe.contentWindow.postMessage({id: 'prefill', data: event.detail.prefill}, url.origin);
       stepTimer = setTimeout(() => {
-        if (iframe.isConnected) iframe.contentWindow.postMessage({id: 'set-step-position', messageId, data: {stepPosition: 3}}, url.origin);
+        if (iframe.isConnected) iframe.contentWindow.postMessage({id: 'set-step-position', messageId, data: {stepPosition: event.detail.stepPosition ?? 3}}, url.origin);
       }, 350);
     };
     window.addEventListener('message', onProviderReady);
@@ -59,5 +61,6 @@
       start.scrollIntoView?.({block: 'start'});
     });
     target.scrollIntoView?.({block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+    header.tabIndex=-1;header.focus({preventScroll:true});
   });
 })();

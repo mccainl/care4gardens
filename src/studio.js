@@ -163,7 +163,7 @@ export async function createStudio(shell){
  const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible)start();else{cancelAnimationFrame(frameId);frameId=0;}},{threshold:.01});observer.observe(viewport);
  document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(frameId);frameId=0;}else start();});
  new ResizeObserver(()=>{const w=viewport.clientWidth,h=viewport.clientHeight;if(w&&h){renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();dirty=true;start();}}).observe(viewport);
- renderer.domElement.addEventListener('webglcontextlost',event=>{event.preventDefault();shell.dataset.ready='false';shell.dataset.failed='true';shell.querySelector('#studio-status').textContent='Bekijk de sfeerbeelden hieronder';cancelAnimationFrame(frameId);});
+ renderer.domElement.addEventListener('webglcontextlost',event=>{event.preventDefault();visible=false;cancelAnimationFrame(frameId);frameId=0;observer.disconnect();shell.dispatchEvent(new CustomEvent('care4gardens:studio-unavailable'));});
  controls.update();renderer.render(scene,camera);
  shell.dataset.ready='true';shell.querySelector('#studio-status').textContent='Sleep om rond te kijken';
  start();
