@@ -111,6 +111,13 @@
  model.addEventListener('pointerdown',()=>{if(!viewer)launch();});
  const modelObserver=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){modelObserver.disconnect();launch();}},{rootMargin:'200px'});modelObserver.observe(model);
  root.hidden=false;render();
+ document.getElementById('studio-to-quote')?.addEventListener('click',()=>{
+ const studio=document.getElementById('veranda-studio');
+ if(studio?.dataset.finish==='anthracite')state.color='Antraciet';
+ state.front='Glazen schuifwanden helder glas';
+ if(studio?.dataset.light==='evening')state.light='Warm wit';
+ step=0;save();render(true);
+ });
  const section=document.getElementById('offerte');
  const visibility=new IntersectionObserver(entries=>document.body.classList.toggle('calculator-in-view',entries.some(e=>e.isIntersecting)),{rootMargin:'-10% 0px -12% 0px',threshold:0});visibility.observe(section);
 })();

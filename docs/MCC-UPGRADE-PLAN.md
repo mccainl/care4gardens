@@ -42,3 +42,6 @@ Ready for design development. NOT ready to claim full functional parity or produ
 ## Second implementation pass
 
 Secondary material photography and comfort comparison are now accessible disclosure panels; their controls and deep links are retained. Product collection uses staggered architectural framing on large screens, flat accessible stacking on mobile. Quote section offers a direct original-provider path alongside the visual configurator. Existing introduction remains intact: new film commissioning and full scene replacement are pending model/cost selection and review. No claim of physical-mobile or CRM validation.
+
+## Cinematic and quote integration pass
+Existing veranda atmosphere footage now loads only on approach, plays silently while visible, supports explicit pause, pauses for expanded films and respects reduced-motion. Sampled frames were reviewed; this is not a new commissioned hero film. Studio can transfer supported anthracite/glass/warm-light preferences to the real quote configurator, with no invented mapping for illustrative sand colour. Local tests cover lazy loading and motion behavior. Production commerce, private CRM receipt and physical-device validation remain client acceptance tasks.
