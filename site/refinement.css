@@ -146,3 +146,52 @@ body.locked .whatsapp-contact,body:has(dialog[open]) .whatsapp-contact{visibilit
 @media(max-width:600px){.menu-backdrop{inset:72px 0 0}.mobile-menu{inset:82px 12px auto;width:calc(100% - 24px);max-height:calc(100dvh - 96px);padding:24px;border-radius:17px}.mobile-menu .menu-layout{grid-template-columns:minmax(0,1fr) 94px;gap:16px}.mobile-menu .menu-links a{font-size:28px}.mobile-menu .menu-intro{margin-bottom:22px}.mobile-menu .menu-contact{padding-top:14px}}
 @media(max-width:350px){.mobile-menu{padding:21px}.mobile-menu .menu-layout{grid-template-columns:minmax(0,1fr) 73px;gap:12px}.mobile-menu .menu-links a{font-size:26px}}
 @media(prefers-reduced-motion:reduce){.mobile-menu,.mobile-menu .menu-links a{transition:none}}
+
+/* MCC architectural foundation — imagery supplies depth; controls stay quiet. */
+.collection-section{background:radial-gradient(ellipse at 90% 0%,#365344 0,transparent 60%),#122b23;color:#f8f7f3;padding-block:96px;overflow:hidden}
+.collection-section .eyebrow{color:#c4d4af}.collection-section .text-link{color:#f8f7f3;border-color:#aabd9a}
+.collection-section .collection-grid{gap:28px;perspective:1400px}
+.collection-section .collection-card{height:480px;border:1px solid #ffffff25;box-shadow:0 24px 48px #0004;isolation:isolate;transition:transform .45s ease,box-shadow .45s ease}
+.collection-section .card-small{height:360px}
+.collection-section .collection-card img{transition:transform .7s ease;will-change:auto}
+.collection-section .accessories-card{background:#e9ece3;border:1px solid #ffffff30;box-shadow:0 20px 40px #0003}
+.collection-section .card-index{font-size:11px;color:white}
+.service-links{display:flex;flex-wrap:wrap;gap:14px 24px;padding-block:28px;border-top:1px solid var(--line)}
+.service-links a{font-size:12px;line-height:1.6;text-decoration:underline;text-underline-offset:4px}
+:focus-visible{outline:3px solid #a8bd79;outline-offset:5px}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+.collection-section .collection-card:hover{transform:translateY(-6px);box-shadow:0 32px 60px #0006}
+.collection-section .collection-card:hover img{transform:scale(1.035)}
+}
+@media(max-width:700px){
+.collection-section{padding-block:64px}.collection-section .collection-grid{gap:18px}
+.collection-section .collection-card{height:390px}.collection-section .card-small{height:320px}
+.service-links{gap:16px 20px}.service-links a{display:inline-flex;align-items:center;min-height:44px}
+}
+@media(prefers-reduced-motion:reduce){.collection-section .collection-card,.collection-section .collection-card img{transition:none;transform:none}}
+
+/* MCC editorial journey: spatial imagery, then quiet decision points. */
+.inspiration-drawer{margin-block:32px;border-block:1px solid var(--line)}
+.inspiration-drawer>summary{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px 0;cursor:pointer;list-style:none}
+.inspiration-drawer>summary::-webkit-details-marker{display:none}
+.inspiration-drawer>summary small{display:block;font-size:10px;letter-spacing:2px;color:var(--muted);margin-bottom:10px}
+.inspiration-drawer>summary strong{display:block;font-size:clamp(23px,3vw,34px);font-weight:400;letter-spacing:-.7px}
+.inspiration-drawer>summary span span{display:block;font-size:13px;color:var(--muted);margin-top:8px}
+.inspiration-drawer .drawer-plus{font-size:32px;font-weight:300;transition:transform .25s}
+.inspiration-drawer[open] .drawer-plus{transform:rotate(45deg)}
+.inspiration-drawer>.section{margin:0;padding-block:36px;background:transparent}
+.inspiration-drawer .wrap{width:100%}.inspiration-drawer .section-heading{display:none}
+.quote-paths{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.quote-paths a{display:grid;grid-template-columns:32px 1fr;gap:8px 16px;padding:24px;border:1px solid var(--line);border-radius:14px;background:var(--paper);color:var(--ink)}
+.quote-paths a>span{grid-row:span 2;color:var(--muted);font-size:12px;padding-top:4px}
+.quote-paths strong{font-size:16px;font-weight:500}.quote-paths small{font-size:12px;line-height:1.6;color:var(--muted)}
+.quote-paths a:hover{border-color:var(--green)}
+.studio-section .studio-shell{box-shadow:0 30px 80px #17382b15}
+@media(min-width:901px){
+.collection-section .collection-card:first-child{height:560px}
+.collection-section .collection-card:nth-child(2){margin-top:64px;height:496px}
+.collection-section .collection-card:nth-child(4){margin-top:32px}
+.intro{padding-block:76px}.section-heading{align-items:end}
+}
+@media(max-width:700px){.quote-paths{grid-template-columns:1fr}.quote-paths a{padding:20px}.inspiration-drawer>summary{padding-block:22px}}
+@media(prefers-reduced-motion:reduce){.inspiration-drawer .drawer-plus{transition:none}}

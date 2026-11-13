@@ -35,3 +35,17 @@
  .hero-video::cue{font-size:12px}
 }
 @media(prefers-reduced-motion:reduce){.hero-content,.hero .hero-video{transition:none}}
+
+/* Framing for arrival; full film remains uncropped during playback. */
+@media(min-width:901px){
+.hero:not(.film-view) .hero-image{object-fit:cover}
+.hero:not(.film-view) .hero-shade{background:linear-gradient(90deg,#071b18b8,transparent 80%),linear-gradient(0deg,#071b1866,transparent 45%)}
+.hero:not(.film-view) .hero-description{font-size:16px;line-height:1.75;max-width:340px}
+.hero:not(.film-view) h1{font-size:clamp(64px,7.5vw,116px);letter-spacing:-4px}
+}
+@media(max-width:600px){
+.hero .hero-content{padding-bottom:28px}
+.hero h1{font-size:clamp(32px,9vw,48px);line-height:1.12;letter-spacing:-1.4px}
+.hero .hero-buttons{margin-top:16px}
+.hero .hero-buttons .button{font-size:13px}
+}
