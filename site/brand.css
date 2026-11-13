@@ -1,0 +1,21 @@
+/* The original merchant vector, with no background plate. Lettering is dark
+   for Option B's existing light header and footer; house and tree stay grey. */
+.brand.brand-original { display: inline-flex; flex: 0 0 auto; line-height: 1; }
+.brand-original img { display: block; width: 126px; height: 77px; object-fit: contain; }
+.footer-top .brand-original img { width: 160px; height: 98px; }
+.site-motion { display: inline-grid; place-items: center; width: 44px; height: 44px; flex: 0 0 auto; border: 1px solid #203b3033; border-radius: 50%; background: transparent; color: var(--green); transition: background .2s, border-color .2s; }
+.site-motion[hidden] { display: none; }
+.site-motion svg { width: 18px; height: 18px; }
+.site-motion:hover { background: #203b3009; border-color: #203b3077; }
+.site-motion:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+/* Pausing decorative movement leaves the introductory film's own controls intact. */
+.motion-off .hero-video.playing { opacity: 1; }
+@media (max-width: 900px) {
+  .brand-original img { width: 112px; height: 68px; }
+}
+@media (max-width: 600px) {
+  .brand-original img { width: 104px; height: 64px; }
+  .site-header .header-actions { gap: 5px; }
+  .footer-top .brand-original img { width: 140px; height: 86px; }
+}
+@media (prefers-reduced-motion: reduce) { .site-motion { transition: none; } }

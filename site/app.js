@@ -27,7 +27,10 @@
   const icons={play:'<path d="m9 5 11 7-11 7Z"/>',pause:'<path d="M8 5v14M16 5v14"/>',sound:'<path d="m11 5-6 4H2v6h3l6 4ZM16 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/>',muted:'<path d="m11 5-6 4H2v6h3l6 4ZM16 9l6 6m0-6-6 6"/>'};
   const icon=name=>`<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[name]}</svg>`;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  let motionPaused = reduced.matches;
+  const motionButton = $('#site-motion');
+  let savedMotionPause = false;
+  try { savedMotionPause = sessionStorage.getItem('care4gardens:motion-paused') === 'true'; } catch {}
+  let motionPaused = reduced.matches || savedMotionPause;
   let manualStoryY = null;
   let lastStage = -1;
   const header = $('#header');
@@ -36,10 +39,24 @@
   function applyMotion(){
     document.body.classList.toggle('motion-off',motionPaused);
     document.documentElement.classList.toggle('js-motion',!motionPaused);
+    if (motionButton) {
+      motionButton.hidden = reduced.matches;
+      const label = motionPaused ? 'Automatische beweging afspelen' : 'Automatische beweging pauzeren';
+      motionButton.setAttribute('aria-label',label);
+      motionButton.title = label;
+      motionButton.setAttribute('aria-pressed',String(motionPaused));
+      motionButton.innerHTML = icon(motionPaused ? 'play' : 'pause');
+    }
     document.dispatchEvent(new CustomEvent('care4gardens:motion',{detail:{paused:motionPaused}}));
   }
   applyMotion();
-  reduced.addEventListener('change',e=>{motionPaused=e.matches;applyMotion();});
+  motionButton?.addEventListener('click',()=>{
+    motionPaused = !motionPaused;
+    savedMotionPause = motionPaused;
+    try { sessionStorage.setItem('care4gardens:motion-paused',String(motionPaused)); } catch {}
+    applyMotion();
+  });
+  reduced.addEventListener('change',e=>{motionPaused=e.matches||savedMotionPause;applyMotion();});
   let resumeExpanded=false;
   document.addEventListener('visibilitychange',()=>{
     if(!filmOpen)return;

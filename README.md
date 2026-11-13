@@ -28,6 +28,14 @@ The original screens WebP in the base media archive was empty. `motion-manifest.
 
 Image creation uses OpenAI. Higgsfield is reserved for video and audio.
 
+## Option B logo and card finish (13 November 2026)
+
+The header, footer and demo checkout use the original Care4Gardens vector instead of the placeholder wordmark. Its house/tree remain grey and green, with dark lettering for this concept's light surfaces and no background plate. The approved transparent accessory photograph is reused in the collection mosaic.
+
+The existing collection layout now has restrained glass captions and gently moving photographs. The original-image gallery inside “Materialen van dichtbij” scrolls continuously when opened and visible; it remains swipeable and stops during hover, keyboard focus and touch interaction. One header control pauses automatic motion. Reduced-motion, offscreen, hidden-tab and expanded-film states stop the gallery. The catalogue stays a steady, filterable grid with matching card treatment; existing content, destinations, prices and checkout boundaries are preserved.
+
+`brand.css`, `card-polish.css` and `card-motion.js` are content-versioned by the build. Original brand assets are tracked in `site/brand/`, outside the restored media archives.
+
 ## Storefront and demo checkout
 
 Photo category navigation and larger product images use each product's original Shopify CDN source at responsive resolutions, with the checked local files as fallbacks. Canopies have a second-angle hover preview. Every item has an image; the legacy handle listing without a photograph uses a clearly labelled reference from the same product family. Source imagery is not replaced by invented SKU photography.
